@@ -38,6 +38,30 @@ public class NPCWalkerGrid : MonoBehaviour
     enum State { Idle, Wandering, Navigating }
     State state = State.Idle;
 
+
+    // NEW: allow disabling AI
+    bool aiEnabled = true;
+    public void SetAIEnabled(bool on)
+    {
+        aiEnabled = on;
+        if (!aiEnabled)
+        {
+            StopAllCoroutines();
+            isMoving = false;
+            path.Clear();
+            // stay exactly on current cell center
+            Vector3Int c = grid.WorldToCell(transform.position);
+            GetComponent<Rigidbody2D>().position = grid.GetCellCenterWorld(c);
+        }
+        else
+        {
+            // resume idle wander if enabled
+            if (enableRandomWalk) StartCoroutine(WanderLoop());
+        }
+    }
+
+
+
     bool isMoving;
     Queue<Vector3Int> path = new Queue<Vector3Int>();
     Vector3Int goal;
@@ -76,6 +100,8 @@ public class NPCWalkerGrid : MonoBehaviour
 
     void Update()
     {
+        if (!aiEnabled) return;
+
         // Inspector triggers
         if (goToCellTrigger || warpToCellTrigger)
         {
@@ -126,6 +152,9 @@ public class NPCWalkerGrid : MonoBehaviour
 
     IEnumerator WanderLoop()
     {
+        if (!aiEnabled) yield break;
+
+
         Vector3Int[] dirs = new Vector3Int[]
         {
             new Vector3Int( 1, 0, 0),

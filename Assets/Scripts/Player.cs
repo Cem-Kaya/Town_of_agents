@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     public LayerMask obstacleMask;
     public bool debugGizmos = false;
 
+    // NEW: allow disabling input
+    [HideInInspector] public bool inputEnabled = true;
+
     Rigidbody2D rb;
     Collider2D col;
     bool isMoving;
@@ -43,8 +46,15 @@ public class Player : MonoBehaviour
         SnapToGridCenter();
     }
 
+    public void SetInputEnabled(bool on)
+    {
+        inputEnabled = on;
+        isMoving = false; // safety
+    }
+
     void Update()
     {
+        if (!inputEnabled) return;
         if (isMoving) return;
 
         int x = (int)Input.GetAxisRaw("Horizontal");
@@ -115,7 +125,6 @@ public class Player : MonoBehaviour
         }
         else if (col is CapsuleCollider2D capsule)
         {
-            // Use bounds.size (already in world space) then shrink with skin.
             Vector2 size = capsule.bounds.size;
             size.x = Mathf.Max(0.01f, size.x - skin * 2f);
             size.y = Mathf.Max(0.01f, size.y - skin * 2f);
@@ -127,7 +136,7 @@ public class Player : MonoBehaviour
         }
         else if (col is CircleCollider2D circle)
         {
-            float radius = Mathf.Max(0.005f, circle.bounds.extents.x - skin); // approx: use x extent
+            float radius = Mathf.Max(0.005f, circle.bounds.extents.x - skin);
             gizmoSize = new Vector2(radius * 2f, radius * 2f);
             gizmoShape = GizmoShape.Circle;
 
@@ -135,7 +144,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-            // Fallback: box using collider bounds
             Vector2 size = col.bounds.size;
             size.x = Mathf.Max(0.01f, size.x - skin * 2f);
             size.y = Mathf.Max(0.01f, size.y - skin * 2f);
@@ -153,7 +161,7 @@ public class Player : MonoBehaviour
             Gizmos.DrawWireCube(gizmoCenter, new Vector3(gizmoSize.x, gizmoSize.y, 0.05f));
         else if (gizmoShape == GizmoShape.Circle)
             Gizmos.DrawWireSphere(gizmoCenter, gizmoSize.x * 0.5f);
-        else // Capsule: draw as box proxy (good enough for visualization)
+        else
             Gizmos.DrawWireCube(gizmoCenter, new Vector3(gizmoSize.x, gizmoSize.y, 0.05f));
     }
 }
