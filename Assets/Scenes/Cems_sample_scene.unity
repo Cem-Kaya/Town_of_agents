@@ -8137,23 +8137,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!70 &141616356171188706 stripped
 CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 5380454926637890346, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
-  m_PrefabInstance: {fileID: 5766483297489676406}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1955020636955640805 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4099433378364219621, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
-  m_PrefabInstance: {fileID: 5766483297489676406}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4292620971965477755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e54f7b6ac47bb84458918d2f0a86265e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &4292620971965477755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2386886902713166356, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5380454926637890346, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
   m_PrefabInstance: {fileID: 5766483297489676406}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5766483297489676406
@@ -8164,70 +8148,71 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 464929451783573951, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 464929451783573951, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.38
       objectReference: {fileID: 0}
-    - target: {fileID: 464929451783573951, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 464929451783573951, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_LocalPosition.y
       value: 4.72
       objectReference: {fileID: 0}
-    - target: {fileID: 464929451783573951, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 464929451783573951, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 464929451783573951, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 464929451783573951, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 464929451783573951, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 464929451783573951, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 464929451783573951, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 464929451783573951, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 464929451783573951, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 464929451783573951, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 464929451783573951, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 464929451783573951, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 464929451783573951, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 464929451783573951, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 464929451783573951, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 464929451783573951, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 776517089235307892, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 776517089235307892, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: grid
       value: 
       objectReference: {fileID: 881879775}
-    - target: {fileID: 2386886902713166356, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 2386886902713166356, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: m_Name
       value: NPC_1
       objectReference: {fileID: 0}
-    - target: {fileID: 4099433378364219621, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 4099433378364219621, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: grid
       value: 
       objectReference: {fileID: 881879775}
-    - target: {fileID: 4099433378364219621, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    - target: {fileID: 4099433378364219621, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: wallsTilemapOptional
       value: 
       objectReference: {fileID: 1714927974}
+    - target: {fileID: 7233596174350954153, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 881879775}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2386886902713166356, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9158023409229884922}
-  m_SourcePrefab: {fileID: 100100000, guid: e710c4eeafc3c764cb3ebea6b94319de, type: 3}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
 --- !u!1001 &8034938920406433414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8293,38 +8278,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2abe4b9c259c324e8bc2461e44cb06d, type: 3}
---- !u!114 &9158023409229884922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4292620971965477755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f750985770e7d4f48aedf188a72d5bec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: NPC_1
-  LLMPromptRegular: "You are a player in a detective game. Your name is {name}. A
-    chicken was kidnapped yesterday at 11:32PM and\n    a detective is investigating.
-    He is asking questions about the kidnapper.\n    There are {playerNr} other players
-    in the game. Any of them can be the kidnapper. Their names are {players}. \n   
-    Your personality: You are a regular townsfolk, calm but somewhat scared of law
-    enforcement. A bit shy but collaborative.\n    These are your rules:\n    - Do
-    not expose that you killed the chicken.\n    - Answer detective's questions to
-    mislead and deceive him. \n    - You may give your electronic devices to detective
-    for verification, if he insists."
-  LLMPromptCulprit: "You are a player in a detective game. Your name is {name}. \n   
-    You kidnapped a chicken yesterday at 11:32PM and a detective is investigating.
-    He is asking questions about the kidnapper.    \n    There are {playerNr} other
-    players in the game. Their names are {players}. \n    Your personality: You are
-    anxious and deceptive. You gossip about others.\n    These are your rules:\n   
-    - Do not expose that you killed the chicken.\n    - Answer detective's questions
-    to mislead and deceive him. \n    - Don't give any of your electronic devices
-    to detective, if the logs in that device gives you away."
-  grid: {fileID: 881879775}
-  npc: {fileID: 1955020636955640805}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

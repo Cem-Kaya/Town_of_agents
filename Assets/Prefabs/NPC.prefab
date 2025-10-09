@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4099433378364219621}
   - component: {fileID: 776517089235307892}
   - component: {fileID: 2990253967945828774}
+  - component: {fileID: 7233596174350954153}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -249,3 +250,35 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &7233596174350954153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2386886902713166356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f750985770e7d4f48aedf188a72d5bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: NPC_1
+  LLMPromptRegular: "You are a player in a detective game. Your name is {name}. A
+    chicken was kidnapped yesterday at 11:32PM and\n    a detective is investigating.
+    He is asking questions about the kidnapper.\n    There are {playerNr} other players
+    in the game. Any of them can be the kidnapper. Their names are {players}. \n   
+    Your personality: You are a regular townsfolk, calm but somewhat scared of law
+    enforcement. A bit shy but collaborative.\n    These are your rules:\n    - Do
+    not expose that you killed the chicken.\n    - Answer detective's questions to
+    mislead and deceive him..\n    - You may give your electronic devices to detective
+    for verification, if he insists."
+  LLMPromptCulprit: "You are a player in a detective game. Your name is {name}. \n   
+    You kidnapped a chicken yesterday at 11:32PM and a detective is investigating.
+    He is asking questions about the kidnapper.    \n    There are {playerNr} other
+    players in the game. Their names are {players}. \n    Your personality: You are
+    anxious and deceptive. You gossip about others.\n    These are your rules:\n   
+    - Do not expose that you killed the chicken.\n    - Answer detective's questions
+    to mislead and deceive him. \n    - Don't give any of your electronic devices
+    to detective, if the logs in that device gives you away."
+  grid: {fileID: 0}
+  npc: {fileID: 4099433378364219621}

@@ -81,15 +81,12 @@ public class ConversationManager
             var otherPlayers = playerNames.Where(a => a.Name != name).ToArray();
             var agent = new MpcLlmController(apiKey, playerModel, name);
 
-            agent.Instructions = i == culpritIndex ? CulpritInstructions : PlayerInstructions;
+            //Set the LLM instructions (former system prompt) depending on player type (culprit or innocent).
+            agent.Instructions = i == culpritIndex ? playerInfo.LLMInstructionsCulprit : playerInfo.LLMInstructionsRegular;
             agent.Instructions = agent.Instructions
             .Replace("{name}", name)
             .Replace("{playerNr}", otherPlayers.Length.ToString())
             .Replace("{players}", string.Join(",", otherPlayers.Select(a => a.Name)));
-
-            string personality = i == culpritIndex ? playerInfo.PersonalityAsCulprit : playerInfo.Personality;
-            agent.Instructions = agent.Instructions.Replace("{player_personality}", personality);
-
             players.Add(agent);
         }
 

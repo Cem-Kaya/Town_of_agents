@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ChatUI : MonoBehaviour
 {
@@ -33,7 +34,8 @@ public class ChatUI : MonoBehaviour
     NPCInteractable currentNPC;
     Player player;
 
-    private bool llmServiceAvailable;
+    private ConversationManager conversationManager;
+    private bool isLLMServiceAvailable => conversationManager != null;
 
     private ConversationManager GetConversationManager()
     {
@@ -41,6 +43,30 @@ public class ChatUI : MonoBehaviour
         //all NPCs in the game via configured LLM service. We need all NPCs in the scene and their system prompts to initialize it.
         //Random one of them will be the Culprit.
         NPCInteractable[] allNPCs = FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None);
+        PlayerInfo[] npcInfoArray = new PlayerInfo[allNPCs.Length];
+        for (int i = 0; i < allNPCs.Length; i++)
+        {
+            var npc = allNPCs[i];
+            PlayerInfo info = new PlayerInfo(npc.displayName);
+            info.LLMInstructionsRegular = npc.LLMPromptRegular;
+            info.LLMInstructionsCulprit = npc.LLMPromptCulprit;
+            npcInfoArray[i] = info;
+        }
+
+        try
+        {
+            ConversationManager conversationManager = new ConversationManager(npcInfoArray, suspectIntelligenceLevel: 1);
+            //This retrieves the LLM parameters such as API key. Raises error if API key not found.
+            //It initializes the LLM agent instructions for each NPC player.
+            conversationManager.Start();
+            return conversationManager;
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Unable to initialize the conversation manager: {ex.Message}", this);
+            Debug.LogException(ex, this);
+        }
+
         return null;
     }
 

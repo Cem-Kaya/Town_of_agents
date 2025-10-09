@@ -1,4 +1,3 @@
-using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -6,8 +5,8 @@ using System.Text.RegularExpressions;
 public class PlayerInfo
 {
     public string Name { get; set; }
-    public string Personality { get; set; } = "You are a regular townsfolk, calm but somewhat scared of law enforcement.";
-    public string PersonalityAsCulprit { get; set; } = "A little anxious and suspicious.";
+    public string LLMInstructionsRegular { get; set; }
+    public string LLMInstructionsCulprit { get; set; }    
 
     public PlayerInfo(string name)
     {
@@ -22,8 +21,8 @@ public class PlayerInfo
 
         return new PlayerInfo(parts[0].Trim())
         {
-            Personality = parts[1].Trim(),
-            PersonalityAsCulprit = parts[2].Trim()
+            LLMInstructionsRegular = parts[1].Trim(),
+            LLMInstructionsCulprit = parts[2].Trim()
         };
     }
 
