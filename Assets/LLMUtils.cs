@@ -1,20 +1,39 @@
 using System;
+using System.IO;
+using Microsoft.Extensions.Configuration;
+using UnityEngine;
 
 public static class LLMUtils
 {
-    public static string GetEnvironmentVariable(string name, bool raiseError)
+    private static IConfiguration _configuration;
+    
+    static LLMUtils()
     {
-        var value = Environment.GetEnvironmentVariable(name);
-        if (value == null && raiseError)
+        try
         {
-            throw new InvalidOperationException($"Environment variable '{name}' is not set.");
+            var llmConfFile = Path.Combine(Application.streamingAssetsPath, "llm_settings.json");
+            bool exists = File.Exists(llmConfFile);
+            _configuration = new ConfigurationBuilder()
+                .AddJsonFile(llmConfFile, optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables()
+                .Build();
         }
-
-        return value ?? string.Empty;
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"Error loading LLM configuration: {ex.Message}");
+        }
     }
-
+    
     public static string GetOpenAIApiKey(string variableName = "OPENAI_API_KEY", bool raiseError = true)
     {
-        return GetEnvironmentVariable(variableName, raiseError: raiseError);
+        // Try configuration first, then environment variable
+        var value = _configuration?[variableName] ?? Environment.GetEnvironmentVariable(variableName);
+        
+        if (value == null && raiseError)
+        {
+            throw new InvalidOperationException($"API key '{variableName}' not found in config or environment.");
+        }
+        
+        return value ?? string.Empty;
     }
 }

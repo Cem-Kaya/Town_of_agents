@@ -21,6 +21,7 @@ public class ChatUI : MonoBehaviour
     public Transform content;    // ScrollView/Viewport/Content
 
     [Header("Input")]
+    public bool DisableLLM_and_Fake_It;
     public TMP_InputField inputField;
     public Button sendButton;
     public bool sendOnEnter = true;
@@ -42,20 +43,11 @@ public class ChatUI : MonoBehaviour
         //Instantiate the ConversationManager. You can use conversation manager to interact with
         //all NPCs in the game via configured LLM service. We need all NPCs in the scene and their system prompts to initialize it.
         //Random one of them will be the Culprit.
-        NPCInteractable[] allNPCs = FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None);
-        PlayerInfo[] npcInfoArray = new PlayerInfo[allNPCs.Length];
-        for (int i = 0; i < allNPCs.Length; i++)
-        {
-            var npc = allNPCs[i];
-            PlayerInfo info = new PlayerInfo(npc.displayName);
-            info.LLMInstructionsRegular = npc.LLMPromptRegular;
-            info.LLMInstructionsCulprit = npc.LLMPromptCulprit;
-            npcInfoArray[i] = info;
-        }
+        NPCInteractable[] allNPCs = FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None);       
 
         try
         {
-            ConversationManager conversationManager = new ConversationManager(npcInfoArray, suspectIntelligenceLevel: 1);
+            ConversationManager conversationManager = new ConversationManager(allNPCs, suspectIntelligenceLevel: 1);
             //This retrieves the LLM parameters such as API key. Raises error if API key not found.
             //It initializes the LLM agent instructions for each NPC player.
             conversationManager.Start();
@@ -75,7 +67,7 @@ public class ChatUI : MonoBehaviour
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
 
-        
+        conversationManager = GetConversationManager();        
 
         if (endButton) endButton.onClick.AddListener(Close);
         if (sendButton) sendButton.onClick.AddListener(SendFromInput);
@@ -144,14 +136,75 @@ public class ChatUI : MonoBehaviour
         inputField.text = "";
         inputField.ActivateInputField();
 
-        // Fake NPC reply for now
-        StartCoroutine(FakeNPCReply(msg));
+        // Use real conversation manager
+        if (!DisableLLM_and_Fake_It && isLLMServiceAvailable && currentNPC != null)
+        {
+            //StartCoroutine(GetNPCReply(msg));
+            string npcResponse;
+            try
+            {
+                npcResponse = conversationManager.TalkToCurrentPlayer(msg);
+                //responseReceived = true;
+            }
+            catch (System.Exception ex)
+            {
+
+                Debug.LogError($"Error getting NPC response: {ex.Message}");
+                npcResponse = "Sorry, I'm having trouble thinking right now...";
+                //responseReceived = true;
+            }
+            
+            AddNPCMessage(npcResponse);
+        }
+        else
+        {
+            // Fallback to fake reply if LLM service is not available
+            StartCoroutine(FakeNPCReply(msg));
+        }
     }
 
     IEnumerator FakeNPCReply(string playerSaid)
     {
         yield return new WaitForSeconds(0.25f);
         AddNPCMessage($"you said: {playerSaid}");
+    }
+
+    IEnumerator GetNPCReply(string playerSaid)
+    {
+        // Switch to the current NPC in the conversation manager
+        conversationManager.SwitchPlayerTo(currentNPC.displayName);
+        
+        // TODO: May be some indicator for thinking, while the user is waiting for the response?
+        
+        string npcResponse = null;
+        bool responseReceived = false;
+        System.Threading.Tasks.Task.Run(() =>
+        {
+            try
+            {
+                npcResponse = conversationManager.TalkToCurrentPlayer(playerSaid);
+                responseReceived = true;
+            }
+            catch (System.Exception ex)
+            {
+                
+                Debug.LogError($"Error getting NPC response: {ex.Message}");
+                npcResponse = "Sorry, I'm having trouble thinking right now...";
+                responseReceived = true;
+            }
+        });
+        
+        // Wait for the response
+        while (!responseReceived)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+        // Add the NPC's response to the chat
+        if (!string.IsNullOrEmpty(npcResponse))
+        {
+            AddNPCMessage(npcResponse);
+        }
     }
 
     // ===== Add messages =====

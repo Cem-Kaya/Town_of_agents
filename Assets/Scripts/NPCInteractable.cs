@@ -5,7 +5,8 @@ public class NPCInteractable : MonoBehaviour
 {
     public string displayName = "NPC";
 
-    [TextArea(10,999)]
+    [Header("LLM Configuration")]
+    [TextArea(10, 999)]
     public string LLMPromptRegular = @"You are a player in a detective game. Your name is {name}. A chicken was kidnapped yesterday at 11:32PM and
     a detective is investigating. He is asking questions about the kidnapper.
     There are {playerNr} other players in the game. Any of them can be the kidnapper. Their names are {players}. 

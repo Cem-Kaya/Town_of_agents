@@ -99,3 +99,6 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 .DS_Store
 /.vscode
+Assets/StreamingAssets/llm_config.properties
+Assets/StreamingAssets/llm_settings.json
+Assets/StreamingAssets/llm_settings.json.meta

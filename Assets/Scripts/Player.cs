@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
         if (!grid)
         {
-            grid = FindObjectOfType<Grid>();
+            grid = FindAnyObjectByType<Grid>();
             if (!grid) Debug.LogError("Player: no Grid found/assigned.");
         }
 
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
         rb.position = center;
     }
 
-    // ——— Collision checking that matches your collider shape ———
+    // ï¿½ï¿½ï¿½ Collision checking that matches your collider shape ï¿½ï¿½ï¿½
     bool IsBlockedAt(Vector3 worldCenter)
     {
         // default gizmo settings

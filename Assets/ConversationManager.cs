@@ -7,7 +7,7 @@ public class ConversationManager
 {
     private readonly string playerModel;
     //private string model = "gpt-5-nano-2025-08-07";//"gpt-5-mini";
-    private List<PlayerInfo> playerNames;
+    private List<NPCInteractable> playerNames;
 
     public string CulpritInstructions { get; set; } =
 @"You are a player in a detective game. Your name is {name}. 
@@ -32,16 +32,16 @@ public class ConversationManager
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="playerNames">A list of strings containing unique names of the AI players.</param>
+    /// <param name="npcs">A list of strings containing unique names of the AI players.</param>
     /// <param name="suspectIntelligenceLevel">Gets or sets the suspect's intelligence level. Allowed range [1-3]. This determines which model to use.
     /// Currently supported models: [1] gpt-5-nano, [2] gpt-5-mini, [3] gpt-5-nano.
     /// Default: gpt-5-nano </param>
-    public ConversationManager(ICollection<PlayerInfo> playerNames, int suspectIntelligenceLevel = 1)
+    public ConversationManager(ICollection<NPCInteractable> npcs, int suspectIntelligenceLevel = 1)
     {
-        if (playerNames == null)
-            throw new ArgumentNullException(nameof(playerNames));
+        if (npcs == null)
+            throw new ArgumentNullException(nameof(npcs));
 
-        this.playerNames = new List<PlayerInfo>(playerNames);
+        this.playerNames = new List<NPCInteractable>(npcs);
         players = new List<MpcLlmController>();
 
         if (suspectIntelligenceLevel <= 1)
@@ -76,17 +76,17 @@ public class ConversationManager
 
         for (int i = 0; i < playerNames.Count; i++)
         {
-            PlayerInfo playerInfo = playerNames[i];
-            string name = playerInfo.Name;
-            var otherPlayers = playerNames.Where(a => a.Name != name).ToArray();
+            NPCInteractable playerInfo = playerNames[i];
+            string name = playerInfo.displayName;
+            var otherPlayers = playerNames.Where(a => a.displayName != name).ToArray();
             var agent = new MpcLlmController(apiKey, playerModel, name);
 
             //Set the LLM instructions (former system prompt) depending on player type (culprit or innocent).
-            agent.Instructions = i == culpritIndex ? playerInfo.LLMInstructionsCulprit : playerInfo.LLMInstructionsRegular;
+            agent.Instructions = i == culpritIndex ? playerInfo.LLMPromptCulprit : playerInfo.LLMPromptRegular;
             agent.Instructions = agent.Instructions
             .Replace("{name}", name)
             .Replace("{playerNr}", otherPlayers.Length.ToString())
-            .Replace("{players}", string.Join(",", otherPlayers.Select(a => a.Name)));
+            .Replace("{players}", string.Join(",", otherPlayers.Select(a => a.displayName)));
             players.Add(agent);
         }
 
