@@ -33,10 +33,23 @@ public class ChatUI : MonoBehaviour
     NPCInteractable currentNPC;
     Player player;
 
+    private bool llmServiceAvailable;
+
+    private ConversationManager GetConversationManager()
+    {
+        //Instantiate the ConversationManager. You can use conversation manager to interact with
+        //all NPCs in the game via configured LLM service. We need all NPCs in the scene and their system prompts to initialize it.
+        //Random one of them will be the Culprit.
+        NPCInteractable[] allNPCs = FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None);
+        return null;
+    }
+
     void Awake()
     {
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
+
+        
 
         if (endButton) endButton.onClick.AddListener(Close);
         if (sendButton) sendButton.onClick.AddListener(SendFromInput);
