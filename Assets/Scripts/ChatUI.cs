@@ -170,10 +170,7 @@ public class ChatUI : MonoBehaviour
     }
 
     IEnumerator GetNPCReply(string playerSaid)
-    {
-        // Switch to the current NPC in the conversation manager
-        conversationManager.SwitchPlayerTo(currentNPC.displayName);
-        
+    {   
         // TODO: May be some indicator for thinking, while the user is waiting for the response?
         
         string npcResponse = null;
@@ -182,6 +179,8 @@ public class ChatUI : MonoBehaviour
         {
             try
             {
+                // Switch to the current NPC in the conversation manager
+                conversationManager.SwitchPlayerTo(currentNPC.displayName);
                 npcResponse = conversationManager.TalkToCurrentPlayer(playerSaid);
                 responseReceived = true;
             }
@@ -215,6 +214,20 @@ public class ChatUI : MonoBehaviour
     {
         if (!prefab || !content) return;
         var item = Instantiate(prefab, content);
+        
+        // Debug: Check if text component is assigned
+        if (item.text == null)
+        {
+            Debug.LogError($"ChatMessageItem prefab '{prefab.name}' has no text component assigned! Please assign it in the Inspector.");
+            // Try to find a TextMeshPro component as fallback
+            item.text = item.GetComponentInChildren<TMP_Text>();
+            if (item.text == null)
+            {
+                Debug.LogError($"No TextMeshPro component found in children of '{prefab.name}'");
+                return;
+            }
+        }
+        
         item.Set(text);
         SnapToBottomNextFrame();
     }
