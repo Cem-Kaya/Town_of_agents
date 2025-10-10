@@ -139,22 +139,22 @@ public class ChatUI : MonoBehaviour
         // Use real conversation manager
         if (!DisableLLM_and_Fake_It && isLLMServiceAvailable && currentNPC != null)
         {
-            //StartCoroutine(GetNPCReply(msg));
-            string npcResponse;
-            try
-            {
-                npcResponse = conversationManager.TalkToCurrentPlayer(msg);
-                //responseReceived = true;
-            }
-            catch (System.Exception ex)
-            {
+            StartCoroutine(GetNPCReply(msg));
+            // string npcResponse;
+            // try
+            // {
+            //     npcResponse = conversationManager.TalkToCurrentPlayer(msg);
+            //     //responseReceived = true;
+            // }
+            // catch (System.Exception ex)
+            // {
 
-                Debug.LogError($"Error getting NPC response: {ex.Message}");
-                npcResponse = "Sorry, I'm having trouble thinking right now...";
-                //responseReceived = true;
-            }
+            //     Debug.LogError($"Error getting NPC response: {ex.Message}");
+            //     npcResponse = "Sorry, I'm having trouble thinking right now...";
+            //     //responseReceived = true;
+            // }
             
-            AddNPCMessage(npcResponse);
+            // AddNPCMessage(npcResponse);
         }
         else
         {
