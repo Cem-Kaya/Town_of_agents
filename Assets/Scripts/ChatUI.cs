@@ -202,30 +202,33 @@ public class ChatUI : MonoBehaviour
     }
 
     // ===== Add messages =====
-    public void AddPlayerMessage(string text) => AddMessage(messagePrefab_Player, text);
-    public void AddNPCMessage(string text) => AddMessage(messagePrefab_NPC, text);
+    public void AddPlayerMessage(string text) => AddMessage(messagePrefab_Player, text, isNPC: false);
+    public void AddNPCMessage(string text) => AddMessage(messagePrefab_NPC, text, isNPC: true);
 
-    void AddMessage(ChatMessageItem prefab, string text)
+    void AddMessage(ChatMessageItem prefab, string text, bool isNPC)
     {
+        // force a talk for NPC immediately to prove audio path works
+        if (isNPC && currentNPC)
+            currentNPC.GetComponent<NPCTalkAudio>()?.PlayTalk();
+
         if (!prefab || !content) return;
+
         var item = Instantiate(prefab, content);
-        
-        // Debug: Check if text component is assigned
+
         if (item.text == null)
         {
-            Debug.LogError($"ChatMessageItem prefab '{prefab.name}' has no text component assigned! Please assign it in the Inspector.");
-            // Try to find a TextMeshPro component as fallback
-            item.text = item.GetComponentInChildren<TMP_Text>();
+            item.text = item.GetComponentInChildren<TMPro.TMP_Text>();
             if (item.text == null)
             {
-                Debug.LogError($"No TextMeshPro component found in children of '{prefab.name}'");
+                Debug.LogError($"'{prefab.name}' is missing TMP_Text. (Audio already fired above)");
                 return;
             }
         }
-        
+
         item.Set(text);
         SnapToBottomNextFrame();
     }
+
 
     // ===== Scrolling =====
     void SnapToBottom()
