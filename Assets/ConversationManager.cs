@@ -7,27 +7,7 @@ public class ConversationManager
 {
     private readonly string playerModel;
     //private string model = "gpt-5-nano-2025-08-07";//"gpt-5-mini";
-    private List<NPCInteractable> playerNames;
-
-    public string CulpritInstructions { get; set; } =
-@"You are a player in a detective game. Your name is {name}. 
-    You kidnapped a chicken yesterday at 11:32PM and a detective is investigating. He is asking questions about the kidnapper.    
-    There are {playerNr} other players in the game. Their names are {players}. 
-    Your personality: {player_personality}
-    These are your rules:
-    - Do not expose that you killed the chicken.
-    - Answer detective's questions to mislead and deceive him. 
-    - Don't give any of your electronic devices to detective, if the logs in that device gives you away.";
-
-    public string PlayerInstructions { get; set; } =
-    @"You are a player in a detective game. Your name is {name}. A chicken was kidnapped yesterday at 11:32PM and
-    a detective is investigating. He is asking questions about the kidnapper.
-    There are {playerNr} other players in the game. Any of them can be the kidnapper. Their names are {players}. 
-    Your personality: {player_personality}
-    These are your rules:
-    - Do not expose that you killed the chicken.
-    - Answer detective's questions to mislead and deceive him. 
-    - You may give your electronic devices to detective for verification, if he insists.";
+    private List<NPCInteractable> playerNames;    
 
     /// <summary>
     /// 
@@ -41,7 +21,7 @@ public class ConversationManager
         if (npcs == null)
             throw new ArgumentNullException(nameof(npcs));
 
-        this.playerNames = new List<NPCInteractable>(npcs);
+        playerNames = new List<NPCInteractable>(npcs);
         players = new List<MpcLlmController>();
 
         if (suspectIntelligenceLevel <= 1)
@@ -66,6 +46,17 @@ public class ConversationManager
     }
 
     public void SwitchPlayerTo(int playerIndex) => CurrentPlayer = players[playerIndex];
+    
+    /// <summary>
+    /// Gets the chat history of the NPC agent specified by its name. Returns null if there is no NPC agent by that name.
+    /// </summary>
+    /// <param name="npcName">The unique name of the NPC agent.</param>
+    /// <returns>A list of ChatHistoryItem objects. Null if there is no NPC by that name in this conversation manager.</returns>
+    public List<ChatHistoryItem> GetHistoryByNpcName(string npcName)
+    {
+        var npcController = FindAgentByName(npcName);
+        return npcController == null ? null : npcController.History;
+    }
 
     public void Start()
     {

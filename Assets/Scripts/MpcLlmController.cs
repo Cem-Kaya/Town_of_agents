@@ -3,7 +3,6 @@
 using OpenAI.Responses;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class MpcLlmController
 {
@@ -30,7 +29,7 @@ public class MpcLlmController
     public string Model { get; }
     public string Name { get; }
     public string ReasoningEffortLevel { get; set; } = "low";
-    public List<string> History { get; } = new List<string>();
+    public List<ChatHistoryItem> History { get; } = new List<ChatHistoryItem>();
     public string Instructions { get; set; }
 
     public string SendPrompt(string from, string input, bool returnJson)
@@ -63,9 +62,8 @@ public class MpcLlmController
     }
 
     private void LogToHistory(string who, string what)
-    {
-        string log = $"[{DateTime.Now:F}]\t[{who}]\t{what}";
-        History.Add(log);
+    {        
+        History.Add(new ChatHistoryItem(who, what));
     }
 
     public void PrintHistory()

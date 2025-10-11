@@ -125,6 +125,16 @@ public class ChatUI : MonoBehaviour
         player = null;
     }
 
+    /// <summary>
+    /// Gets the chat history of the NPC agent specified by its name. Returns null if there is no NPC agent by that name.
+    /// </summary>
+    /// <param name="npcName">The unique name of the NPC agent.</param>
+    /// <returns>A list of ChatHistoryItem objects. Null if there is no NPC by that name in this conversation manager.</returns>
+    public List<ChatHistoryItem> GetHistoryByNpcName(string npcName)
+    {
+        return conversationManager?.GetHistoryByNpcName(npcName);
+    }
+
     // ===== Sending =====
     void SendFromInput()
     {
@@ -140,21 +150,6 @@ public class ChatUI : MonoBehaviour
         if (!DisableLLM_and_Fake_It && isLLMServiceAvailable && currentNPC != null)
         {
             StartCoroutine(GetNPCReply(msg));
-            // string npcResponse;
-            // try
-            // {
-            //     npcResponse = conversationManager.TalkToCurrentPlayer(msg);
-            //     //responseReceived = true;
-            // }
-            // catch (System.Exception ex)
-            // {
-
-            //     Debug.LogError($"Error getting NPC response: {ex.Message}");
-            //     npcResponse = "Sorry, I'm having trouble thinking right now...";
-            //     //responseReceived = true;
-            // }
-            
-            // AddNPCMessage(npcResponse);
         }
         else
         {
