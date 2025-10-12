@@ -3,6 +3,7 @@
 using OpenAI.Responses;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class MpcLlmController
 {
@@ -40,17 +41,53 @@ public class MpcLlmController
         options.ReasoningOptions = new ResponseReasoningOptions();
         options.ReasoningOptions.ReasoningEffortLevel = "low";
         options.Instructions = Instructions;
-        options.PreviousResponseId = previousConversationId;
-        //options.ReasoningOptions.ReasoningSummaryVerbosity = "concise";//detailed, auto
+        options.PreviousResponseId = previousConversationId;        
+        
+        //Add the possible local functions that the LLM agent can call.
+        foreach(FunctionTool tool in LLMTools.GetAvailableTools())
+            options.Tools.Add(tool);
 
         //options.Tools.Add(ResponseTool.CreateWebSearchTool());
         ResponseContentPart[] contentParts = { ResponseContentPart.CreateInputTextPart(input) };
-        ResponseItem[] messageItemsCollection = { ResponseItem.CreateUserMessageItem(contentParts) };
-        OpenAIResponse response = (OpenAIResponse)client.CreateResponse(messageItemsCollection, options);
-        previousConversationId = response.Id;
+        List<ResponseItem> inputItems = new List<ResponseItem>
+        {
+            ResponseItem.CreateUserMessageItem(contentParts)
+        };
+        
+        OpenAIResponse response;
+        bool actionRequired;
+        string outputText;
+        do
+        {
+            actionRequired = false;
+            outputText = "";
+            response = (OpenAIResponse)client.CreateResponse(inputItems, options);
+            previousConversationId = response.Id;
+            options.PreviousResponseId = previousConversationId;
 
-        string outputText = response.GetOutputText();
-        LogToHistory(Name, outputText);
+            //Is this necessary with history tracking above??? need to verify.
+            //inputItems.AddRange(response.OutputItems);
+
+            foreach (ResponseItem outputItem in response.OutputItems)
+            {
+                if (outputItem is FunctionCallResponseItem functionCall)
+                {
+                    var returnValue = LLMTools.CallFunction(functionCall);
+                    inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, returnValue.Item1));
+                    string msg = $"The player performed the activity: '{functionCall.FunctionName}'.";
+                    LogActionToHistory(Name, msg, functionCall.FunctionName, returnValue);
+                    actionRequired = true;
+                }
+            }
+
+            //var textItems = response.OutputItems.OfType<MessageResponseItem>();
+            if (!actionRequired)
+                outputText = response.GetOutputText();
+        }
+        while (actionRequired);
+
+        // string outputText = response.GetOutputText();
+        // //LogToHistory(Name, outputText);
 
         if (returnJson)
         {
@@ -58,12 +95,30 @@ public class MpcLlmController
             return jsonResponse;
         }
 
+        LogToHistory(Name, outputText);
         return outputText;
     }
 
     private void LogToHistory(string who, string what)
-    {        
-        History.Add(new ChatHistoryItem(who, what));
+    {
+        var historyItem = new ChatHistoryItem(who, what);
+        //Console.WriteLine(historyItem.ToUnityLogString());
+        Debug.Log(historyItem.ToUnityLogString());
+        History.Add(historyItem);
+    }   
+
+    private void LogActionToHistory(string who, string what, string functionName, Tuple<string,Dictionary<string,string>> returnValue)
+    {
+        string functionOutput = returnValue.Item1;
+        var parameters = returnValue.Item2;
+
+        var historyItem = new ChatHistoryItem(who, what);
+        historyItem.PlayerPerformedActivity = true;
+        historyItem.ActivityName = functionName;
+        historyItem.ActivityParameters = parameters;
+        historyItem.ActivityResult = functionOutput;
+        //Console.WriteLine(historyItem.ToUnityLogString());
+        History.Add(historyItem);
     }
 
     public void PrintHistory()

@@ -63,7 +63,7 @@ public class ConversationManager
         string apiKey = LLMUtils.GetOpenAIApiKey();
         players = new List<MpcLlmController>();
 
-        int culpritIndex = new Random(DateTime.Now.Millisecond).Next(0, playerNames.Count - 1);
+        int culpritIndex = new System.Random(DateTime.Now.Millisecond).Next(0, playerNames.Count - 1);
 
         for (int i = 0; i < playerNames.Count; i++)
         {

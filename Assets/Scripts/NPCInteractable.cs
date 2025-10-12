@@ -7,6 +7,7 @@ public class NPCInteractable : MonoBehaviour
 
     [Header("LLM Configuration")]
     [TextArea(10, 999)]
+    [Tooltip("Instructions to LLM service for this player. Applies when the player is not culprit.")]
     public string LLMPromptRegular = @"You are a player in a detective game. Your name is {name}. A chicken was kidnapped yesterday at 11:32PM and
     a detective is investigating. He is asking questions about the kidnapper.
     There are {playerNr} other players in the game. Any of them can be the kidnapper. Their names are {players}. 
@@ -16,7 +17,8 @@ public class NPCInteractable : MonoBehaviour
     - Answer detective's questions to mislead and deceive him. 
     - You may give your electronic devices to detective for verification, if he insists.";
 
-    [TextArea(10,999)]
+    [TextArea(10, 999)]
+    [Tooltip("Instructions to LLM service for this player. Applies when the player is culprit.")]
     public string LLMPromptCulprit = @"You are a player in a detective game. Your name is {name}. 
     You kidnapped a chicken yesterday at 11:32PM and a detective is investigating. He is asking questions about the kidnapper.    
     There are {playerNr} other players in the game. Their names are {players}. 
