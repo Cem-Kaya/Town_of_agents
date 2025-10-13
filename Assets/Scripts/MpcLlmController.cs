@@ -3,12 +3,10 @@
 using OpenAI.Responses;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class MpcLlmController
 {
-    private readonly OpenAIResponseClient client;
-    private string previousConversationId;
+    private readonly OpenAIResponseClient client;    
 
     public MpcLlmController(string apiKey, string model, NPCInteractable subject)
     {
@@ -44,34 +42,27 @@ public class MpcLlmController
         options.ReasoningOptions = new ResponseReasoningOptions();
         options.ReasoningOptions.ReasoningEffortLevel = "low";
         options.Instructions = Instructions;
-        //options.PreviousResponseId = previousConversationId;
-        
+
         //Add the possible local functions that the LLM agent can call.
         foreach (FunctionTool tool in LLMTools.GetAvailableTools())
             options.Tools.Add(tool);
-
-        //options.Tools.Add(ResponseTool.CreateWebSearchTool());
+            
         ResponseContentPart[] contentParts = { ResponseContentPart.CreateInputTextPart(input) };
         internalHistory.Add(ResponseItem.CreateUserMessageItem(contentParts));
-        // List<ResponseItem> inputItems = new List<ResponseItem>
-        // {
-        //     ResponseItem.CreateUserMessageItem(contentParts)
-        // };
-
+        
         OpenAIResponse response;
         bool actionRequired;
         ChatResponse retval;
+        string outputTextOverride;
 
         do
         {
             actionRequired = false;
+            outputTextOverride = null;
             retval = new ChatResponse(from, Name);
-            response = (OpenAIResponse)client.CreateResponse(internalHistory, options);
-            //previousConversationId = response.Id;
-            //options.PreviousResponseId = previousConversationId;
+            response = (OpenAIResponse)client.CreateResponse(internalHistory, options);            
 
             retval.FullJson = Newtonsoft.Json.JsonConvert.SerializeObject(response);
-            //Is this necessary with history tracking above??? need to verify.
             internalHistory.AddRange(response.OutputItems);
 
             foreach (ResponseItem outputItem in response.OutputItems)
@@ -82,7 +73,11 @@ public class MpcLlmController
                     var callRes = ResponseItem.CreateFunctionCallOutputItem(functionCall.CallId, actionResponse.Output);
                     internalHistory.Add(callRes);
                     //inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, actionResponse.Output));
-                    retval.Message = $"The player performed the activity: '{functionCall.FunctionName}'.";                    
+                    retval.Message = $"The player performed the activity: '{functionCall.FunctionName}'.";
+                    if (actionResponse.Parameters.ContainsKey("reason"))
+                        outputTextOverride = actionResponse.Parameters["reason"].ToString();
+                    else if (actionResponse.Parameters.ContainsKey("response"))
+                        outputTextOverride = actionResponse.Parameters["response"].ToString();
                     //We do not support the automated interaction yet!!!.
                     actionRequired = false;
                 }
@@ -91,6 +86,9 @@ public class MpcLlmController
             //var textItems = response.OutputItems.OfType<MessageResponseItem>();
             if (!actionRequired)
                 retval.Message = response.GetOutputText();
+
+            if (outputTextOverride != null)
+                retval.Message = outputTextOverride;
 
             LogToHistory(retval);
         }
@@ -127,7 +125,7 @@ public class MpcLlmController
     {
         var historyItem = new ChatHistoryItem(response);
         //Console.WriteLine(historyItem.ToUnityLogString());
-        Debug.Log(historyItem.ToUnityLogString());
+        //Debug.Log(historyItem.ToUnityLogString());
         History.Add(historyItem);
     }
 

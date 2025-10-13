@@ -67,7 +67,8 @@ public class ChatUI : MonoBehaviour
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
 
-        conversationManager = GetConversationManager();        
+        conversationManager = GetConversationManager();
+        Debug.Log($"CULPRIT: {conversationManager.WhoIsCulprit()}");
 
         if (endButton) endButton.onClick.AddListener(Close);
         if (sendButton) sendButton.onClick.AddListener(SendFromInput);

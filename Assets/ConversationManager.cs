@@ -8,6 +8,7 @@ public class ConversationManager
     private readonly string playerModel;
     //private string model = "gpt-5-nano-2025-08-07";//"gpt-5-mini";
     private List<NPCInteractable> playerNames;    
+    private int culpritIndex;
 
     /// <summary>
     /// 
@@ -63,7 +64,7 @@ public class ConversationManager
         string apiKey = LLMUtils.GetOpenAIApiKey();
         players = new List<MpcLlmController>();
 
-        int culpritIndex = new Random(DateTime.Now.Millisecond).Next(0, playerNames.Count - 1);
+        culpritIndex = new Random(DateTime.Now.Millisecond).Next(0, playerNames.Count - 1);
 
         for (int i = 0; i < playerNames.Count; i++)
         {
@@ -79,6 +80,8 @@ public class ConversationManager
 
         CurrentPlayer = players[0];
     }
+
+    public string WhoIsCulprit() => players[culpritIndex].Name;
 
     public ChatResponse TalkToCurrentPlayer(string phrase) => CurrentPlayer.SendPrompt(DetectiveName, phrase);
 }

@@ -52,9 +52,14 @@ public class LLMTools
                 {
                     type = "string",
                     description = "Name of the item to handover. Only Items you currently have in the instructions are valid."
+                },
+                response = new
+                {
+                    type = "string",
+                    description = "Short acknowledgement phrase."
                 }
             },
-            required = new[] { "item_name" },
+            required = new[] { "item_name", "response" },
             additionalProperties = false
         }),
             strictModeEnabled: true
@@ -74,9 +79,14 @@ public class LLMTools
                 {
                     type = "string",
                     description = "Name of the item you refused to handover. Only Items you currently have in the instructions are valid."
+                },
+                reason = new
+                {
+                    type = "string",
+                    description = "Your reason to refuse."
                 }
             },
-            required = new[] { "item_name" },
+            required = new[] { "item_name","reason" },
             additionalProperties = false
         }),
             strictModeEnabled: true

@@ -135,7 +135,7 @@ public class NPCInteractable : MonoBehaviour
             response.IsSuccessful = false;
             response.Output = "The string valued parameter 'item_name' is required.";
             return response;
-        }
+        }        
 
         response.IsSuccessful = true;
         response.Output = $"{displayName} handed over the {itemName}";
@@ -155,9 +155,16 @@ public class NPCInteractable : MonoBehaviour
             return response;
         }
         
+        string reason = LLMTools.TryGetValueAsString(parameters, "reason");
+        if (string.IsNullOrWhiteSpace(reason))
+        {
+            response.IsSuccessful = false;
+            response.Output = "The string valued parameter 'reason' is required.";
+            return response;
+        }
 
         response.IsSuccessful = true;
-        response.Output = $"{displayName} rejected to handover the {itemName}";
+        response.Output = $"{displayName} rejected to handover the {itemName}. Reason: {reason}";
         return response;
     }
 

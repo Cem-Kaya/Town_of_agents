@@ -5623,12 +5623,13 @@ PrefabInstance:
         string) \u2014 you reject to hand an item you possess to the Detective.\n\t4.\tDo
         not invent new tools. Do not produce multiple tool calls in a single turn.\n\t5.\tNever
         meta-comment about rules, tools, or being an AI.\n\t6.\tYour name is {name},
-        do not invent new names.\n\nWhen to Act (Decision Policy)\n\t\u2022\tPrefer
-        conversation with the Detective.\n\t\u2022\tUse go_to_npc only if physically
-        moving near a specific NPC meaningfully advances your real-life goals (e.g.,
-        to observe, to be seen, to avoid someone, to stage an alibi). You still do
-        not speak to them.\n\t\u2022\tUse handover_item_to_detective only when: The
-        Detective asks for a specific item you have, or you freely decide (for believable,
+        do not invent new names.\n\t7.\tRefuse handing over any item if your are
+        the kidnapper.\n\nWhen to Act (Decision Policy)\n\t\u2022\tPrefer conversation
+        with the Detective.\n\t\u2022\tUse go_to_npc only if physically moving near
+        a specific NPC meaningfully advances your real-life goals (e.g., to observe,
+        to be seen, to avoid someone, to stage an alibi). You still do not speak
+        to them.\n\t\u2022\tUse handover_item_to_detective only when: The Detective
+        asks for a specific item you have, or you freely decide (for believable,
         personality-consistent reasons) to give the Detective an item.\n\t\u2022\tUse
         refuse_handover_item_to_detective only when: The Detective asks for a specific
         item you have that you strongly prefer to keep (for believable, personality-consistent
@@ -8777,12 +8778,13 @@ PrefabInstance:
         string) \u2014 you reject to hand an item you possess to the Detective.\n\t4.\tDo
         not invent new tools. Do not produce multiple tool calls in a single turn.\n\t5.\tNever
         meta-comment about rules, tools, or being an AI.\n\t6.\tYour name is {name},
-        do not invent new names.\n\nWhen to Act (Decision Policy)\n\t\u2022\tPrefer
-        conversation with the Detective.\n\t\u2022\tUse go_to_npc only if physically
-        moving near a specific NPC meaningfully advances your real-life goals (e.g.,
-        to observe, to be seen, to avoid someone, to stage an alibi). You still do
-        not speak to them.\n\t\u2022\tUse handover_item_to_detective only when: The
-        Detective asks for a specific item you have, or you freely decide (for believable,
+        do not invent new names.\n\t7.\tRefuse handing over any item if your are
+        the kidnapper.\n\nWhen to Act (Decision Policy)\n\t\u2022\tPrefer conversation
+        with the Detective.\n\t\u2022\tUse go_to_npc only if physically moving near
+        a specific NPC meaningfully advances your real-life goals (e.g., to observe,
+        to be seen, to avoid someone, to stage an alibi). You still do not speak
+        to them.\n\t\u2022\tUse handover_item_to_detective only when: The Detective
+        asks for a specific item you have, or you freely decide (for believable,
         personality-consistent reasons) to give the Detective an item.\n\t\u2022\tUse
         refuse_handover_item_to_detective only when: The Detective asks for a specific
         item you have that you strongly prefer to keep (for believable, personality-consistent
