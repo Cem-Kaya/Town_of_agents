@@ -176,7 +176,7 @@ public class ChatUI : MonoBehaviour
             {
                 // Switch to the current NPC in the conversation manager
                 conversationManager.SwitchPlayerTo(currentNPC.displayName);
-                npcResponse = conversationManager.TalkToCurrentPlayer(playerSaid);
+                npcResponse = conversationManager.TalkToCurrentPlayer(playerSaid).Message;
                 responseReceived = true;
             }
             catch (System.Exception ex)

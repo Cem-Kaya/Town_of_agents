@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 public class ChatHistoryItem
 {
@@ -8,10 +7,19 @@ public class ChatHistoryItem
         Timestamp = DateTime.Now;
     }
 
-    public ChatHistoryItem(string who, string message)
+    public ChatHistoryItem(string from, string to, string message)
     {
-        Who = who;
+        From = from;
+        To = to;
         Message = message;
+    }
+
+    public ChatHistoryItem(ChatResponse response)
+    {
+        From = response.From;
+        To = response.To;
+        Message = response.Message;
+        ActivityResult = response.InvolvedAction;
     }
     
     /// <summary>
@@ -24,7 +32,10 @@ public class ChatHistoryItem
     /// The name of the agent, who sent the message.
     /// </summary>
     [JsonProperty]
-    public string Who { get; set; }
+    public string From { get; set; }
+
+    [JsonProperty]
+    public string To { get; set; }
     
     /// <summary>
     /// The message text.
@@ -33,32 +44,20 @@ public class ChatHistoryItem
     public string Message { get; set; }
 
     /// <summary>
-    /// Set to true, if the message item is a function call.
+    /// Gets if the message item is a function call.
     /// </summary>
     [JsonProperty]    
-    public bool PlayerPerformedActivity { get; set; }
-
-    /// <summary>
-    /// Gets or sets the function name.
-    /// </summary>
-    [JsonProperty]
-    public string ActivityName { get; set; }
-
-    /// <summary>
-    /// Gets or sets the called function parameters.
-    /// </summary>
-    [JsonProperty]
-    public Dictionary<string, string> ActivityParameters { get; set; }
+    public bool PlayerPerformedActivity { get => ActivityResult != null; }
 
     /// <summary>
     /// Gets or sets the return value of the called function.
     /// </summary>
     [JsonProperty]
-    public string ActivityResult { get; set; }  
+    public ActionResponse ActivityResult { get; set; }  
 
-    public string ToUnityLogString() => $"[{Who}]: {Message}";
+    public string ToUnityLogString() => $"[{From} -> {To}]: {Message}";
 
-    public override string ToString() => $"[{Timestamp:F}]\t[{Who}]:\t{Message}";
+    public override string ToString() => $"[{Timestamp:F}]\t[{From} -> {To}]:\t{Message}";
 
     public string SerializeAsJson() => JsonConvert.SerializeObject(this);
 }

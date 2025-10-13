@@ -63,14 +63,14 @@ public class ConversationManager
         string apiKey = LLMUtils.GetOpenAIApiKey();
         players = new List<MpcLlmController>();
 
-        int culpritIndex = new System.Random(DateTime.Now.Millisecond).Next(0, playerNames.Count - 1);
+        int culpritIndex = new Random(DateTime.Now.Millisecond).Next(0, playerNames.Count - 1);
 
         for (int i = 0; i < playerNames.Count; i++)
         {
             NPCInteractable playerInfo = playerNames[i];
             string name = playerInfo.displayName;
             var otherPlayers = playerNames.Where(a => a.displayName != name).ToArray();
-            var agent = new MpcLlmController(apiKey, playerModel, name);
+            var agent = new MpcLlmController(apiKey, playerModel, playerInfo);
 
             //Set the LLM instructions (former system prompt) depending on player type (culprit or innocent).
             agent.Instructions = i == culpritIndex ? playerInfo.LLMPromptCulprit : playerInfo.LLMPromptRegular;
@@ -84,5 +84,5 @@ public class ConversationManager
         CurrentPlayer = players[0];
     }
 
-    public string TalkToCurrentPlayer(string phrase) => CurrentPlayer.SendPrompt(DetectiveName, phrase, false);
+    public ChatResponse TalkToCurrentPlayer(string phrase) => CurrentPlayer.SendPrompt(DetectiveName, phrase);
 }

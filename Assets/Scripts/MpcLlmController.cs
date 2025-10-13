@@ -10,7 +10,7 @@ public class MpcLlmController
     private readonly OpenAIResponseClient client;
     private string previousConversationId;
 
-    public MpcLlmController(string apiKey, string model, string name)
+    public MpcLlmController(string apiKey, string model, NPCInteractable subject)
     {
         if (string.IsNullOrWhiteSpace(apiKey))
             throw new ArgumentException("The api key cannot be null.", nameof(apiKey));
@@ -18,33 +18,34 @@ public class MpcLlmController
         if (string.IsNullOrWhiteSpace(model))
             throw new ArgumentException("The model cannot be null.", nameof(model));
 
-        if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("The name cannot be null.", nameof(name));
+        if (subject == null)
+            throw new ArgumentException("The subject NPCInteractable cannot be null.", nameof(subject));
 
         client = new(model, apiKey);
 
         Model = model;
-        Name = name;
+        Subject = subject;        
     }
 
     public string Model { get; }
-    public string Name { get; }
+    public NPCInteractable Subject { get; }
+    public string Name { get => Subject.displayName; }
     public string ReasoningEffortLevel { get; set; } = "low";
     public List<ChatHistoryItem> History { get; } = new List<ChatHistoryItem>();
     public string Instructions { get; set; }
 
-    public string SendPrompt(string from, string input, bool returnJson)
+    public ChatResponse SendPrompt(string from, string input)
     {
-        LogToHistory(from, input);
+        LogToHistory(from, Name, input);
 
         ResponseCreationOptions options = new();
         options.ReasoningOptions = new ResponseReasoningOptions();
         options.ReasoningOptions.ReasoningEffortLevel = "low";
         options.Instructions = Instructions;
-        options.PreviousResponseId = previousConversationId;        
-        
+        options.PreviousResponseId = previousConversationId;
+
         //Add the possible local functions that the LLM agent can call.
-        foreach(FunctionTool tool in LLMTools.GetAvailableTools())
+        foreach (FunctionTool tool in LLMTools.GetAvailableTools())
             options.Tools.Add(tool);
 
         //options.Tools.Add(ResponseTool.CreateWebSearchTool());
@@ -56,15 +57,17 @@ public class MpcLlmController
 
         OpenAIResponse response;
         bool actionRequired;
-        string outputText;
+        ChatResponse retval;
+
         do
         {
             actionRequired = false;
-            outputText = "";
+            retval = new ChatResponse(from, Name);
             response = (OpenAIResponse)client.CreateResponse(inputItems, options);
             previousConversationId = response.Id;
             options.PreviousResponseId = previousConversationId;
 
+            retval.FullJson = Newtonsoft.Json.JsonConvert.SerializeObject(response);
             //Is this necessary with history tracking above??? need to verify.
             //inputItems.AddRange(response.OutputItems);
 
@@ -72,49 +75,54 @@ public class MpcLlmController
             {
                 if (outputItem is FunctionCallResponseItem functionCall)
                 {
-                    IPlayerAction performedAction = LLMTools.CallFunction(functionCall);
-                    inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, performedAction.Output));
-                    string msg = $"The player performed the activity: '{functionCall.FunctionName}'.";
-                    LogActionToHistory(Name, msg, performedAction);
-                    actionRequired = true;
+                    var actionResponse = PerformActionSafe(functionCall);
+                    inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, actionResponse.Output));
+                    retval.Message = $"The player performed the activity: '{functionCall.FunctionName}'.";                    
+                    //We do not support the automated interaction yet!!!.
+                    actionRequired = false;
                 }
             }
 
             //var textItems = response.OutputItems.OfType<MessageResponseItem>();
             if (!actionRequired)
-                outputText = response.GetOutputText();
+                retval.Message = response.GetOutputText();
+
+            LogToHistory(retval);
         }
         while (actionRequired);
 
-        // string outputText = response.GetOutputText();
-        // //LogToHistory(Name, outputText);
-
-        if (returnJson)
+        return retval;
+    }
+    
+    private ActionResponse PerformActionSafe(FunctionCallResponseItem functionCall)
+    {
+        try
         {
-            string jsonResponse = Newtonsoft.Json.JsonConvert.SerializeObject(response);
-            return jsonResponse;
+            string functionName = functionCall.FunctionName;
+            var parameters = LLMTools.ParseParameters(functionCall.FunctionArguments);
+            return Subject.PerformAction(functionName, parameters);
         }
-
-        LogToHistory(Name, outputText);
-        return outputText;
+        catch (Exception ex)
+        {
+            ActionResponse response = new ActionResponse(functionCall.FunctionName);
+            response.Error = ex;
+            response.IsSuccessful = false;
+            response.Output = "You cannot perform the required task due to personal excuses at the moment.";
+            return response;
+        }
     }
 
-    private void LogToHistory(string who, string what)
+    private void LogToHistory(string from, string to, string message)
     {
-        var historyItem = new ChatHistoryItem(who, what);
+        var historyItem = new ChatHistoryItem(from, to, message);
+        History.Add(historyItem);
+    }
+    
+    private void LogToHistory(ChatResponse response)
+    {
+        var historyItem = new ChatHistoryItem(response);
         //Console.WriteLine(historyItem.ToUnityLogString());
         Debug.Log(historyItem.ToUnityLogString());
-        History.Add(historyItem);
-    }   
-
-    private void LogActionToHistory(string who, string what, IPlayerAction action)
-    {
-        var historyItem = new ChatHistoryItem(who, what);
-        historyItem.PlayerPerformedActivity = true;
-        historyItem.ActivityName = action.Name;
-        historyItem.ActivityParameters = action.Parameters;
-        historyItem.ActivityResult = action.Output;
-        //Console.WriteLine(historyItem.ToUnityLogString());
         History.Add(historyItem);
     }
 

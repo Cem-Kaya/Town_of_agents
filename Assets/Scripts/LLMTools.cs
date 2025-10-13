@@ -9,8 +9,7 @@ using Unity.VisualScripting;
 
 public class LLMTools
 {
-    private static List<FunctionTool> _tools = new List<FunctionTool>();
-    private static Dictionary<string, Type> _toolImpl = new Dictionary<string, Type>();
+    private static List<FunctionTool> _tools = new List<FunctionTool>();    
 
     static LLMTools()
     {
@@ -45,30 +44,50 @@ public class LLMTools
             );
 
         _tools.Add(visit_tool);
-        _toolImpl.Add(visit_tool.FunctionName, typeof(ActionVisitOtherPlayer));
     }
 
     public static ReadOnlyCollection<FunctionTool> GetAvailableTools() => _tools.AsReadOnly();
     public static FunctionTool GetFunctionByName(string name) => _tools.FirstOrDefault(f => f.FunctionName == name);
-    public static IPlayerAction CallFunction(FunctionCallResponseItem functionCall)
+
+    public static Dictionary<string,object> ParseParameters(ReadOnlyMemory<byte> functionCallArguments)
     {
-        if (!_toolImpl.ContainsKey(functionCall.FunctionName))
-            throw new NotImplementedException($"Unknown function: {functionCall.FunctionName}.");
+        using JsonDocument argumentsJson = JsonDocument.Parse(functionCallArguments);
+        Dictionary<string, JsonElement> jp = argumentsJson.Deserialize<Dictionary<string, JsonElement>>();
 
-        Type implementer = _toolImpl[functionCall.FunctionName];
-        IPlayerAction action = Activator.CreateInstance(implementer) as IPlayerAction;
-        if (action == null)
-            throw new InvalidCastException($"The expected implementation type must be IPlayerAction. Found {implementer} instead.");        
-
-        using JsonDocument argumentsJson = JsonDocument.Parse(functionCall.FunctionArguments);
-        Dictionary<string, string> parameters = new Dictionary<string, string>();
-
-        parameters = argumentsJson.Deserialize<Dictionary<string, string>>();
-        action.Perform(parameters);
-        return action;
+        Dictionary<string, object> parameters = new Dictionary<string, object>();
+        foreach (var item in jp)
+        {
+            switch (item.Value.ValueKind)
+            {
+                // case JsonValueKind.Undefined:
+                //     break;
+                // case JsonValueKind.Object:
+                //     break;
+                case JsonValueKind.Array:
+                    break;
+                case JsonValueKind.String:
+                    parameters.Add(item.Key, item.Value.GetString());
+                    break;
+                case JsonValueKind.Number:
+                    parameters.Add(item.Key, item.Value.ConvertTo<float>());
+                    break;
+                case JsonValueKind.True:
+                    parameters.Add(item.Key, true);
+                    break;
+                case JsonValueKind.False:
+                    parameters.Add(item.Key, false);
+                    break;
+                case JsonValueKind.Null:
+                    parameters.Add(item.Key, null);
+                    break;
+                default:
+                    parameters.Add(item.Key, item.Value.ConvertTo<string>());
+                    break;
+            }
+        }
+        return parameters;
     }
 
-   
 }
 
 #pragma warning restore OPENAI001
