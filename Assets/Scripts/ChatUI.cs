@@ -180,8 +180,7 @@ public class ChatUI : MonoBehaviour
                 responseReceived = true;
             }
             catch (System.Exception ex)
-            {
-                
+            {   
                 Debug.LogError($"Error getting NPC response: {ex.Message}");
                 npcResponse = "Sorry, I'm having trouble thinking right now...";
                 responseReceived = true;

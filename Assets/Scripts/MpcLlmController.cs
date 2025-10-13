@@ -33,9 +33,11 @@ public class MpcLlmController
     public string ReasoningEffortLevel { get; set; } = "low";
     public List<ChatHistoryItem> History { get; } = new List<ChatHistoryItem>();
     public string Instructions { get; set; }
+    private List<ResponseItem> internalHistory = new List<ResponseItem>();
 
     public ChatResponse SendPrompt(string from, string input)
     {
+
         LogToHistory(from, Name, input);
 
         ResponseCreationOptions options = new();
@@ -43,17 +45,18 @@ public class MpcLlmController
         options.ReasoningOptions.ReasoningEffortLevel = "low";
         options.Instructions = Instructions;
         options.PreviousResponseId = previousConversationId;
-
+        
         //Add the possible local functions that the LLM agent can call.
         foreach (FunctionTool tool in LLMTools.GetAvailableTools())
             options.Tools.Add(tool);
 
         //options.Tools.Add(ResponseTool.CreateWebSearchTool());
         ResponseContentPart[] contentParts = { ResponseContentPart.CreateInputTextPart(input) };
-        List<ResponseItem> inputItems = new List<ResponseItem>
-        {
-            ResponseItem.CreateUserMessageItem(contentParts)
-        };
+        internalHistory.Add(ResponseItem.CreateUserMessageItem(contentParts));
+        // List<ResponseItem> inputItems = new List<ResponseItem>
+        // {
+        //     ResponseItem.CreateUserMessageItem(contentParts)
+        // };
 
         OpenAIResponse response;
         bool actionRequired;
@@ -63,20 +66,22 @@ public class MpcLlmController
         {
             actionRequired = false;
             retval = new ChatResponse(from, Name);
-            response = (OpenAIResponse)client.CreateResponse(inputItems, options);
-            previousConversationId = response.Id;
-            options.PreviousResponseId = previousConversationId;
+            response = (OpenAIResponse)client.CreateResponse(internalHistory, options);
+            //previousConversationId = response.Id;
+            //options.PreviousResponseId = previousConversationId;
 
             retval.FullJson = Newtonsoft.Json.JsonConvert.SerializeObject(response);
             //Is this necessary with history tracking above??? need to verify.
-            //inputItems.AddRange(response.OutputItems);
+            internalHistory.AddRange(response.OutputItems);
 
             foreach (ResponseItem outputItem in response.OutputItems)
             {
                 if (outputItem is FunctionCallResponseItem functionCall)
                 {
                     var actionResponse = PerformActionSafe(functionCall);
-                    inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, actionResponse.Output));
+                    var callRes = ResponseItem.CreateFunctionCallOutputItem(functionCall.CallId, actionResponse.Output);
+                    internalHistory.Add(callRes);
+                    //inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, actionResponse.Output));
                     retval.Message = $"The player performed the activity: '{functionCall.FunctionName}'.";                    
                     //We do not support the automated interaction yet!!!.
                     actionRequired = false;

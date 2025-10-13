@@ -118,6 +118,11 @@ public class NPCInteractable : MonoBehaviour
                 Vector3Int targetCell = grid.WorldToCell(other.transform.position);
                 Vector3Int adjacentCell = new Vector3Int(targetCell.x - 1, targetCell.y, targetCell.z);
                 npc.GoToCell(adjacentCell);
+
+                ChatUI.Instance.HidePrompt();
+                if (ChatUI.Instance.IsOpen)
+                    ChatUI.Instance.Close();
+                    
                 moving = false;
             }
             catch (Exception ex)
