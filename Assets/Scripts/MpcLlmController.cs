@@ -53,7 +53,7 @@ public class MpcLlmController
         {
             ResponseItem.CreateUserMessageItem(contentParts)
         };
-        
+
         OpenAIResponse response;
         bool actionRequired;
         string outputText;
@@ -72,10 +72,10 @@ public class MpcLlmController
             {
                 if (outputItem is FunctionCallResponseItem functionCall)
                 {
-                    var returnValue = LLMTools.CallFunction(functionCall);
-                    inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, returnValue.Item1));
+                    IPlayerAction performedAction = LLMTools.CallFunction(functionCall);
+                    inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, performedAction.Output));
                     string msg = $"The player performed the activity: '{functionCall.FunctionName}'.";
-                    LogActionToHistory(Name, msg, functionCall.FunctionName, returnValue);
+                    LogActionToHistory(Name, msg, performedAction);
                     actionRequired = true;
                 }
             }
@@ -107,16 +107,13 @@ public class MpcLlmController
         History.Add(historyItem);
     }   
 
-    private void LogActionToHistory(string who, string what, string functionName, Tuple<string,Dictionary<string,string>> returnValue)
+    private void LogActionToHistory(string who, string what, IPlayerAction action)
     {
-        string functionOutput = returnValue.Item1;
-        var parameters = returnValue.Item2;
-
         var historyItem = new ChatHistoryItem(who, what);
         historyItem.PlayerPerformedActivity = true;
-        historyItem.ActivityName = functionName;
-        historyItem.ActivityParameters = parameters;
-        historyItem.ActivityResult = functionOutput;
+        historyItem.ActivityName = action.Name;
+        historyItem.ActivityParameters = action.Parameters;
+        historyItem.ActivityResult = action.Output;
         //Console.WriteLine(historyItem.ToUnityLogString());
         History.Add(historyItem);
     }

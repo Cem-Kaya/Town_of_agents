@@ -5,10 +5,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.Json;
 using OpenAI.Responses;
+using Unity.VisualScripting;
 
 public class LLMTools
 {
     private static List<FunctionTool> _tools = new List<FunctionTool>();
+    private static Dictionary<string, Type> _toolImpl = new Dictionary<string, Type>();
+
     static LLMTools()
     {
         InitializeTools();
@@ -42,37 +45,30 @@ public class LLMTools
             );
 
         _tools.Add(visit_tool);
+        _toolImpl.Add(visit_tool.FunctionName, typeof(ActionVisitOtherPlayer));
     }
 
     public static ReadOnlyCollection<FunctionTool> GetAvailableTools() => _tools.AsReadOnly();
     public static FunctionTool GetFunctionByName(string name) => _tools.FirstOrDefault(f => f.FunctionName == name);
-    public static Tuple<string,Dictionary<string,string>> CallFunction(FunctionCallResponseItem functionCall)
+    public static IPlayerAction CallFunction(FunctionCallResponseItem functionCall)
     {
-        FunctionTool fcall = GetFunctionByName(functionCall.FunctionName);
-        if (fcall == null)
+        if (!_toolImpl.ContainsKey(functionCall.FunctionName))
             throw new NotImplementedException($"Unknown function: {functionCall.FunctionName}.");
+
+        Type implementer = _toolImpl[functionCall.FunctionName];
+        IPlayerAction action = Activator.CreateInstance(implementer) as IPlayerAction;
+        if (action == null)
+            throw new InvalidCastException($"The expected implementation type must be IPlayerAction. Found {implementer} instead.");        
 
         using JsonDocument argumentsJson = JsonDocument.Parse(functionCall.FunctionArguments);
         Dictionary<string, string> parameters = new Dictionary<string, string>();
 
         parameters = argumentsJson.Deserialize<Dictionary<string, string>>();
-
-        string functionOutput = "";
-        if (functionCall.FunctionName == "visit_other_player")
-            functionOutput = VisitOtherPlayer(parameters);
-
-        return new Tuple<string, Dictionary<string, string>>(functionOutput, parameters);
+        action.Perform(parameters);
+        return action;
     }
 
-    public static string VisitOtherPlayer(IDictionary<string, string> parameters)
-    {
-        string targetNpcName = parameters?["player_name"];
-        if (string.IsNullOrWhiteSpace(targetNpcName))
-            return "The target player name is not specified. Please provide a valid player name.";
-
-        return $"You are now visiting {targetNpcName}. You are both alone.";
-    }
-
+   
 }
 
 #pragma warning restore OPENAI001
