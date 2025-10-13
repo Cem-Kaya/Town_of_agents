@@ -18,36 +18,85 @@ public class LLMTools
 
     private static void InitializeTools()
     {
-        var visit_tool = ResponseTool.CreateFunctionTool(
-        functionName: "visit_other_player",
-        functionDescription: "Go to another player in the game map.",
+        var go_to_npc = ResponseTool.CreateFunctionTool(
+        functionName: "go_to_npc",
+        functionDescription: "Go to another NPC in the game map.",
         functionParameters: BinaryData.FromObjectAsJson(new
         {
             type = "object",
             properties = new
             {
-                player_name = new
+                npc_name = new
                 {
                     type = "string",
-                    description = "Name of the player. Only the names from the instructions are valid."
-                },
-                explanation = new
-                {
-                    type = "string",
-                    description = "The reason to visit the other player. Start with 'Hi [player_name]' and explain briefly why you are here. Keep it brief."
+                    description = "Name of the other NPC. Only the names from the instructions are valid."
                 }
             },
-            required = new[] { "player_name", "explanation" },
+            required = new[] { "npc_name" },
             additionalProperties = false
         }),
             strictModeEnabled: true
             );
 
-        _tools.Add(visit_tool);
+        _tools.Add(go_to_npc);
+
+        var handover_item_to_detective = ResponseTool.CreateFunctionTool(
+        functionName: "handover_item_to_detective",
+        functionDescription: "Handover an item to detective.",
+        functionParameters: BinaryData.FromObjectAsJson(new
+        {
+            type = "object",
+            properties = new
+            {
+                item_name = new
+                {
+                    type = "string",
+                    description = "Name of the item to handover. Only Items you currently have in the instructions are valid."
+                }
+            },
+            required = new[] { "item_name" },
+            additionalProperties = false
+        }),
+            strictModeEnabled: true
+            );
+
+        _tools.Add(handover_item_to_detective);
+
+        var refuse_handover_item_to_detective = ResponseTool.CreateFunctionTool(
+        functionName: "refuse_handover_item_to_detective",
+        functionDescription: "Refuse handing over the item to detective. If you do not have asked item, do not call this method, just respond and tell you don't have it.",
+        functionParameters: BinaryData.FromObjectAsJson(new
+        {
+            type = "object",
+            properties = new
+            {
+                item_name = new
+                {
+                    type = "string",
+                    description = "Name of the item you refused to handover. Only Items you currently have in the instructions are valid."
+                }
+            },
+            required = new[] { "item_name" },
+            additionalProperties = false
+        }),
+            strictModeEnabled: true
+            );
+
+        _tools.Add(refuse_handover_item_to_detective);
     }
 
     public static ReadOnlyCollection<FunctionTool> GetAvailableTools() => _tools.AsReadOnly();
     public static FunctionTool GetFunctionByName(string name) => _tools.FirstOrDefault(f => f.FunctionName == name);
+
+    public static string TryGetValueAsString(Dictionary<string, object> parameters, string paramName)
+    {
+        if (parameters == null || !parameters.ContainsKey(paramName))
+        {
+            return null;
+        }
+
+        return parameters[paramName]?.ToString();
+    }
 
     public static Dictionary<string,object> ParseParameters(ReadOnlyMemory<byte> functionCallArguments)
     {

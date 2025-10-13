@@ -12,26 +12,8 @@ public class NPCInteractable : MonoBehaviour
 
     [Header("LLM Configuration")]
     [TextArea(10, 999)]
-    [Tooltip("Instructions to LLM service for this player. Applies when the player is not culprit.")]
-    public string LLMPromptRegular = @"You are a player in a detective game. Your name is {name}. A chicken was kidnapped yesterday at 11:32PM and
-    a detective is investigating. He is asking questions about the kidnapper.
-    There are {playerNr} other players in the game. Any of them can be the kidnapper. Their names are {players}. 
-    Your personality: {player_personality}
-    These are your rules:
-    - Do not expose that you killed the chicken.
-    - Answer detective's questions to mislead and deceive him. 
-    - You may give your electronic devices to detective for verification, if he insists.";
-
-    [TextArea(10, 999)]
-    [Tooltip("Instructions to LLM service for this player. Applies when the player is culprit.")]
-    public string LLMPromptCulprit = @"You are a player in a detective game. Your name is {name}. 
-    You kidnapped a chicken yesterday at 11:32PM and a detective is investigating. He is asking questions about the kidnapper.    
-    There are {playerNr} other players in the game. Their names are {players}. 
-    Your personality: {player_personality}
-    These are your rules:
-    - Do not expose that you killed the chicken.
-    - Answer detective's questions to mislead and deceive him. 
-    - Don't give any of your electronic devices to detective, if the logs in that device gives you away.";
+    [Tooltip("Instructions to LLM service for this player.")]
+    public string Prompt;
 
     public Grid grid;
     public NPCWalkerGrid npc;
@@ -63,7 +45,7 @@ public class NPCInteractable : MonoBehaviour
         }
         else
         {
-            ChatUI.Instance.HidePrompt();
+            //ChatUI.Instance.HidePrompt();
         }
 
         // If chat got closed while we're still in range, nothing else to do
@@ -119,10 +101,10 @@ public class NPCInteractable : MonoBehaviour
                 Vector3Int adjacentCell = new Vector3Int(targetCell.x - 1, targetCell.y, targetCell.z);
                 npc.GoToCell(adjacentCell);
 
-                ChatUI.Instance.HidePrompt();
+                //ChatUI.Instance.HidePrompt();
                 if (ChatUI.Instance.IsOpen)
                     ChatUI.Instance.Close();
-                    
+
                 moving = false;
             }
             catch (Exception ex)
@@ -140,6 +122,43 @@ public class NPCInteractable : MonoBehaviour
 
         if (err != null)
             throw err;
+    }
+
+    private ActionResponse HandoverSafe(string callName, Dictionary<string, object> parameters)
+    {
+        ActionResponse response = new ActionResponse(callName);
+        response.Parameters = parameters;
+
+        string itemName = LLMTools.TryGetValueAsString(parameters, "item_name");
+        if (string.IsNullOrWhiteSpace(itemName))
+        {
+            response.IsSuccessful = false;
+            response.Output = "The string valued parameter 'item_name' is required.";
+            return response;
+        }
+
+        response.IsSuccessful = true;
+        response.Output = $"{displayName} handed over the {itemName}";
+        return response;
+    }
+    
+    private ActionResponse RejectHandoverSafe(string callName, Dictionary<string, object> parameters)
+    {
+        ActionResponse response = new ActionResponse(callName);
+        response.Parameters = parameters;
+
+        string itemName = LLMTools.TryGetValueAsString(parameters, "item_name");
+        if (string.IsNullOrWhiteSpace(itemName))
+        {
+            response.IsSuccessful = false;
+            response.Output = "The string valued parameter 'item_name' is required.";
+            return response;
+        }
+        
+
+        response.IsSuccessful = true;
+        response.Output = $"{displayName} rejected to handover the {itemName}";
+        return response;
     }
 
     private ActionResponse MoveToSafe(string callName, Dictionary<string, object> parameters)
@@ -166,7 +185,7 @@ public class NPCInteractable : MonoBehaviour
         {
             MoveTo(otherNpcName);
             response.IsSuccessful = true;
-            response.Output = $"You are now standing next to {otherNpcName}";
+            response.Output = $"You are now standing next to {otherNpcName}. Don't talk to him yet.";
         }
         catch (Exception ex)
         {
@@ -176,18 +195,21 @@ public class NPCInteractable : MonoBehaviour
         }
 
         return response;
-    }
+    }    
+
     public ActionResponse PerformAction(string actionName, Dictionary<string, object> parameters)
     {
         if (string.IsNullOrEmpty(actionName))
             throw new ArgumentNullException(nameof(actionName));
 
         actionName = actionName.ToLower();
-        string visitFuncName = "visit_other_player";
+        string goToFuncName = "go_to_npc";
+        string handoverFunctionName = "handover_item_to_detective";
+        string refuseHandoverFunctionName = "refuse_handover_item_to_detective";
 
         ActionResponse response = new ActionResponse(actionName);
 
-        bool supports = string.Equals(actionName, visitFuncName);
+        bool supports = string.Equals(actionName, goToFuncName) || string.Equals(actionName, handoverFunctionName) || string.Equals(actionName, refuseHandoverFunctionName);
         if (!supports)
         {
             response.IsSuccessful = false;
@@ -196,9 +218,21 @@ public class NPCInteractable : MonoBehaviour
             return response;
         }
 
-        if (string.Equals(actionName, visitFuncName))
+        if (string.Equals(actionName, goToFuncName))
         {
-            response = MoveToSafe(visitFuncName, parameters);
+            response = MoveToSafe(goToFuncName, parameters);
+            LogActionResponse(response);
+        }
+
+        if (string.Equals(actionName, handoverFunctionName))
+        {
+            response = HandoverSafe(handoverFunctionName, parameters);
+            LogActionResponse(response);
+        }
+
+        if (string.Equals(actionName, refuseHandoverFunctionName))
+        {
+            response = RejectHandoverSafe(refuseHandoverFunctionName, parameters);
             LogActionResponse(response);
         }
 

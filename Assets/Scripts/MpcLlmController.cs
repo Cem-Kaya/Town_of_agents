@@ -37,14 +37,14 @@ public class MpcLlmController
 
     public ChatResponse SendPrompt(string from, string input)
     {
-
+        input = $"[{from} says]: {input}";
         LogToHistory(from, Name, input);
 
         ResponseCreationOptions options = new();
         options.ReasoningOptions = new ResponseReasoningOptions();
         options.ReasoningOptions.ReasoningEffortLevel = "low";
         options.Instructions = Instructions;
-        options.PreviousResponseId = previousConversationId;
+        //options.PreviousResponseId = previousConversationId;
         
         //Add the possible local functions that the LLM agent can call.
         foreach (FunctionTool tool in LLMTools.GetAvailableTools())

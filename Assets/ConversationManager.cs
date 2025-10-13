@@ -72,12 +72,8 @@ public class ConversationManager
             var otherPlayers = playerNames.Where(a => a.displayName != name).ToArray();
             var agent = new MpcLlmController(apiKey, playerModel, playerInfo);
 
-            //Set the LLM instructions (former system prompt) depending on player type (culprit or innocent).
-            agent.Instructions = i == culpritIndex ? playerInfo.LLMPromptCulprit : playerInfo.LLMPromptRegular;
-            agent.Instructions = agent.Instructions
-            .Replace("{name}", name)
-            .Replace("{playerNr}", otherPlayers.Length.ToString())
-            .Replace("{players}", string.Join(",", otherPlayers.Select(a => a.displayName)));
+            //Set the culprit flag.
+            agent.Instructions = playerInfo.Prompt.Replace("{is_kidnapper}", (i == culpritIndex).ToString());
             players.Add(agent);
         }
 
