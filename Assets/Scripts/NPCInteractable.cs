@@ -173,18 +173,18 @@ public class NPCInteractable : MonoBehaviour
         ActionResponse response = new ActionResponse(callName);
         response.Parameters = parameters;
 
-        if (parameters == null || !parameters.ContainsKey("player_name"))
+        if (parameters == null || !parameters.ContainsKey("npc_name"))
         {
             response.IsSuccessful = false;
-            response.Output = "The string valued parameter 'player_name' is required.";
+            response.Output = "The string valued parameter 'npc_name' is required.";
             return response;
         }
 
-        string otherNpcName = parameters["player_name"]?.ToString();
+        string otherNpcName = parameters["npc_name"]?.ToString();
         if (otherNpcName == null)
         {
             response.IsSuccessful = false;
-            response.Output = "The string valued parameter 'player_name' is required.";
+            response.Output = "The string valued parameter 'npc_name' is required.";
             return response;
         }
 
