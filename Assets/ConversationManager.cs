@@ -8,6 +8,7 @@ public class ConversationManager
     private readonly string playerModel;
     //private string model = "gpt-5-nano-2025-08-07";//"gpt-5-mini";
     private List<NPCInteractable> playerNames;    
+    private int culpritIndex;
 
     /// <summary>
     /// 
@@ -63,26 +64,24 @@ public class ConversationManager
         string apiKey = LLMUtils.GetOpenAIApiKey();
         players = new List<MpcLlmController>();
 
-        int culpritIndex = new System.Random(DateTime.Now.Millisecond).Next(0, playerNames.Count - 1);
+        culpritIndex = new Random(DateTime.Now.Millisecond).Next(0, playerNames.Count - 1);
 
         for (int i = 0; i < playerNames.Count; i++)
         {
             NPCInteractable playerInfo = playerNames[i];
             string name = playerInfo.displayName;
             var otherPlayers = playerNames.Where(a => a.displayName != name).ToArray();
-            var agent = new MpcLlmController(apiKey, playerModel, name);
+            var agent = new MpcLlmController(apiKey, playerModel, playerInfo);
 
-            //Set the LLM instructions (former system prompt) depending on player type (culprit or innocent).
-            agent.Instructions = i == culpritIndex ? playerInfo.LLMPromptCulprit : playerInfo.LLMPromptRegular;
-            agent.Instructions = agent.Instructions
-            .Replace("{name}", name)
-            .Replace("{playerNr}", otherPlayers.Length.ToString())
-            .Replace("{players}", string.Join(",", otherPlayers.Select(a => a.displayName)));
+            //Set the culprit flag.
+            agent.Instructions = playerInfo.Prompt.Replace("{is_kidnapper}", (i == culpritIndex).ToString());
             players.Add(agent);
         }
 
         CurrentPlayer = players[0];
     }
 
-    public string TalkToCurrentPlayer(string phrase) => CurrentPlayer.SendPrompt(DetectiveName, phrase, false);
+    public string WhoIsCulprit() => players[culpritIndex].Name;
+
+    public ChatResponse TalkToCurrentPlayer(string phrase) => CurrentPlayer.SendPrompt(DetectiveName, phrase);
 }

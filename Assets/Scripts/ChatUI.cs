@@ -67,7 +67,8 @@ public class ChatUI : MonoBehaviour
         if (Instance && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
 
-        conversationManager = GetConversationManager();        
+        conversationManager = GetConversationManager();
+        Debug.Log($"CULPRIT: {conversationManager.WhoIsCulprit()}");
 
         if (endButton) endButton.onClick.AddListener(Close);
         if (sendButton) sendButton.onClick.AddListener(SendFromInput);
@@ -176,12 +177,11 @@ public class ChatUI : MonoBehaviour
             {
                 // Switch to the current NPC in the conversation manager
                 conversationManager.SwitchPlayerTo(currentNPC.displayName);
-                npcResponse = conversationManager.TalkToCurrentPlayer(playerSaid);
+                npcResponse = conversationManager.TalkToCurrentPlayer(playerSaid).Message;
                 responseReceived = true;
             }
             catch (System.Exception ex)
-            {
-                
+            {   
                 Debug.LogError($"Error getting NPC response: {ex.Message}");
                 npcResponse = "Sorry, I'm having trouble thinking right now...";
                 responseReceived = true;

@@ -3,14 +3,12 @@
 using OpenAI.Responses;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class MpcLlmController
 {
-    private readonly OpenAIResponseClient client;
-    private string previousConversationId;
+    private readonly OpenAIResponseClient client;    
 
-    public MpcLlmController(string apiKey, string model, string name)
+    public MpcLlmController(string apiKey, string model, NPCInteractable subject)
     {
         if (string.IsNullOrWhiteSpace(apiKey))
             throw new ArgumentException("The api key cannot be null.", nameof(apiKey));
@@ -18,106 +16,116 @@ public class MpcLlmController
         if (string.IsNullOrWhiteSpace(model))
             throw new ArgumentException("The model cannot be null.", nameof(model));
 
-        if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("The name cannot be null.", nameof(name));
+        if (subject == null)
+            throw new ArgumentException("The subject NPCInteractable cannot be null.", nameof(subject));
 
         client = new(model, apiKey);
 
         Model = model;
-        Name = name;
+        Subject = subject;        
     }
 
     public string Model { get; }
-    public string Name { get; }
+    public NPCInteractable Subject { get; }
+    public string Name { get => Subject.displayName; }
     public string ReasoningEffortLevel { get; set; } = "low";
     public List<ChatHistoryItem> History { get; } = new List<ChatHistoryItem>();
     public string Instructions { get; set; }
+    private List<ResponseItem> internalHistory = new List<ResponseItem>();
 
-    public string SendPrompt(string from, string input, bool returnJson)
+    public ChatResponse SendPrompt(string from, string input)
     {
-        LogToHistory(from, input);
+        input = $"[{from} says]: {input}";
+        LogToHistory(from, Name, input);
 
         ResponseCreationOptions options = new();
         options.ReasoningOptions = new ResponseReasoningOptions();
         options.ReasoningOptions.ReasoningEffortLevel = "low";
         options.Instructions = Instructions;
-        options.PreviousResponseId = previousConversationId;        
-        
-        //Add the possible local functions that the LLM agent can call.
-        foreach(FunctionTool tool in LLMTools.GetAvailableTools())
-            options.Tools.Add(tool);
 
-        //options.Tools.Add(ResponseTool.CreateWebSearchTool());
+        //Add the possible local functions that the LLM agent can call.
+        foreach (FunctionTool tool in LLMTools.GetAvailableTools())
+            options.Tools.Add(tool);
+            
         ResponseContentPart[] contentParts = { ResponseContentPart.CreateInputTextPart(input) };
-        List<ResponseItem> inputItems = new List<ResponseItem>
-        {
-            ResponseItem.CreateUserMessageItem(contentParts)
-        };
+        internalHistory.Add(ResponseItem.CreateUserMessageItem(contentParts));
         
         OpenAIResponse response;
         bool actionRequired;
-        string outputText;
+        ChatResponse retval;
+        string outputTextOverride;
+
         do
         {
             actionRequired = false;
-            outputText = "";
-            response = (OpenAIResponse)client.CreateResponse(inputItems, options);
-            previousConversationId = response.Id;
-            options.PreviousResponseId = previousConversationId;
+            outputTextOverride = null;
+            retval = new ChatResponse(from, Name);
+            response = (OpenAIResponse)client.CreateResponse(internalHistory, options);            
 
-            //Is this necessary with history tracking above??? need to verify.
-            //inputItems.AddRange(response.OutputItems);
+            retval.FullJson = Newtonsoft.Json.JsonConvert.SerializeObject(response);
+            internalHistory.AddRange(response.OutputItems);
 
             foreach (ResponseItem outputItem in response.OutputItems)
             {
                 if (outputItem is FunctionCallResponseItem functionCall)
                 {
-                    var returnValue = LLMTools.CallFunction(functionCall);
-                    inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, returnValue.Item1));
-                    string msg = $"The player performed the activity: '{functionCall.FunctionName}'.";
-                    LogActionToHistory(Name, msg, functionCall.FunctionName, returnValue);
-                    actionRequired = true;
+                    var actionResponse = PerformActionSafe(functionCall);
+                    var callRes = ResponseItem.CreateFunctionCallOutputItem(functionCall.CallId, actionResponse.Output);
+                    internalHistory.Add(callRes);
+                    //inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, actionResponse.Output));
+                    retval.Message = $"The player performed the activity: '{functionCall.FunctionName}'.";
+                    if (actionResponse.Parameters.ContainsKey("reason"))
+                        outputTextOverride = actionResponse.Parameters["reason"].ToString();
+                    else if (actionResponse.Parameters.ContainsKey("response"))
+                        outputTextOverride = actionResponse.Parameters["response"].ToString();
+                    //We do not support the automated interaction yet!!!.
+                    actionRequired = false;
                 }
             }
 
             //var textItems = response.OutputItems.OfType<MessageResponseItem>();
             if (!actionRequired)
-                outputText = response.GetOutputText();
+                retval.Message = response.GetOutputText();
+
+            if (outputTextOverride != null)
+                retval.Message = outputTextOverride;
+
+            LogToHistory(retval);
         }
         while (actionRequired);
 
-        // string outputText = response.GetOutputText();
-        // //LogToHistory(Name, outputText);
-
-        if (returnJson)
+        return retval;
+    }
+    
+    private ActionResponse PerformActionSafe(FunctionCallResponseItem functionCall)
+    {
+        try
         {
-            string jsonResponse = Newtonsoft.Json.JsonConvert.SerializeObject(response);
-            return jsonResponse;
+            string functionName = functionCall.FunctionName;
+            var parameters = LLMTools.ParseParameters(functionCall.FunctionArguments);
+            return Subject.PerformAction(functionName, parameters);
         }
-
-        LogToHistory(Name, outputText);
-        return outputText;
+        catch (Exception ex)
+        {
+            ActionResponse response = new ActionResponse(functionCall.FunctionName);
+            response.Error = ex;
+            response.IsSuccessful = false;
+            response.Output = "You cannot perform the required task due to personal excuses at the moment.";
+            return response;
+        }
     }
 
-    private void LogToHistory(string who, string what)
+    private void LogToHistory(string from, string to, string message)
     {
-        var historyItem = new ChatHistoryItem(who, what);
-        //Console.WriteLine(historyItem.ToUnityLogString());
-        Debug.Log(historyItem.ToUnityLogString());
+        var historyItem = new ChatHistoryItem(from, to, message);
         History.Add(historyItem);
-    }   
-
-    private void LogActionToHistory(string who, string what, string functionName, Tuple<string,Dictionary<string,string>> returnValue)
+    }
+    
+    private void LogToHistory(ChatResponse response)
     {
-        string functionOutput = returnValue.Item1;
-        var parameters = returnValue.Item2;
-
-        var historyItem = new ChatHistoryItem(who, what);
-        historyItem.PlayerPerformedActivity = true;
-        historyItem.ActivityName = functionName;
-        historyItem.ActivityParameters = parameters;
-        historyItem.ActivityResult = functionOutput;
+        var historyItem = new ChatHistoryItem(response);
         //Console.WriteLine(historyItem.ToUnityLogString());
+        //Debug.Log(historyItem.ToUnityLogString());
         History.Add(historyItem);
     }
 
