@@ -58,7 +58,7 @@ public class NPCInteractable : MonoBehaviour
         }
         else
         {
-            ChatUI.Instance.HidePrompt();
+           // ChatUI.Instance.HidePrompt();
         }
 
         // If chat got closed while we're still in range, nothing else to do

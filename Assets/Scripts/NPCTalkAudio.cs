@@ -48,25 +48,21 @@ public class NPCTalkAudio : MonoBehaviour
         if (cam) zGap = Mathf.Abs(cam.transform.position.z - transform.position.z);
 
         // ex: 6 (xy) + 10 (camera z) + 1 buffer = 17
-        src.maxDistance = Mathf.Max(10f, audibleRadiusXY + zGap + 1f);
+        src.maxDistance = Mathf.Max(20f, audibleRadiusXY + zGap + 1f);
     }
 
     public void PlayTalk()
     {
-        if (talkClips == null || talkClips.Length == 0)
-        {
-            Debug.LogWarning("NPCTalkAudio: no talk clips.", this);
-            return;
-        }
-
+        if (talkClips == null || talkClips.Length == 0) return;
         var clip = talkClips[Random.Range(0, talkClips.Length)];
-        if (clip == null) { Debug.LogWarning("NPCTalkAudio: null clip element.", this); return; }
 
-        // diagnostics
         var cam = Camera.main;
-        float dist = cam ? Vector3.Distance(cam.transform.position, transform.position) : -1f;
-        Debug.Log($"NPCTalkAudio.PlayTalk -> clip={clip.name}, vol={volume}, spatialBlend={src.spatialBlend}, maxDist={src.maxDistance}, listenerDist={dist:F2}", this);
+        float dist = cam ? Vector3.Distance(cam.transform.position, transform.position) : 0f;
 
+        // Ensure we can reach the listener this frame (dist + margin)
+        src.maxDistance = Mathf.Max(src.maxDistance, dist + 2f);
+
+        Debug.Log($"NPCTalkAudio.PlayTalk -> clip={clip.name}, vol={volume}, spatialBlend={src.spatialBlend}, maxDist={src.maxDistance}, listenerDist={dist:F2}", this);
         src.PlayOneShot(clip, volume);
     }
 }
