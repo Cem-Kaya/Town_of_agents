@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 40d07d6fad8034d4096f88121837dc9b
+guid: 652159cb82914134ab331ee613752d2e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2433295831060790692
-    second: Gemini_Generated_Image_t0qou0t0qou0t0qo_0
+      213: -485637573153548550
+    second: big_windmill_pumpkin_sample 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,11 +96,37 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_0
+      name: big_windmill_pumpkin_sample 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,16 +139,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 341078168d92f3247b931ba2646193ca
-      internalID: -1537189006
+      spriteID: af69992433ba249f0800000000000000
+      internalID: -485637573153548550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_1
+      name: big_windmill_pumpkin_sample 1_1
       rect:
         serializedVersion: 2
         x: 128
@@ -137,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: affdded5bfdbdbb408b37fd60c5d5518
-      internalID: -1737006479
+      spriteID: 697b25ed303769e4ba84d2ac02df0477
+      internalID: -1343129206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_2
+      name: big_windmill_pumpkin_sample 1_2
       rect:
         serializedVersion: 2
         x: 256
@@ -159,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e011164f6fe94d54cb0a6643f9343d4e
-      internalID: -1834960301
+      spriteID: af1d9c4ca71b2914098bb36e48136282
+      internalID: 1285422556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_3
+      name: big_windmill_pumpkin_sample 1_3
       rect:
         serializedVersion: 2
         x: 384
@@ -181,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce21e6a696d76e247a12408a5b6b539b
-      internalID: 1960809611
+      spriteID: 91b61dfbcbce12644adef510bf1fb05c
+      internalID: -254747786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_4
+      name: big_windmill_pumpkin_sample 1_4
       rect:
         serializedVersion: 2
         x: 512
@@ -203,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea55f502c6ee55746b12a94cbf40ff43
-      internalID: -1342593009
+      spriteID: 949d648d07f2fe14cbd0d83b4ecc3061
+      internalID: -2092256515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_5
+      name: big_windmill_pumpkin_sample 1_5
       rect:
         serializedVersion: 2
         x: 640
@@ -225,14 +251,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe02c70bcf50b5d4aa6c00eaff4faf1e
-      internalID: 1239477978
+      spriteID: fd89246f3996dab43bf57c758fd98eea
+      internalID: 95473967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_6
+      name: big_windmill_pumpkin_sample 1_6
       rect:
         serializedVersion: 2
         x: 768
@@ -247,14 +273,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdbd259c240e1784abf1653edcaa7248
-      internalID: 1553584246
+      spriteID: e4e858bf81aa35e4d8ddebb23f61ea2d
+      internalID: -1928585556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_7
+      name: big_windmill_pumpkin_sample 1_7
       rect:
         serializedVersion: 2
         x: 896
@@ -269,14 +295,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3941a6257c5faa4c9ee4b3739ff8065
-      internalID: 1665651958
+      spriteID: 13cbb50ee37461944952fddc165fa664
+      internalID: 1520919222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_8
+      name: big_windmill_pumpkin_sample 1_8
       rect:
         serializedVersion: 2
         x: 0
@@ -291,14 +317,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc60a151e317cb84b9425e46ac09f52a
-      internalID: 2015916199
+      spriteID: 68db93d1d43549f4694f76999a58403c
+      internalID: 2103492052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_9
+      name: big_windmill_pumpkin_sample 1_9
       rect:
         serializedVersion: 2
         x: 128
@@ -313,14 +339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 101bd2fa06a50a943a5b8b98cab99e90
-      internalID: -2041305970
+      spriteID: eea5cd2bd1091ae4995f80e670553c9f
+      internalID: 1347294361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_10
+      name: big_windmill_pumpkin_sample 1_10
       rect:
         serializedVersion: 2
         x: 256
@@ -335,14 +361,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d112f4c5960f87409ec1190b56eba66
-      internalID: 1924031311
+      spriteID: a06fd3984db3f794f9bbb2803d913113
+      internalID: -1162061154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_11
+      name: big_windmill_pumpkin_sample 1_11
       rect:
         serializedVersion: 2
         x: 384
@@ -357,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99e4c5a370f15084f928d58f7efea915
-      internalID: -539046298
+      spriteID: ebab585a9d9494c40b2fd2622f5a7869
+      internalID: 2078571285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_12
+      name: big_windmill_pumpkin_sample 1_12
       rect:
         serializedVersion: 2
         x: 512
@@ -379,14 +405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 923a4ef7b6b962d4d94c2aab2ab70dbe
-      internalID: 1157478173
+      spriteID: cfd33e1d99d0f2947b0958b76526fc0e
+      internalID: 1318753656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_13
+      name: big_windmill_pumpkin_sample 1_13
       rect:
         serializedVersion: 2
         x: 640
@@ -401,14 +427,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db745766493c2384ea6fe00ca7f33148
-      internalID: -393991519
+      spriteID: c33dc1bf4abcf9f4b9cad285c4b954c3
+      internalID: -174340293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_14
+      name: big_windmill_pumpkin_sample 1_14
       rect:
         serializedVersion: 2
         x: 768
@@ -423,14 +449,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2f42f3793bf9ac45b25d3df06f1e2f0
-      internalID: 1017814916
+      spriteID: 9be1890617b0c484cb5da5c1cc24ddc9
+      internalID: -95843052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_15
+      name: big_windmill_pumpkin_sample 1_15
       rect:
         serializedVersion: 2
         x: 896
@@ -445,14 +471,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3e28d175a9ad4c45b67d1534aa009df
-      internalID: -1882307452
+      spriteID: 3838b40923b13284780f07f4cfcd9918
+      internalID: 300793826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_16
+      name: big_windmill_pumpkin_sample 1_16
       rect:
         serializedVersion: 2
         x: 0
@@ -467,14 +493,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0524a88b81bb575448d2ce5bd2361dc4
-      internalID: -1029757231
+      spriteID: 33afd2e269798b3468a1dde2883495f2
+      internalID: 684023815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_17
+      name: big_windmill_pumpkin_sample 1_17
       rect:
         serializedVersion: 2
         x: 128
@@ -489,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2c6f07d4c770424881268e5aef37ab4
-      internalID: 1640278532
+      spriteID: 8ff57d2cf2d42d242b240aa41051a37d
+      internalID: -1365813340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_18
+      name: big_windmill_pumpkin_sample 1_18
       rect:
         serializedVersion: 2
         x: 256
@@ -511,14 +537,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c80ca5635d76ae941b8d648fa561fc33
-      internalID: 1381732718
+      spriteID: 5bb1983e9d915934f8762778103cfe94
+      internalID: 96405402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_19
+      name: big_windmill_pumpkin_sample 1_19
       rect:
         serializedVersion: 2
         x: 384
@@ -533,14 +559,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae2d85707c28b644886a8be857d051c8
-      internalID: 1453435680
+      spriteID: e4064b352f3553a4ab96784b521d2212
+      internalID: 1279392019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_20
+      name: big_windmill_pumpkin_sample 1_20
       rect:
         serializedVersion: 2
         x: 512
@@ -555,14 +581,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7487442c885b222408b85bacc34cfd32
-      internalID: 397029815
+      spriteID: c9285afb87283274f80964fe0a115d44
+      internalID: 1387774639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_21
+      name: big_windmill_pumpkin_sample 1_21
       rect:
         serializedVersion: 2
         x: 640
@@ -577,14 +603,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e7e429347f77414c99f659bc8fbe5d7
-      internalID: 672748517
+      spriteID: fbde4dfdf3d549d4381e55a426f7bb82
+      internalID: 346729585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_22
+      name: big_windmill_pumpkin_sample 1_22
       rect:
         serializedVersion: 2
         x: 768
@@ -599,14 +625,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bc78b02cb40300459491c355c33618f
-      internalID: 2064795882
+      spriteID: 0dfe2ef2d649a8046a1907b2e7e66110
+      internalID: 108306701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_23
+      name: big_windmill_pumpkin_sample 1_23
       rect:
         serializedVersion: 2
         x: 896
@@ -621,14 +647,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b596dca6b58e0b4fab5fb172a1fe73d
-      internalID: -771736678
+      spriteID: 3bdbc0bfbe9054547bb332b92a0957c5
+      internalID: 24450461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_24
+      name: big_windmill_pumpkin_sample 1_24
       rect:
         serializedVersion: 2
         x: 0
@@ -643,14 +669,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50f5427a0f272f549bd232a0bce16b17
-      internalID: 982110655
+      spriteID: b2ffeb808c888fc41bd3c6943e292971
+      internalID: -1802681759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_25
+      name: big_windmill_pumpkin_sample 1_25
       rect:
         serializedVersion: 2
         x: 128
@@ -665,14 +691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7749efa556ccd194a808b8179eadbdd0
-      internalID: -333265915
+      spriteID: d374dbd368fadee479a644fcfd2c1b5a
+      internalID: 416031339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_26
+      name: big_windmill_pumpkin_sample 1_26
       rect:
         serializedVersion: 2
         x: 256
@@ -687,14 +713,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d65d41c43d7258489ff8dd729cad0ab
-      internalID: 1630905377
+      spriteID: 81885822673c3e54da0d8444ce4b2e0d
+      internalID: 1805125619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_27
+      name: big_windmill_pumpkin_sample 1_27
       rect:
         serializedVersion: 2
         x: 384
@@ -709,14 +735,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0b497806367c94419e39ce01fd4225d
-      internalID: -21551386
+      spriteID: 8d08cd11ed9cc4b4096e0ce5fb0dc6be
+      internalID: -382514471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_28
+      name: big_windmill_pumpkin_sample 1_28
       rect:
         serializedVersion: 2
         x: 512
@@ -731,14 +757,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82a6d18c360404d47885c5f877ac5de4
-      internalID: -904916929
+      spriteID: 030029903f28b6045a024793515a318d
+      internalID: -117398129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_29
+      name: big_windmill_pumpkin_sample 1_29
       rect:
         serializedVersion: 2
         x: 640
@@ -753,14 +779,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14597dd31cd53764181e6960784b295e
-      internalID: -766713986
+      spriteID: 05161341181d2e54aa0d24f007fffc50
+      internalID: -900726789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_30
+      name: big_windmill_pumpkin_sample 1_30
       rect:
         serializedVersion: 2
         x: 768
@@ -775,14 +801,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69d3d5d81c487dd4781b288475edba62
-      internalID: 200456083
+      spriteID: a99bc6ef9bf1dae4c86b815ea6b06c28
+      internalID: -1662685203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_31
+      name: big_windmill_pumpkin_sample 1_31
       rect:
         serializedVersion: 2
         x: 896
@@ -797,14 +823,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76328e55521552d4ca5f71fbb30d78b2
-      internalID: 378071193
+      spriteID: 86997143afafd7a4b8b346f9adfb950c
+      internalID: -85034793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_32
+      name: big_windmill_pumpkin_sample 1_32
       rect:
         serializedVersion: 2
         x: 0
@@ -819,14 +845,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 265920fa8c791ba46856c226dabda9d6
-      internalID: 1905813553
+      spriteID: 47fbd47e7feebfc4386197904fa7fcec
+      internalID: 1683950480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_33
+      name: big_windmill_pumpkin_sample 1_33
       rect:
         serializedVersion: 2
         x: 128
@@ -841,14 +867,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e01cf5fa4cde74d4a9fba2d66943122f
-      internalID: -533664634
+      spriteID: 1ee958a35b39c3d47a98bb52703635d6
+      internalID: 489739988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_34
+      name: big_windmill_pumpkin_sample 1_34
       rect:
         serializedVersion: 2
         x: 256
@@ -863,14 +889,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c620faafb3211804c99cd27afaf4087c
-      internalID: -2138373388
+      spriteID: b15c923fd473b734f90dac66186c1376
+      internalID: -1236939664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_35
+      name: big_windmill_pumpkin_sample 1_35
       rect:
         serializedVersion: 2
         x: 384
@@ -885,14 +911,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce6ecb16bc1b4694f88f357e4d6899ba
-      internalID: 1611658272
+      spriteID: cea53bcc1a76d7b4684b2d51438039bf
+      internalID: -336266233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_36
+      name: big_windmill_pumpkin_sample 1_36
       rect:
         serializedVersion: 2
         x: 512
@@ -907,14 +933,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8e3d3020a862e54caff3876c96b7b65
-      internalID: 623745689
+      spriteID: b61758cec4e7d7147a0767903c321351
+      internalID: -498831581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_37
+      name: big_windmill_pumpkin_sample 1_37
       rect:
         serializedVersion: 2
         x: 640
@@ -929,14 +955,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fbeed5330a1a074d9550c436696541d
-      internalID: 1194238482
+      spriteID: 052da9f79c9876247841ed57c9903b4b
+      internalID: 285800326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_38
+      name: big_windmill_pumpkin_sample 1_38
       rect:
         serializedVersion: 2
         x: 768
@@ -951,14 +977,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 075bd2189150ad54698a506c6bb57a8b
-      internalID: -1983565935
+      spriteID: a18a6f34b0a7f784a959c2d50dbf568f
+      internalID: -1839923133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_39
+      name: big_windmill_pumpkin_sample 1_39
       rect:
         serializedVersion: 2
         x: 896
@@ -973,14 +999,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9919f0d27f753ed4db87f6724c5cf564
-      internalID: 2088945935
+      spriteID: 9657a719563f3ee41b959fc5779d31aa
+      internalID: 1320820922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_40
+      name: big_windmill_pumpkin_sample 1_40
       rect:
         serializedVersion: 2
         x: 0
@@ -995,14 +1021,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de75f0fc256516e498b95db1abaebaae
-      internalID: 1329589412
+      spriteID: a000c872418f604409ca01e540a2ce67
+      internalID: 1342980786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_41
+      name: big_windmill_pumpkin_sample 1_41
       rect:
         serializedVersion: 2
         x: 128
@@ -1017,14 +1043,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fae7f24fe1d4ef84f9327609ae94c806
-      internalID: -1156343964
+      spriteID: a6dbf18f591efe9479b808986ef0901e
+      internalID: -760144374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_42
+      name: big_windmill_pumpkin_sample 1_42
       rect:
         serializedVersion: 2
         x: 256
@@ -1039,14 +1065,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17d111862dfea2045a5a187636c10235
-      internalID: 903089453
+      spriteID: ee23f19c37665a24b917f58977c9c4a8
+      internalID: 959115653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_43
+      name: big_windmill_pumpkin_sample 1_43
       rect:
         serializedVersion: 2
         x: 384
@@ -1061,14 +1087,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ace8d4d37e470f4796c4405b6774dd6
-      internalID: -1367840029
+      spriteID: 0080f6cbe099f4c4a8b2814aa39fc142
+      internalID: -1695057098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_44
+      name: big_windmill_pumpkin_sample 1_44
       rect:
         serializedVersion: 2
         x: 512
@@ -1083,14 +1109,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c555c2db0393d24fb75375cd4de60a9
-      internalID: 898320759
+      spriteID: c144f3bd8ae2e174f838b33d9ee852e9
+      internalID: 1900162902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_45
+      name: big_windmill_pumpkin_sample 1_45
       rect:
         serializedVersion: 2
         x: 640
@@ -1105,14 +1131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4966cfbf559ef5244bfd0565b74768ce
-      internalID: 652144494
+      spriteID: 967aed2f710395643bfaae7d585ab86f
+      internalID: 689312080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_46
+      name: big_windmill_pumpkin_sample 1_46
       rect:
         serializedVersion: 2
         x: 768
@@ -1127,14 +1153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b8848b737759ad4e9921cf34f5a2e43
-      internalID: -1395234933
+      spriteID: 70e0f292c40fe2c419dc8401a8d72525
+      internalID: -1375062280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_47
+      name: big_windmill_pumpkin_sample 1_47
       rect:
         serializedVersion: 2
         x: 896
@@ -1149,14 +1175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c6f7f8e99b46e84da0f7684b239ae90
-      internalID: 1115871461
+      spriteID: 81abcc6e70d596248b98c663c77882b3
+      internalID: 981972083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_48
+      name: big_windmill_pumpkin_sample 1_48
       rect:
         serializedVersion: 2
         x: 0
@@ -1171,14 +1197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b20d3489468871942baaa4547acbfc46
-      internalID: 1861833598
+      spriteID: 451a889e9c8821242849558dcf865b27
+      internalID: -1826199725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_49
+      name: big_windmill_pumpkin_sample 1_49
       rect:
         serializedVersion: 2
         x: 128
@@ -1193,14 +1219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5541806ad5b2f6d41bb9de4fb27ad4ff
-      internalID: -2072943262
+      spriteID: 99f1b5c0f3c2baf4eb1f6968b84e0c76
+      internalID: 912172439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_50
+      name: big_windmill_pumpkin_sample 1_50
       rect:
         serializedVersion: 2
         x: 256
@@ -1215,14 +1241,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3498df1cdbf55dc4095af5b0ce79f74b
-      internalID: 1632647670
+      spriteID: b5c060536e2f0be4fad07c3c7d7e4d81
+      internalID: -501025323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_51
+      name: big_windmill_pumpkin_sample 1_51
       rect:
         serializedVersion: 2
         x: 384
@@ -1237,14 +1263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ff37ece8f5d94d45bef9614c6228b75
-      internalID: -2018431555
+      spriteID: 16909353a37f6854b8449fcd7f009987
+      internalID: -603442665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_52
+      name: big_windmill_pumpkin_sample 1_52
       rect:
         serializedVersion: 2
         x: 512
@@ -1259,14 +1285,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7060675a5cb53314da7ff6f427dbed8d
-      internalID: -569294371
+      spriteID: 2969f027a62600945b84025701e00f8c
+      internalID: 1697688737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_53
+      name: big_windmill_pumpkin_sample 1_53
       rect:
         serializedVersion: 2
         x: 640
@@ -1281,14 +1307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddaa8448d7aaebd49a72359380fa2ce9
-      internalID: -643409615
+      spriteID: d1b17c15f065f1d45b964c6f642e4449
+      internalID: 1565716361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_54
+      name: big_windmill_pumpkin_sample 1_54
       rect:
         serializedVersion: 2
         x: 768
@@ -1303,14 +1329,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a47f8154b86514e8f145418c33c7ad
-      internalID: 1248755393
+      spriteID: 4a94b45df413c814d8434a6442e6e841
+      internalID: 728720398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_55
+      name: big_windmill_pumpkin_sample 1_55
       rect:
         serializedVersion: 2
         x: 896
@@ -1325,14 +1351,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 633e372eee4fcd84a8c0d7acee2481bb
-      internalID: -888474052
+      spriteID: d5780cf507ea9294899e2604cc6eef26
+      internalID: 1700826501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_56
+      name: big_windmill_pumpkin_sample 1_56
       rect:
         serializedVersion: 2
         x: 0
@@ -1347,14 +1373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2df72cc2a874754398ea41eb014e112
-      internalID: 193658439
+      spriteID: f63ce40d32dce0e49813e6ac7fc31fcb
+      internalID: -780180606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_57
+      name: big_windmill_pumpkin_sample 1_57
       rect:
         serializedVersion: 2
         x: 128
@@ -1369,14 +1395,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fcca72743058664db45f419b0efcdbc
-      internalID: -1988067202
+      spriteID: a11df0bc2d6195040abe9a4075d61ecf
+      internalID: 1788846839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_58
+      name: big_windmill_pumpkin_sample 1_58
       rect:
         serializedVersion: 2
         x: 256
@@ -1391,14 +1417,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e233e76e48edcb146938b63a90c31dd7
-      internalID: 2064045829
+      spriteID: 621e3d5cf2b37be44a2961f3c983a65a
+      internalID: -675278135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_59
+      name: big_windmill_pumpkin_sample 1_59
       rect:
         serializedVersion: 2
         x: 384
@@ -1413,14 +1439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a03ecf7549e623c44bc9428560be86e9
-      internalID: -1870750044
+      spriteID: 0d93b8e3da065444d97989d0ddfe97d8
+      internalID: 1538421737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_60
+      name: big_windmill_pumpkin_sample 1_60
       rect:
         serializedVersion: 2
         x: 512
@@ -1435,14 +1461,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fbcc492182eb4247867f6844a54fd29
-      internalID: 1749055983
+      spriteID: 2a474417dbbb20644b96cc8a210611c4
+      internalID: 839315121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_61
+      name: big_windmill_pumpkin_sample 1_61
       rect:
         serializedVersion: 2
         x: 640
@@ -1457,14 +1483,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 497a6983bd0635e4ab60daf226520bb2
-      internalID: 203284279
+      spriteID: d6c156d7dce5f1247b3cb196489e8b07
+      internalID: -270440093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_62
+      name: big_windmill_pumpkin_sample 1_62
       rect:
         serializedVersion: 2
         x: 768
@@ -1479,14 +1505,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc4c7233f5f76e34db6d67ebfe2cc193
-      internalID: -1427563576
+      spriteID: c2b4ad93007cf7b479c072a937096a7a
+      internalID: 741058860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windmill_pumpkin_sample_63
+      name: big_windmill_pumpkin_sample 1_63
       rect:
         serializedVersion: 2
         x: 896
@@ -1501,8 +1527,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1d560b973eaa1e4e875f49b7152bdba
-      internalID: -1547899456
+      spriteID: 4070d33e30923d34b8e743ebbb46465c
+      internalID: 986428539
       vertices: []
       indices: 
       edges: []
@@ -1511,7 +1537,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 842594456a827a941ae6662beff6f860
+    spriteID: f73fef4d10b5eef479c1c611a8d17c8c
     internalID: 0
     vertices: []
     indices: 
@@ -1521,70 +1547,70 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      windmill_pumpkin_sample_0: -1537189006
-      windmill_pumpkin_sample_1: -1737006479
-      windmill_pumpkin_sample_10: 1924031311
-      windmill_pumpkin_sample_11: -539046298
-      windmill_pumpkin_sample_12: 1157478173
-      windmill_pumpkin_sample_13: -393991519
-      windmill_pumpkin_sample_14: 1017814916
-      windmill_pumpkin_sample_15: -1882307452
-      windmill_pumpkin_sample_16: -1029757231
-      windmill_pumpkin_sample_17: 1640278532
-      windmill_pumpkin_sample_18: 1381732718
-      windmill_pumpkin_sample_19: 1453435680
-      windmill_pumpkin_sample_2: -1834960301
-      windmill_pumpkin_sample_20: 397029815
-      windmill_pumpkin_sample_21: 672748517
-      windmill_pumpkin_sample_22: 2064795882
-      windmill_pumpkin_sample_23: -771736678
-      windmill_pumpkin_sample_24: 982110655
-      windmill_pumpkin_sample_25: -333265915
-      windmill_pumpkin_sample_26: 1630905377
-      windmill_pumpkin_sample_27: -21551386
-      windmill_pumpkin_sample_28: -904916929
-      windmill_pumpkin_sample_29: -766713986
-      windmill_pumpkin_sample_3: 1960809611
-      windmill_pumpkin_sample_30: 200456083
-      windmill_pumpkin_sample_31: 378071193
-      windmill_pumpkin_sample_32: 1905813553
-      windmill_pumpkin_sample_33: -533664634
-      windmill_pumpkin_sample_34: -2138373388
-      windmill_pumpkin_sample_35: 1611658272
-      windmill_pumpkin_sample_36: 623745689
-      windmill_pumpkin_sample_37: 1194238482
-      windmill_pumpkin_sample_38: -1983565935
-      windmill_pumpkin_sample_39: 2088945935
-      windmill_pumpkin_sample_4: -1342593009
-      windmill_pumpkin_sample_40: 1329589412
-      windmill_pumpkin_sample_41: -1156343964
-      windmill_pumpkin_sample_42: 903089453
-      windmill_pumpkin_sample_43: -1367840029
-      windmill_pumpkin_sample_44: 898320759
-      windmill_pumpkin_sample_45: 652144494
-      windmill_pumpkin_sample_46: -1395234933
-      windmill_pumpkin_sample_47: 1115871461
-      windmill_pumpkin_sample_48: 1861833598
-      windmill_pumpkin_sample_49: -2072943262
-      windmill_pumpkin_sample_5: 1239477978
-      windmill_pumpkin_sample_50: 1632647670
-      windmill_pumpkin_sample_51: -2018431555
-      windmill_pumpkin_sample_52: -569294371
-      windmill_pumpkin_sample_53: -643409615
-      windmill_pumpkin_sample_54: 1248755393
-      windmill_pumpkin_sample_55: -888474052
-      windmill_pumpkin_sample_56: 193658439
-      windmill_pumpkin_sample_57: -1988067202
-      windmill_pumpkin_sample_58: 2064045829
-      windmill_pumpkin_sample_59: -1870750044
-      windmill_pumpkin_sample_6: 1553584246
-      windmill_pumpkin_sample_60: 1749055983
-      windmill_pumpkin_sample_61: 203284279
-      windmill_pumpkin_sample_62: -1427563576
-      windmill_pumpkin_sample_63: -1547899456
-      windmill_pumpkin_sample_7: 1665651958
-      windmill_pumpkin_sample_8: 2015916199
-      windmill_pumpkin_sample_9: -2041305970
+      big_windmill_pumpkin_sample 1_0: -485637573153548550
+      big_windmill_pumpkin_sample 1_1: -1343129206
+      big_windmill_pumpkin_sample 1_10: -1162061154
+      big_windmill_pumpkin_sample 1_11: 2078571285
+      big_windmill_pumpkin_sample 1_12: 1318753656
+      big_windmill_pumpkin_sample 1_13: -174340293
+      big_windmill_pumpkin_sample 1_14: -95843052
+      big_windmill_pumpkin_sample 1_15: 300793826
+      big_windmill_pumpkin_sample 1_16: 684023815
+      big_windmill_pumpkin_sample 1_17: -1365813340
+      big_windmill_pumpkin_sample 1_18: 96405402
+      big_windmill_pumpkin_sample 1_19: 1279392019
+      big_windmill_pumpkin_sample 1_2: 1285422556
+      big_windmill_pumpkin_sample 1_20: 1387774639
+      big_windmill_pumpkin_sample 1_21: 346729585
+      big_windmill_pumpkin_sample 1_22: 108306701
+      big_windmill_pumpkin_sample 1_23: 24450461
+      big_windmill_pumpkin_sample 1_24: -1802681759
+      big_windmill_pumpkin_sample 1_25: 416031339
+      big_windmill_pumpkin_sample 1_26: 1805125619
+      big_windmill_pumpkin_sample 1_27: -382514471
+      big_windmill_pumpkin_sample 1_28: -117398129
+      big_windmill_pumpkin_sample 1_29: -900726789
+      big_windmill_pumpkin_sample 1_3: -254747786
+      big_windmill_pumpkin_sample 1_30: -1662685203
+      big_windmill_pumpkin_sample 1_31: -85034793
+      big_windmill_pumpkin_sample 1_32: 1683950480
+      big_windmill_pumpkin_sample 1_33: 489739988
+      big_windmill_pumpkin_sample 1_34: -1236939664
+      big_windmill_pumpkin_sample 1_35: -336266233
+      big_windmill_pumpkin_sample 1_36: -498831581
+      big_windmill_pumpkin_sample 1_37: 285800326
+      big_windmill_pumpkin_sample 1_38: -1839923133
+      big_windmill_pumpkin_sample 1_39: 1320820922
+      big_windmill_pumpkin_sample 1_4: -2092256515
+      big_windmill_pumpkin_sample 1_40: 1342980786
+      big_windmill_pumpkin_sample 1_41: -760144374
+      big_windmill_pumpkin_sample 1_42: 959115653
+      big_windmill_pumpkin_sample 1_43: -1695057098
+      big_windmill_pumpkin_sample 1_44: 1900162902
+      big_windmill_pumpkin_sample 1_45: 689312080
+      big_windmill_pumpkin_sample 1_46: -1375062280
+      big_windmill_pumpkin_sample 1_47: 981972083
+      big_windmill_pumpkin_sample 1_48: -1826199725
+      big_windmill_pumpkin_sample 1_49: 912172439
+      big_windmill_pumpkin_sample 1_5: 95473967
+      big_windmill_pumpkin_sample 1_50: -501025323
+      big_windmill_pumpkin_sample 1_51: -603442665
+      big_windmill_pumpkin_sample 1_52: 1697688737
+      big_windmill_pumpkin_sample 1_53: 1565716361
+      big_windmill_pumpkin_sample 1_54: 728720398
+      big_windmill_pumpkin_sample 1_55: 1700826501
+      big_windmill_pumpkin_sample 1_56: -780180606
+      big_windmill_pumpkin_sample 1_57: 1788846839
+      big_windmill_pumpkin_sample 1_58: -675278135
+      big_windmill_pumpkin_sample 1_59: 1538421737
+      big_windmill_pumpkin_sample 1_6: -1928585556
+      big_windmill_pumpkin_sample 1_60: 839315121
+      big_windmill_pumpkin_sample 1_61: -270440093
+      big_windmill_pumpkin_sample 1_62: 741058860
+      big_windmill_pumpkin_sample 1_63: 986428539
+      big_windmill_pumpkin_sample 1_7: 1520919222
+      big_windmill_pumpkin_sample 1_8: 2103492052
+      big_windmill_pumpkin_sample 1_9: 1347294361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
