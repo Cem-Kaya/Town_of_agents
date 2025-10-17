@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
     [SerializeField]
     private string itemName;
 
+    [TextArea]
     [SerializeField]
     private string itemDesc;
 
