@@ -63,8 +63,7 @@ public class ConversationManager
     }
     
     private void LoadPrompts(string culpritName)
-    {
-     
+    {     
         var prompts = LLMUtils.LoadPrompts(streamingAssetsPath);
         string townMemory = LLMUtils.LoadTownCollectiveMemory(streamingAssetsPath);        
         string generalRules = LLMUtils.LoadGeneralRules(streamingAssetsPath);      
@@ -73,7 +72,7 @@ public class ConversationManager
         {
             bool isCulprit = culpritName == npc.displayName;
 
-            PromptInfo prompt = prompts.Where(p => p.IsCulprit == isCulprit).FirstOrDefault(p => p.PlayerRole == npc.Occupation);
+            PromptInfo prompt = prompts.Where(p => p.IsCulprit == isCulprit).FirstOrDefault(p => p.PlayerRole == npc.GetOccupation());
             if (prompt == null)
                 throw new Exception($"Prompt file for NPC: {npc.displayName} with occupation: {npc.Occupation} and IsCulprit:{isCulprit} cannot be found.");
 
@@ -90,7 +89,7 @@ public class ConversationManager
         string apiKey = LLMUtils.GetOpenAIApiKey();
         int mayorIndex = npcs.IndexOf(npcs.First(n => n.Occupation.ToLower() == "mayor"));
         int[] availableIndices = Enumerable.Range(0, npcs.Count).Where(i => i != mayorIndex).ToArray();
-        int rand = new Random(DateTime.Now.Millisecond).Next(0, availableIndices.Length - 1);
+        int rand = new Random(DateTime.Now.Millisecond).Next(0, availableIndices.Length);
         culpritIndex = availableIndices[rand];        
 
         string culpritName = npcs[culpritIndex].displayName;

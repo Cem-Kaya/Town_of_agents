@@ -46,6 +46,9 @@ public static class LLMUtils
         foreach (string path in flist)
         {
             FileInfo info = new FileInfo(path);
+            if (info.Extension == ".meta")
+                continue;
+                
             string[] parts = info.Name.Replace(info.Extension, "").Split('_');
             if (parts.Length < 3)
                 continue;
