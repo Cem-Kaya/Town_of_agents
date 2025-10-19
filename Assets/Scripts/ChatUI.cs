@@ -47,7 +47,7 @@ public class ChatUI : MonoBehaviour
 
         try
         {
-            ConversationManager conversationManager = new ConversationManager(allNPCs, Application.streamingAssetsPath, suspectIntelligenceLevel: 1);
+            ConversationManager conversationManager = new ConversationManager(allNPCs, Application.streamingAssetsPath, suspectIntelligenceLevel: 3);
             //This retrieves the LLM parameters such as API key. Raises error if API key not found.
             //It initializes the LLM agent instructions for each NPC player.
             conversationManager.Start();
