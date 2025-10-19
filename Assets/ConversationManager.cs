@@ -6,6 +6,8 @@ using System.Linq;
 public class ConversationManager
 {
     private readonly string playerModel;
+    private readonly string streamingAssetsPath;
+
     //private string model = "gpt-5-nano-2025-08-07";//"gpt-5-mini";
     private List<NPCInteractable> npcs;    
     private int culpritIndex;
@@ -17,7 +19,7 @@ public class ConversationManager
     /// <param name="suspectIntelligenceLevel">Gets or sets the suspect's intelligence level. Allowed range [1-3]. This determines which model to use.
     /// Currently supported models: [1] gpt-5-nano, [2] gpt-5-mini, [3] gpt-5-nano.
     /// Default: gpt-5-nano </param>
-    public ConversationManager(ICollection<NPCInteractable> npcs, int suspectIntelligenceLevel = 1)
+    public ConversationManager(ICollection<NPCInteractable> npcs, string streamingAssetsPath, int suspectIntelligenceLevel = 1)
     {
         if (npcs == null)
             throw new ArgumentNullException(nameof(npcs));
@@ -31,6 +33,7 @@ public class ConversationManager
             playerModel = "gpt-5-mini-2025-08-07";
         else
             playerModel = "gpt-5-2025-08-07";//check if this is true!
+        this.streamingAssetsPath = streamingAssetsPath;
     }
 
     private List<MpcLlmController> players;
@@ -61,10 +64,10 @@ public class ConversationManager
     
     private void LoadPrompts(string culpritName)
     {
-        string folder = "/Users/m/Documents/masterAI_offline/AICG2025/town_of_agents_llm/TownOfAgentsLLMDev/StreamingAssets";
-        var prompts = LLMUtils.LoadPrompts(folder);
-        string townMemory = LLMUtils.LoadTownCollectiveMemory(folder);        
-        string generalRules = LLMUtils.LoadGeneralRules(folder);      
+     
+        var prompts = LLMUtils.LoadPrompts(streamingAssetsPath);
+        string townMemory = LLMUtils.LoadTownCollectiveMemory(streamingAssetsPath);        
+        string generalRules = LLMUtils.LoadGeneralRules(streamingAssetsPath);      
 
         foreach (var npc in npcs)
         {
@@ -85,10 +88,10 @@ public class ConversationManager
     public void Start()
     {
         string apiKey = LLMUtils.GetOpenAIApiKey();
-        culpritIndex = new Random(DateTime.Now.Millisecond).Next(0, npcs.Count - 1);
         int mayorIndex = npcs.IndexOf(npcs.First(n => n.Occupation.ToLower() == "mayor"));
-        while (culpritIndex == mayorIndex)
-            culpritIndex = new Random(DateTime.Now.Millisecond).Next(0, npcs.Count - 1);
+        int[] availableIndices = Enumerable.Range(0, npcs.Count).Where(i => i != mayorIndex).ToArray();
+        int rand = new Random(DateTime.Now.Millisecond).Next(0, availableIndices.Length - 1);
+        culpritIndex = availableIndices[rand];        
 
         string culpritName = npcs[culpritIndex].displayName;
         LoadPrompts(culpritName);

@@ -26,6 +26,8 @@ public class NPCInteractable : MonoBehaviour
     bool playerInRange;
     Player cachedPlayer;
 
+
+    public string GetOccupation() => Occupation.Trim().ToLower();
     void Awake()
     {
         trig = GetComponent<Collider2D>();
