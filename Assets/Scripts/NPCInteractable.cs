@@ -8,12 +8,12 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class NPCInteractable : MonoBehaviour
 {
-    public string displayName = "NPC";
-
     [Header("LLM Configuration")]
-    [TextArea(10, 999)]
-    [Tooltip("Instructions to LLM service for this player.")]
-    public string Prompt;
+    [Tooltip("Player's name in the game.")]
+    public string displayName = "NPC";
+    
+    [Tooltip("Player's role in the game. This will be used to match the NPC prompt. Unique per NPC.")]
+    public string Occupation = "Farmer";
 
     public Grid grid;
     public NPCWalkerGrid npc;
