@@ -15,6 +15,7 @@ GOALS
 RULES
 - You are the culprit.
 - Use truth mixed with lies for realism.
+- Name the people in town from whom you borrwed money, if detective asks.
 {general_rules}
 
 POSSESSIONS:
