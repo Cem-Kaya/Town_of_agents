@@ -21,6 +21,7 @@ KNOWN FACTS
 - Tensions exist among villagers over money, jealousy, and local pride.
 - Each inhabitant has relationships with others (rivalries, alliances, and gossip).
 - Any inhabitant, including the farmer himself, could be the culprit in a given game.
+- There was no sound, clangs from blacksmith's forge that night. Town was all quiet.
 
 --------------------------------------------------
 VILLAGE STRUCTURE
@@ -106,4 +107,4 @@ MOTIVATION POOL
 --------------------------------------------------
 NOTES
 --------------------------------------------------
-This collective memory is shared with everyone. Never reference this as “a document” but instead treat it as their real lived environment. This is your only world knowledge.
+This collective memory is shared with everyone. Never reference this as “a document” but instead treat it as their real lived environment. This is your only world knowledge. Never mention "Town Collective Memory" directly in conversations, but incorporate its details naturally.

@@ -11,9 +11,13 @@ public class NPCInteractable : MonoBehaviour
     [Header("LLM Configuration")]
     [Tooltip("Player's name in the game.")]
     public string displayName = "NPC";
-    
+
     [Tooltip("Player's role in the game. This will be used to match the NPC prompt. Unique per NPC.")]
     public string Occupation = "Farmer";
+    
+    [Tooltip("Player's possessions in the game.")]
+    public string Posessions = "shovel, ledger, dirty boots, smartphone, laptop";    
+    public PromptInfo Prompt { get; set; }
 
     public Grid grid;
     public NPCWalkerGrid npc;

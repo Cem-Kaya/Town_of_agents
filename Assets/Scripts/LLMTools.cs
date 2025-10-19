@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text.Json;
 using OpenAI.Responses;
@@ -9,7 +10,7 @@ using Unity.VisualScripting;
 
 public class LLMTools
 {
-    private static List<FunctionTool> _tools = new List<FunctionTool>();    
+    private static List<FunctionTool> _tools = new List<FunctionTool>();
 
     static LLMTools()
     {
@@ -86,7 +87,7 @@ public class LLMTools
                     description = "Your reason to refuse."
                 }
             },
-            required = new[] { "item_name","reason" },
+            required = new[] { "item_name", "reason" },
             additionalProperties = false
         }),
             strictModeEnabled: true
@@ -108,7 +109,7 @@ public class LLMTools
         return parameters[paramName]?.ToString();
     }
 
-    public static Dictionary<string,object> ParseParameters(ReadOnlyMemory<byte> functionCallArguments)
+    public static Dictionary<string, object> ParseParameters(ReadOnlyMemory<byte> functionCallArguments)
     {
         using JsonDocument argumentsJson = JsonDocument.Parse(functionCallArguments);
         Dictionary<string, JsonElement> jp = argumentsJson.Deserialize<Dictionary<string, JsonElement>>();
@@ -147,6 +148,14 @@ public class LLMTools
         return parameters;
     }
 
+    public static Dictionary<string, string> LoadPrompts(string promptsFolder = "/StreamingAssets")
+    {
+        Dictionary<string, string> prompts = new Dictionary<string, string>();
+        Directory.GetFiles(promptsFolder, "prompts_*");
+
+        return prompts;
+    }
 }
+
 
 #pragma warning restore OPENAI001
