@@ -86,12 +86,27 @@ public class NPCInteractable : MonoBehaviour
         ChatUI.Instance.AddNPCMessage($"Hello! I'm {displayName}.");
     }
 
+    NPCInteractable FindOtherNpc(string nameOrOccupation)
+    {
+        nameOrOccupation = nameOrOccupation.ToLower().Trim();
+
+        foreach (var npc in otherPlayers)
+        {
+            if (nameOrOccupation.Contains(npc.displayName.ToLower().Trim()) ||
+                nameOrOccupation.Contains(npc.Occupation.ToLower().Trim()))
+            {
+                return npc;
+            }
+        }
+
+        return null;
+    }
     void MoveTo(string otherNpcName)
     {
         if (string.IsNullOrWhiteSpace(otherNpcName))
             throw new ArgumentException("The parameter 'player_name' is required.", nameof(otherNpcName));
 
-        var other = otherPlayers?.FirstOrDefault(n => n.displayName == otherNpcName);
+        var other = FindOtherNpc(otherNpcName);
         if (other == null)
             throw new ArgumentException($"There is no player by that name: {otherNpcName}", nameof(otherNpcName));
 
