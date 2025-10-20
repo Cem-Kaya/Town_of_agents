@@ -87,10 +87,11 @@ public class ConversationManager
     public void Start()
     {
         string apiKey = LLMUtils.GetOpenAIApiKey();
-        int mayorIndex = npcs.IndexOf(npcs.First(n => n.Occupation.ToLower() == "mayor"));
-        int[] availableIndices = Enumerable.Range(0, npcs.Count).Where(i => i != mayorIndex).ToArray();
-        int rand = new Random(DateTime.Now.Millisecond).Next(0, availableIndices.Length);
-        culpritIndex = availableIndices[rand];        
+        // int mayorIndex = npcs.IndexOf(npcs.First(n => n.Occupation.ToLower() == "mayor"));
+        // int[] availableIndices = Enumerable.Range(0, npcs.Count).Where(i => i != mayorIndex).ToArray();
+        // int rand = new Random(DateTime.Now.Millisecond).Next(0, availableIndices.Length);
+        // culpritIndex = availableIndices[rand]; 
+        culpritIndex = npcs.IndexOf(npcs.First(n => n.GetOccupation() == "innkeeper"));
 
         string culpritName = npcs[culpritIndex].displayName;
         LoadPrompts(culpritName);

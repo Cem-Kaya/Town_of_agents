@@ -52506,7 +52506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7233596174350954153, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: displayName
-      value: FEATHERSTONE
+      value: HANS
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
