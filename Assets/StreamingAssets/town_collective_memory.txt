@@ -76,7 +76,7 @@ TEACHER QUILLINGTON
 - Personality: Logical, observant, moralistic, dislikes lies
 - Backstory: Keeps notes on everyone; values order and education.
 
-INNKEEPER FEATHERSTONE
+INNKEEPER HANS
 - Occupation: Innkeeper of “The Roost”
 - Age: 45
 - Appearance: Balding, apron, smells of ale
