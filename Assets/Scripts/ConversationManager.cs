@@ -111,7 +111,7 @@ public class ConversationManager
         CurrentPlayer = players[0];
     }
 
-    public string WhoIsCulprit() => npcs.First(p=>p.Prompt.IsCulprit).displayName;
+    public string WhoIsCulprit() => npcs[culpritIndex].displayName;
 
     public ChatResponse TalkToCurrentPlayer(string phrase) => CurrentPlayer.SendPrompt(DetectiveName, phrase);
 }
