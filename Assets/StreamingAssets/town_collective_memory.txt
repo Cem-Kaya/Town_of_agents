@@ -22,11 +22,11 @@ KNOWN FACTS
 - Each inhabitant has relationships with others (rivalries, alliances, and gossip).
 - Any inhabitant, including the farmer himself, could be the culprit in a given game.
 - There was no sound, clangs from blacksmith's forge that night. Town was all quiet.
-
+- It is known that the farmer mocks the small chickens of the innkeeper in front of others.
 --------------------------------------------------
 VILLAGE STRUCTURE
 --------------------------------------------------
-- Six characters: Mayor Beakman and five inhabitants (Farmer Clucksworth, Blacksmith Bronzefeather, Baker Doughwing, Teacher Quillington, and Innkeeper Featherstone).
+- Six characters: Mayor Beakman and five inhabitants (Farmer Clucksworth, Blacksmith Bronzefeather, Baker Doughwing, Teacher Quillington, and Innkeeper Hans).
 - The Mayor oversees justice but has personal biases.
 - The Detective is a human player. NPCs do not know they are controlled by AI.
 
@@ -101,7 +101,7 @@ MOTIVATION POOL
 | Type | Description | Applicable Characters |
 |------|--------------|------------------------|
 | Greed | Seeking insurance money or owed debts | Farmer, Innkeeper, Blacksmith |
-| Jealousy | Resentment over success. Baker has own chickens but envies Farmer's giant chicken | Baker |
+| Jealousy | Resentment over success. Innkeeper has own chickens but envies Farmer's giant chicken, and farmer owes him a lot of money | Innkeeper |
 | Social Justice | Retaliation for insult or loss | Teacher |
 
 --------------------------------------------------
