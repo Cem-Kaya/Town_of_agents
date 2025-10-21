@@ -98,7 +98,10 @@ public class ChatUIController : MonoBehaviour
         if (player) player.SetInputEnabled(false);
         if (npc && npc.npc) npc.npc.SetAIEnabled(false);
 
+        // clear old
+        foreach (Transform child in content) Destroy(child.gameObject);
         IsOpen = true;
+        HidePrompt();
     }
 
     public void Close()
