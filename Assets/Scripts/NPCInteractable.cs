@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using PimDeWitte.UnityMainThreadDispatcher;
 using UnityEngine;
@@ -8,26 +7,34 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class NPCInteractable : MonoBehaviour
 {
+    [Header("UI / Dialogue")]
+    public Sprite portrait;   // drag a headshot here (optional)
+
     [Header("LLM Configuration")]
-    [Tooltip("Player's name in the game.")]
+    [Tooltip("NPC's display name in the game.")]
     public string displayName = "NPC";
 
-    [Tooltip("Player's role in the game. This will be used to match the NPC prompt. Unique per NPC.")]
+    [Tooltip("Unique role per NPC. Used to match the NPC prompt.")]
     public string Occupation = "Farmer";
-    
-    [Tooltip("Player's possessions in the game.")]
-    public string Posessions = "shovel, ledger, dirty boots, smartphone, laptop";    
+
+    [Tooltip("NPC's possessions in the game.")]
+    public string Posessions = "shovel, ledger, dirty boots, smartphone, laptop";
+
     public PromptInfo Prompt { get; set; }
 
+    [Header("Movement / Grid")]
     public Grid grid;
     public NPCWalkerGrid npc;
 
-    Collider2D trig;
-    bool playerInRange;
-    Player cachedPlayer;
+    private Collider2D trig;
+    private bool playerInRange;
+    private Player cachedPlayer;
 
+    // Track if *this* NPC opened the chat, so we only auto-close our own session on exit.
+    private bool openedChatThisSession;
 
     public string GetOccupation() => Occupation.Trim().ToLower();
+
     void Awake()
     {
         trig = GetComponent<Collider2D>();
@@ -36,25 +43,36 @@ public class NPCInteractable : MonoBehaviour
         if (!grid) grid = UnityEngine.Object.FindFirstObjectByType<Grid>();
         if (!npc) npc = GetComponent<NPCWalkerGrid>();
 
-        // If it's a BoxCollider2D and size is tiny, default to 3x3 cells
+        // If it's a BoxCollider2D and tiny, expand to ~3x3 cells
         if (trig is BoxCollider2D box && box.size.sqrMagnitude < 0.01f && grid)
             box.size = new Vector2(grid.cellSize.x * 3f, grid.cellSize.y * 3f);
     }
 
+    void OnDisable()
+    {
+        // Safety: clear range state and hide prompt if we get disabled while the player is inside
+        playerInRange = false;
+        var ui = ChatUIController.Instance;
+        if (ui != null) ui.HidePrompt();
+        openedChatThisSession = false;
+        cachedPlayer = null;
+    }
+
     void Update()
     {
-        if (playerInRange && !ChatUI.Instance.IsOpen)
+        var ui = ChatUIController.Instance;
+
+        if (playerInRange && ui != null && !ui.IsOpen)
         {
-            ChatUI.Instance.ShowPrompt();
+            ui.ShowPrompt();
+
             if (Input.GetKeyDown(KeyCode.F))
-                StartChat();
+                StartChat(ui);
         }
         else
         {
-            //ChatUI.Instance.HidePrompt();
+            // No-op; exit hides prompt in OnTriggerExit2D.
         }
-
-        // If chat got closed while we're still in range, nothing else to do
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -62,58 +80,83 @@ public class NPCInteractable : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         playerInRange = true;
         cachedPlayer = other.GetComponent<Player>();
+
+        var ui = ChatUIController.Instance;
+        if (ui != null && !ui.IsOpen)
+            ui.ShowPrompt();
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        playerInRange = false;
-        ChatUI.Instance.HidePrompt();
 
-        if (ChatUI.Instance.IsOpen) ChatUI.Instance.Close();
+        playerInRange = false;
+        var ui = ChatUIController.Instance;
+
+        if (ui != null)
+        {
+            ui.HidePrompt();
+
+            // Only close automatically if this NPC opened the chat.
+            if (openedChatThisSession && ui.IsOpen)
+                ui.Close();
+        }
+
+        openedChatThisSession = false;
         cachedPlayer = null;
     }
 
-    NPCInteractable[] otherPlayers;
-    void StartChat()
+    private void StartChat(ChatUIController ui)
     {
-        if (!cachedPlayer) return;
+        if (ui == null) return;
+        if (cachedPlayer == null) return;
 
-        otherPlayers = FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None);
-        ChatUI.Instance.Open(this, cachedPlayer);
+        ui.HidePrompt();
+        ui.Open(this, cachedPlayer);
+        openedChatThisSession = true;
 
-        // Optional greeting:
-        ChatUI.Instance.AddNPCMessage($"Hello! I'm {displayName}.");
+        // Optional greeting to prove UI path works even if LLM is down
+        ui.AddNPCMessageBubble("Hi there!");
     }
 
-    NPCInteractable FindOtherNpc(string nameOrOccupation)
-    {
-        nameOrOccupation = nameOrOccupation.ToLower().Trim();
+    // ===== Optional NPC->NPC movement helpers =====
 
-        foreach (var npc in otherPlayers)
+    private NPCInteractable[] otherPlayers;
+
+    private NPCInteractable FindOtherNpc(string nameOrOccupation)
+    {
+        nameOrOccupation = (nameOrOccupation ?? string.Empty).ToLower().Trim();
+        if (otherPlayers == null || otherPlayers.Length == 0)
+            otherPlayers = FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None);
+
+        foreach (var n in otherPlayers)
         {
-            if (nameOrOccupation.Contains(npc.displayName.ToLower().Trim()) ||
-                nameOrOccupation.Contains(npc.Occupation.ToLower().Trim()))
+            if (n == null) continue;
+            // FIX: use Contains (capital C)
+            if (nameOrOccupation.Contains(n.displayName.ToLower().Trim()) ||
+                nameOrOccupation.Contains(n.Occupation.ToLower().Trim()))
             {
-                return npc;
+                return n;
             }
         }
-
         return null;
     }
-    void MoveTo(string otherNpcName)
+
+    private void MoveTo(string otherNpcName)
     {
         if (string.IsNullOrWhiteSpace(otherNpcName))
-            throw new ArgumentException("The parameter 'player_name' is required.", nameof(otherNpcName));
+            throw new ArgumentException("The parameter 'npc_name' is required.", nameof(otherNpcName));
 
         var other = FindOtherNpc(otherNpcName);
         if (other == null)
             throw new ArgumentException($"There is no player by that name: {otherNpcName}", nameof(otherNpcName));
 
-        bool moving = true;
-        Exception err = default;
+        if (grid == null || npc == null)
+            throw new InvalidOperationException("Grid or NPCWalkerGrid is not assigned.");
 
-        // Execute on main thread
+        bool moving = true;
+        Exception err = null;
+
         UnityMainThreadDispatcher.Instance().Enqueue(() =>
         {
             try
@@ -122,9 +165,12 @@ public class NPCInteractable : MonoBehaviour
                 Vector3Int adjacentCell = new Vector3Int(targetCell.x - 1, targetCell.y, targetCell.z);
                 npc.GoToCell(adjacentCell);
 
-                //ChatUI.Instance.HidePrompt();
-                if (ChatUI.Instance.IsOpen)
-                    ChatUI.Instance.Close();
+                var ui = ChatUIController.Instance;
+                if (ui != null)
+                {
+                    if (openedChatThisSession && ui.IsOpen)
+                        ui.Close();
+                }
 
                 moving = false;
             }
@@ -135,20 +181,16 @@ public class NPCInteractable : MonoBehaviour
             }
         });
 
-        // Wait for main thread execution to complete
-        while (moving)
-        {
-            Thread.Sleep(1);
-        }
+        while (moving) Thread.Sleep(1);
 
-        if (err != null)
-            throw err;
+        if (err != null) throw err;
     }
+
+    // ===== LLM action wrappers =====
 
     private ActionResponse HandoverSafe(string callName, Dictionary<string, object> parameters)
     {
-        ActionResponse response = new ActionResponse(callName);
-        response.Parameters = parameters;
+        var response = new ActionResponse(callName) { Parameters = parameters };
 
         string itemName = LLMTools.TryGetValueAsString(parameters, "item_name");
         if (string.IsNullOrWhiteSpace(itemName))
@@ -156,17 +198,16 @@ public class NPCInteractable : MonoBehaviour
             response.IsSuccessful = false;
             response.Output = "The string valued parameter 'item_name' is required.";
             return response;
-        }        
+        }
 
         response.IsSuccessful = true;
         response.Output = $"{displayName} handed over the {itemName}";
         return response;
     }
-    
+
     private ActionResponse RejectHandoverSafe(string callName, Dictionary<string, object> parameters)
     {
-        ActionResponse response = new ActionResponse(callName);
-        response.Parameters = parameters;
+        var response = new ActionResponse(callName) { Parameters = parameters };
 
         string itemName = LLMTools.TryGetValueAsString(parameters, "item_name");
         if (string.IsNullOrWhiteSpace(itemName))
@@ -175,7 +216,6 @@ public class NPCInteractable : MonoBehaviour
             response.Output = "The string valued parameter 'item_name' is required.";
             return response;
         }
-        
         string reason = LLMTools.TryGetValueAsString(parameters, "reason");
         if (string.IsNullOrWhiteSpace(reason))
         {
@@ -185,24 +225,16 @@ public class NPCInteractable : MonoBehaviour
         }
 
         response.IsSuccessful = true;
-        response.Output = $"{displayName} rejected to handover the {itemName}. Reason: {reason}";
+        response.Output = $"{displayName} refused to hand over the {itemName}. Reason: {reason}";
         return response;
     }
 
     private ActionResponse MoveToSafe(string callName, Dictionary<string, object> parameters)
     {
-        ActionResponse response = new ActionResponse(callName);
-        response.Parameters = parameters;
+        var response = new ActionResponse(callName) { Parameters = parameters };
 
-        if (parameters == null || !parameters.ContainsKey("npc_name"))
-        {
-            response.IsSuccessful = false;
-            response.Output = "The string valued parameter 'npc_name' is required.";
-            return response;
-        }
-
-        string otherNpcName = parameters["npc_name"]?.ToString();
-        if (otherNpcName == null)
+        string otherNpcName = LLMTools.TryGetValueAsString(parameters, "npc_name");
+        if (string.IsNullOrWhiteSpace(otherNpcName))
         {
             response.IsSuccessful = false;
             response.Output = "The string valued parameter 'npc_name' is required.";
@@ -219,26 +251,30 @@ public class NPCInteractable : MonoBehaviour
         {
             response.IsSuccessful = false;
             response.Error = ex;
-            response.Output = $"You cannot visit the '{otherNpcName}' at the moment because of a personal excuse.";
+            response.Output = $"You cannot visit '{otherNpcName}' right now.";
         }
 
         return response;
-    }    
+    }
 
     public ActionResponse PerformAction(string actionName, Dictionary<string, object> parameters)
     {
         if (string.IsNullOrEmpty(actionName))
             throw new ArgumentNullException(nameof(actionName));
 
-        actionName = actionName.ToLower();
         string goToFuncName = "go_to_npc";
         string handoverFunctionName = "handover_item_to_detective";
         string refuseHandoverFunctionName = "refuse_handover_item_to_detective";
 
-        ActionResponse response = new ActionResponse(actionName);
+        actionName = actionName.ToLowerInvariant();
 
-        bool supports = string.Equals(actionName, goToFuncName) || string.Equals(actionName, handoverFunctionName) || string.Equals(actionName, refuseHandoverFunctionName);
-        if (!supports)
+        var response = new ActionResponse(actionName);
+        bool supported =
+            actionName == goToFuncName ||
+            actionName == handoverFunctionName ||
+            actionName == refuseHandoverFunctionName;
+
+        if (!supported)
         {
             response.IsSuccessful = false;
             response.Error = new ArgumentException($"Unsupported action: '{actionName}'", nameof(actionName));
@@ -246,32 +282,20 @@ public class NPCInteractable : MonoBehaviour
             return response;
         }
 
-        if (string.Equals(actionName, goToFuncName))
-        {
+        if (actionName == goToFuncName)
             response = MoveToSafe(goToFuncName, parameters);
-            LogActionResponse(response);
-        }
-
-        if (string.Equals(actionName, handoverFunctionName))
-        {
+        else if (actionName == handoverFunctionName)
             response = HandoverSafe(handoverFunctionName, parameters);
-            LogActionResponse(response);
-        }
-
-        if (string.Equals(actionName, refuseHandoverFunctionName))
-        {
+        else if (actionName == refuseHandoverFunctionName)
             response = RejectHandoverSafe(refuseHandoverFunctionName, parameters);
-            LogActionResponse(response);
-        }
 
+        LogActionResponse(response);
         return response;
     }
 
     private void LogActionResponse(ActionResponse response, bool errorOnly = false)
     {
-        if (errorOnly && response.IsSuccessful)
-            return;
-
+        if (errorOnly && response.IsSuccessful) return;
         Debug.Log(response.ToLogString(false));
     }
 }
