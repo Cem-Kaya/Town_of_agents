@@ -25,8 +25,7 @@ public class NPCInteractable : MonoBehaviour
     Collider2D trig;
     bool playerInRange;
     Player cachedPlayer;
-
-
+    
     public string GetOccupation() => Occupation.Trim().ToLower();
     void Awake()
     {
@@ -43,9 +42,9 @@ public class NPCInteractable : MonoBehaviour
 
     void Update()
     {
-        if (playerInRange && !ChatUI.Instance.IsOpen)
+        if (playerInRange && !ChatUIController.Instance.IsOpen)
         {
-            ChatUI.Instance.ShowPrompt();
+            ChatUIController.Instance.ShowPrompt();
             if (Input.GetKeyDown(KeyCode.F))
                 StartChat();
         }
@@ -68,9 +67,9 @@ public class NPCInteractable : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         playerInRange = false;
-        ChatUI.Instance.HidePrompt();
+        ChatUIController.Instance.HidePrompt();
 
-        if (ChatUI.Instance.IsOpen) ChatUI.Instance.Close();
+        if (ChatUIController.Instance.IsOpen) ChatUIController.Instance.Close();
         cachedPlayer = null;
     }
 
@@ -80,10 +79,10 @@ public class NPCInteractable : MonoBehaviour
         if (!cachedPlayer) return;
 
         otherPlayers = FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None);
-        ChatUI.Instance.Open(this, cachedPlayer);
+        ChatUIController.Instance.Open(this, cachedPlayer);
 
         // Optional greeting:
-        ChatUI.Instance.AddNPCMessage($"Hello! I'm {displayName}.");
+        ChatUIController.Instance.AddNPCMessageBubble("Hi there!");
     }
 
     NPCInteractable FindOtherNpc(string nameOrOccupation)
@@ -123,8 +122,8 @@ public class NPCInteractable : MonoBehaviour
                 npc.GoToCell(adjacentCell);
 
                 //ChatUI.Instance.HidePrompt();
-                if (ChatUI.Instance.IsOpen)
-                    ChatUI.Instance.Close();
+                if (ChatUIController.Instance.IsOpen)
+                    ChatUIController.Instance.Close();
 
                 moving = false;
             }
