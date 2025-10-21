@@ -73,6 +73,9 @@ public class ChatUIController : MonoBehaviour
 
         conversationManager = GetConversationManager();
         Debug.Log($"CULPRIT: {conversationManager.WhoIsCulprit()}");
+
+        HidePrompt();
+        Close();
     }
 
     private void OnEnable()
@@ -80,6 +83,14 @@ public class ChatUIController : MonoBehaviour
         Canvas.ForceUpdateCanvases();
         SnapToBottom();
         if (playerInputField) playerInputField.ActivateInputField();
+    }
+
+    void Update()
+    {
+        if (!IsOpen) return;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Close();
     }
 
     public void ShowPrompt() { if (talkPrompt) talkPrompt.SetActive(true); }
@@ -105,7 +116,7 @@ public class ChatUIController : MonoBehaviour
     }
 
     public void Close()
-    {
+    {   
         // unfreeze
         if (player) player.SetInputEnabled(true);
         if (currentNPC && currentNPC.npc) currentNPC.npc.SetAIEnabled(true);
