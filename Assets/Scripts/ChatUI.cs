@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class ChatUI : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class ChatUI : MonoBehaviour
         //Instantiate the ConversationManager. You can use conversation manager to interact with
         //all NPCs in the game via configured LLM service. We need all NPCs in the scene and their system prompts to initialize it.
         //Random one of them will be the Culprit.
-        NPCInteractable[] allNPCs = FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None);       
+        NPCInteractable[] allNPCs = FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None);
 
         try
         {
@@ -51,8 +52,8 @@ public class ChatUI : MonoBehaviour
             Debug.Log("All NPCs:");
             foreach (var npc in allNPCs)
                 Debug.Log($"NPC: {npc.GetOccupation()}, {npc.displayName}");
-                
-            ConversationManager conversationManager = new ConversationManager(allNPCs, Application.streamingAssetsPath, suspectIntelligenceLevel: 3);
+
+            ConversationManager conversationManager = new ConversationManager(allNPCs, Application.streamingAssetsPath, suspectIntelligenceLevel: 1);
             //This retrieves the LLM parameters such as API key. Raises error if API key not found.
             //It initializes the LLM agent instructions for each NPC player.
             conversationManager.Start();
@@ -155,13 +156,68 @@ public class ChatUI : MonoBehaviour
         // Use real conversation manager
         if (!DisableLLM_and_Fake_It && isLLMServiceAvailable && currentNPC != null)
         {
-            StartCoroutine(GetNPCReply(msg));
+            //StartCoroutine(GetNPCReply(msg));
+            _ = GetNPCReplyAsync(msg);
         }
         else
         {
             // Fallback to fake reply if LLM service is not available
             StartCoroutine(FakeNPCReply(msg));
         }
+    }
+
+    private bool isStreaming;
+    private string streamingText;
+    private async Task GetNPCReplyAsync(string playerSaid)
+    {
+        isStreaming = true;
+        streamingText = "";
+
+        // Start coroutine to update UI
+        StartCoroutine(UpdateStreamingText());
+
+        try
+        {
+            conversationManager.SwitchPlayerTo(currentNPC.displayName);
+            var stream = conversationManager.TalkToCurrentPlayerStreaming(playerSaid);
+            await foreach (var chunk in stream)
+            {
+                streamingText += chunk;
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Error getting NPC response: {ex.Message}");
+            streamingText = "Sorry, I'm having trouble thinking right now...";
+        }
+
+        isStreaming = false;
+    }   
+
+    ChatMessageItem currentChat;
+    private IEnumerator UpdateStreamingText()
+    {
+        if (currentChat == null)
+        {
+            currentChat = Instantiate(messagePrefab_NPC, content);
+            currentChat.text = currentChat.GetComponentInChildren<TMP_Text>();
+            if (currentChat.text == null)
+            {
+                Debug.LogError($"'{messagePrefab_NPC.name}' is missing TMP_Text.");
+                isStreaming = false;
+                yield return null;
+            }
+        }
+
+        while (isStreaming)
+        {
+            currentChat.Set(streamingText);
+            yield return null; // Wait one frame
+        }
+
+        // Final update
+        currentChat.Set(streamingText);
+        SnapToBottomNextFrame();
     }
 
     IEnumerator FakeNPCReply(string playerSaid)
@@ -171,12 +227,12 @@ public class ChatUI : MonoBehaviour
     }
 
     IEnumerator GetNPCReply(string playerSaid)
-    {   
+    {
         // TODO: May be some indicator for thinking, while the user is waiting for the response?
-        
+
         string npcResponse = null;
         bool responseReceived = false;
-        System.Threading.Tasks.Task.Run(() =>
+        Task.Run(() =>
         {
             try
             {
@@ -186,19 +242,19 @@ public class ChatUI : MonoBehaviour
                 responseReceived = true;
             }
             catch (System.Exception ex)
-            {   
+            {
                 Debug.LogError($"Error getting NPC response: {ex.Message}");
                 npcResponse = "Sorry, I'm having trouble thinking right now...";
                 responseReceived = true;
             }
         });
-        
+
         // Wait for the response
         while (!responseReceived)
         {
             yield return new WaitForSeconds(0.1f);
         }
-        
+
         // Add the NPC's response to the chat
         if (!string.IsNullOrEmpty(npcResponse))
         {
@@ -222,7 +278,7 @@ public class ChatUI : MonoBehaviour
 
         if (item.text == null)
         {
-            item.text = item.GetComponentInChildren<TMPro.TMP_Text>();
+            item.text = item.GetComponentInChildren<TMP_Text>();
             if (item.text == null)
             {
                 Debug.LogError($"'{prefab.name}' is missing TMP_Text. (Audio already fired above)");

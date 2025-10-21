@@ -26,7 +26,7 @@ public class FootstepOnCellChange : MonoBehaviour
 
     void Awake()
     {
-        if (!grid) grid = FindObjectOfType<Grid>();
+        if (!grid) grid = FindFirstObjectByType<Grid>();
 
         src = gameObject.GetComponent<AudioSource>();
         if (!src) src = gameObject.AddComponent<AudioSource>();

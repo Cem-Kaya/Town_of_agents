@@ -115,4 +115,5 @@ public class ConversationManager
     public string WhoIsCulprit() => npcs[culpritIndex].displayName;
 
     public ChatResponse TalkToCurrentPlayer(string phrase) => CurrentPlayer.SendPrompt(DetectiveName, phrase);
+    public IAsyncEnumerable<string> TalkToCurrentPlayerStreaming(string phrase) => CurrentPlayer.GetResponseStreaming(DetectiveName, phrase);
 }

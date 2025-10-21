@@ -33,6 +33,33 @@ public class MpcLlmController
     public string Instructions { get; set; }
     private List<ResponseItem> internalHistory = new List<ResponseItem>();
 
+    public async IAsyncEnumerable<string> GetResponseStreaming(string from, string input)
+    {
+        input = $"[{from} says]: {input}";
+        LogToHistory(from, Name, input);
+
+        ResponseCreationOptions options = new();
+        options.ReasoningOptions = new ResponseReasoningOptions();
+        options.ReasoningOptions.ReasoningEffortLevel = "low";
+        options.Instructions = Instructions;
+
+        //Add the possible local functions that the LLM agent can call.
+        foreach (FunctionTool tool in LLMTools.GetAvailableTools())
+            options.Tools.Add(tool);
+
+        ResponseContentPart[] contentParts = { ResponseContentPart.CreateInputTextPart(input) };
+        internalHistory.Add(ResponseItem.CreateUserMessageItem(contentParts));
+
+        var responses = client.CreateResponseStreamingAsync(internalHistory, options);
+        await foreach (var response in responses)
+        {
+            if (response is StreamingResponseOutputTextDeltaUpdate delta)
+            {
+                yield return delta.Delta;
+            }
+        }
+    }
+    
     public ChatResponse SendPrompt(string from, string input)
     {
         input = $"[{from} says]: {input}";
