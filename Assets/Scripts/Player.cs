@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     enum GizmoShape { Box, Capsule, Circle }
     GizmoShape gizmoShape;
 
+    PlayerFacing2D facing;   
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,6 +46,8 @@ public class Player : MonoBehaviour
         }
 
         SnapToGridCenter();
+        facing = GetComponent<PlayerFacing2D>();   // add this
+
     }
 
     public void SetInputEnabled(bool on)
@@ -77,7 +81,10 @@ public class Player : MonoBehaviour
         bool blocked = IsBlockedAt(targetWorld);
 
         if (!blocked)
+        {
+            facing?.NotifyMoveDelta(deltaCell);    // <<< add this line
             StartCoroutine(MoveTo(targetWorld));
+        }
     }
 
     IEnumerator MoveTo(Vector3 targetPos)
@@ -153,6 +160,15 @@ public class Player : MonoBehaviour
             return Physics2D.OverlapBox(worldCenter, size, 0f, obstacleMask) != null;
         }
     }
+
+    void FixedUpdate()
+    {
+        if (!isMoving)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+    } 
 
     void OnDrawGizmosSelected()
     {

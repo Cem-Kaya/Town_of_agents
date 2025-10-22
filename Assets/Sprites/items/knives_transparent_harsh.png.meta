@@ -1,0 +1,402 @@
+fileFormatVersion: 2
+guid: 4bc15e335e460cc47a8d0e4863675584
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2783394015508046921
+    second: knives_transparent_harsh_0
+  - first:
+      213: 4368904358487829526
+    second: knives_transparent_harsh_1
+  - first:
+      213: 9204625363423926705
+    second: knives_transparent_harsh_2
+  - first:
+      213: -8663865792933121697
+    second: knives_transparent_harsh_3
+  - first:
+      213: -7711426269499396598
+    second: knives_transparent_harsh_4
+  - first:
+      213: 8556043865829412409
+    second: knives_transparent_harsh_5
+  - first:
+      213: -7244249274250283670
+    second: knives_transparent_harsh_6
+  - first:
+      213: 1618084211439405093
+    second: knives_transparent_harsh_7
+  - first:
+      213: -7672930516277128
+    second: knives_transparent_harsh_8
+  - first:
+      213: 4195125248361292657
+    second: knives_transparent_harsh_9
+  - first:
+      213: 6533792052203717278
+    second: knives_transparent_harsh_10
+  - first:
+      213: 9157878958780749236
+    second: knives_transparent_harsh_11
+  - first:
+      213: -1337896597474791134
+    second: knives_transparent_harsh_12
+  - first:
+      213: 6348916646352777541
+    second: knives_transparent_harsh_13
+  - first:
+      213: -4613496985322744581
+    second: knives_transparent_harsh_14
+  - first:
+      213: 1583475467591235146
+    second: knives_transparent_harsh_15
+  - first:
+      213: 3730234980314235337
+    second: knives_transparent_harsh_16
+  - first:
+      213: 6090420731167626546
+    second: knives_transparent_harsh_17
+  - first:
+      213: 8553754631903850588
+    second: knives_transparent_harsh_18
+  - first:
+      213: -7343561876463114450
+    second: knives_transparent_harsh_19
+  - first:
+      213: 1098173343080067503
+    second: knives_transparent_harsh_20
+  - first:
+      213: 8659315557372942312
+    second: knives_transparent_harsh_21
+  - first:
+      213: 1279169320209607769
+    second: knives_transparent_harsh_22
+  - first:
+      213: 7232905608674652715
+    second: knives_transparent_harsh_23
+  - first:
+      213: -1882400009990138615
+    second: knives_transparent_harsh_24
+  - first:
+      213: -3914167628829003539
+    second: knives_transparent_harsh_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: knives_transparent_harsh_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 775
+        width: 484
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9442e4c2c1a90a620800000000000000
+      internalID: 2783394015508046921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knives_transparent_harsh_1
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 779
+        width: 312
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61ca259dd5771ac30800000000000000
+      internalID: 4368904358487829526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knives_transparent_harsh_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 592
+        width: 479
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b91f65fff56dbf70800000000000000
+      internalID: 9204625363423926705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knives_transparent_harsh_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 406
+        width: 512
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f513096e6f3c3c780800000000000000
+      internalID: -8663865792933121697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knives_transparent_harsh_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 83
+        width: 512
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0e6fde2aa28bf490800000000000000
+      internalID: -7711426269499396598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knives_transparent_harsh_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 130
+        width: 512
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e0c69609c2db670800000000000000
+      internalID: 8556043865829412409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knives_transparent_harsh_6
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 258
+        width: 466
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aaf3ac2456f12446a5a251d7207526c
+      internalID: -7244249274250283670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knives_transparent_harsh_7
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 575
+        width: 498
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6fff647e2bdd44cbd3b59ab5dc2e2b
+      internalID: 1618084211439405093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knives_transparent_harsh_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 422
+        width: 457
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5060959235fcee144899ca13c8fc48f1
+      internalID: -7672930516277128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f809a08c2de74f64e87cd4e712e34649
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      knives_transparent_harsh_0: 2783394015508046921
+      knives_transparent_harsh_1: 4368904358487829526
+      knives_transparent_harsh_2: 9204625363423926705
+      knives_transparent_harsh_3: -8663865792933121697
+      knives_transparent_harsh_4: -7711426269499396598
+      knives_transparent_harsh_5: 8556043865829412409
+      knives_transparent_harsh_6: -7244249274250283670
+      knives_transparent_harsh_7: 1618084211439405093
+      knives_transparent_harsh_8: -7672930516277128
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

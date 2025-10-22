@@ -22,7 +22,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public GameObject selectedShader;
     public bool thisItemSelected;
 
-    private InventoryManager inventoryManager;
+    [SerializeField]  private InventoryManager inventoryManager;
 
 
     //ITEM DESCRIPTION SLOT
@@ -31,10 +31,13 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public TMP_Text ItemDescriptionDescText;
 
 
+
     private void Start()
     {
-        inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
+        if (!inventoryManager)
+            inventoryManager = FindFirstObjectByType<InventoryManager>();
     }
+
 
     public void AddItem(string itemName, string itemDesc, Sprite itemSprite)
     {
@@ -43,8 +46,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         this.itemSprite = itemSprite;
         isFull = true;
 
-        itemImage.sprite = itemSprite;
-        itemImage.enabled = true;
+        if (itemImage)
+        {
+            itemImage.sprite = itemSprite;
+            itemImage.enabled = (itemSprite != null);
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -78,5 +84,38 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public void OnRightlick()
     {
 
+    }
+    public void Clear()
+    {
+        itemName = "";
+        itemDesc = "";
+        itemSprite = null;
+        isFull = false;
+
+        if (itemImage)
+        {
+            itemImage.sprite = null;
+            itemImage.enabled = false;
+        }
+
+        if (selectedShader) selectedShader.SetActive(false);
+        thisItemSelected = false;
+
+        // optional: also clear description panel if this slot is currently selected
+        if (ItemDescriptionNameText && thisItemSelected) ItemDescriptionNameText.text = "";
+        if (ItemDescriptionDescText && thisItemSelected) ItemDescriptionDescText.text = "";
+        if (itemDescriptionImage && thisItemSelected) itemDescriptionImage.enabled = false;
+    }
+
+    private void SetDescriptionUI()
+    {
+        if (ItemDescriptionNameText) ItemDescriptionNameText.text = itemName;
+        if (ItemDescriptionDescText) ItemDescriptionDescText.text = itemDesc;
+
+        if (itemDescriptionImage)
+        {
+            itemDescriptionImage.sprite = itemSprite;
+            itemDescriptionImage.enabled = (itemSprite != null);
+        }
     }
 }
