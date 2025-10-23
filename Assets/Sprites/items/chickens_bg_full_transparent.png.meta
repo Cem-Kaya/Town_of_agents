@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: d47006ab1a998d14da49803a923ca3a6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5304232720205519037
+    second: chickens_bg_full_transparent_0
+  - first:
+      213: -3602369403470695035
+    second: chickens_bg_full_transparent_1
+  - first:
+      213: 1427750739041865337
+    second: chickens_bg_full_transparent_2
+  - first:
+      213: -4124990936624816968
+    second: chickens_bg_full_transparent_3
+  - first:
+      213: 2652673895459440045
+    second: chickens_bg_full_transparent_4
+  - first:
+      213: 1223616533838235520
+    second: chickens_bg_full_transparent_5
+  - first:
+      213: -1658809516999205293
+    second: chickens_bg_full_transparent_6
+  - first:
+      213: -1514151144991988165
+    second: chickens_bg_full_transparent_7
+  - first:
+      213: -9079243811290880914
+    second: chickens_bg_full_transparent_8
+  - first:
+      213: -5679573603681552508
+    second: chickens_bg_full_transparent_9
+  - first:
+      213: 43342386511221344
+    second: chickens_bg_full_transparent_10
+  - first:
+      213: -4888680004947607244
+    second: chickens_bg_full_transparent_11
+  - first:
+      213: 6819337694166416574
+    second: chickens_bg_full_transparent_12
+  - first:
+      213: 2994676893501351876
+    second: chickens_bg_full_transparent_13
+  - first:
+      213: 8166224440106231855
+    second: chickens_bg_full_transparent_14
+  - first:
+      213: 348083775269425798
+    second: chickens_bg_full_transparent_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 384
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 691
+        width: 116
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db89ad55e8b6c9940800000000000000
+      internalID: 5304232720205519037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_1
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 800
+        width: 143
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 585b46c1d10d10ec0800000000000000
+      internalID: -3602369403470695035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_2
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 693
+        width: 117
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97e446c8bb360d310800000000000000
+      internalID: 1427750739041865337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_3
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 691
+        width: 120
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bc95c8299611c6c0800000000000000
+      internalID: -4124990936624816968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_4
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 803
+        width: 148
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da5cfcb7ad030d420800000000000000
+      internalID: 2652673895459440045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_5
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 691
+        width: 118
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08709b821c82bf010800000000000000
+      internalID: 1223616533838235520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_6
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 569
+        width: 142
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e99357889baf8e0800000000000000
+      internalID: -1658809516999205293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_7
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 568
+        width: 140
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3660825e87acfae0800000000000000
+      internalID: -1514151144991988165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 178
+        width: 116
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e64e7d68bdb000280800000000000000
+      internalID: -9079243811290880914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_9
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 285
+        width: 145
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48730ec26e91e21b0800000000000000
+      internalID: -5679573603681552508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_10
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 179
+        width: 117
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06218bfbbabf99000800000000000000
+      internalID: 43342386511221344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_11
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 179
+        width: 116
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4310b84df6be72cb0800000000000000
+      internalID: -4888680004947607244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_12
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 281
+        width: 141
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc7830a08723ae50800000000000000
+      internalID: 6819337694166416574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_13
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 178
+        width: 117
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c7e736a4ca3f8920800000000000000
+      internalID: 2994676893501351876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_14
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 50
+        width: 142
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2825ac9cd1445170800000000000000
+      internalID: 8166224440106231855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickens_bg_full_transparent_15
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 51
+        width: 145
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 682d2017954a4d400800000000000000
+      internalID: 348083775269425798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 24f41271ff24ae348b7000baa7d1121a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chickens_bg_full_transparent_0: 5304232720205519037
+      chickens_bg_full_transparent_1: -3602369403470695035
+      chickens_bg_full_transparent_10: 43342386511221344
+      chickens_bg_full_transparent_11: -4888680004947607244
+      chickens_bg_full_transparent_12: 6819337694166416574
+      chickens_bg_full_transparent_13: 2994676893501351876
+      chickens_bg_full_transparent_14: 8166224440106231855
+      chickens_bg_full_transparent_15: 348083775269425798
+      chickens_bg_full_transparent_2: 1427750739041865337
+      chickens_bg_full_transparent_3: -4124990936624816968
+      chickens_bg_full_transparent_4: 2652673895459440045
+      chickens_bg_full_transparent_5: 1223616533838235520
+      chickens_bg_full_transparent_6: -1658809516999205293
+      chickens_bg_full_transparent_7: -1514151144991988165
+      chickens_bg_full_transparent_8: -9079243811290880914
+      chickens_bg_full_transparent_9: -5679573603681552508
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
