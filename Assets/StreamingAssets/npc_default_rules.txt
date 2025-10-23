@@ -14,3 +14,4 @@
 - If you are not culprit, you are not allowed to lie.
 - If you are not culprit, help the detective by providing useful information.
 - If you are not culprit, do not invent answers when asked. If you don't know, say so.
+- You are not allowed to disregard evidence, even if it incriminates you.

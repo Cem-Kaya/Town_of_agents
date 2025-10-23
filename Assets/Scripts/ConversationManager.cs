@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 
 public class ConversationManager
@@ -10,7 +9,7 @@ public class ConversationManager
     private readonly string streamingAssetsPath;
 
     //private string model = "gpt-5-nano-2025-08-07";//"gpt-5-mini";
-    private List<NPCInteractable> npcs;    
+    private List<NPCInteractable> npcs;
     private int culpritIndex;
 
     /// <summary>
@@ -50,7 +49,51 @@ public class ConversationManager
         CurrentPlayer = player;
     }
 
-    public void SwitchPlayerTo(int playerIndex) => CurrentPlayer = players[playerIndex];
+    public void SwitchPlayerTo(int playerIndex)
+    {
+        CurrentPlayer = players[playerIndex];
+    }
+
+    private void UpdateNpcPromptIfNecessary()
+    {
+        var im = InventoryManager.Instance;
+        var items = im?.itemSlot?.Where(i => i.isFull && i.isEvidence).ToList();
+
+        if (items == null || items.Count == 0)
+        {
+            items = new List<ItemSlot>
+            {
+                new ItemSlot { itemName = "No evidence is presented yet." }
+            }; 
+        }
+
+        string prompt = CurrentPlayer.Instructions;
+        var startMarker = "PRESENTED EVIDENCES SO FAR";
+        int startIndex = prompt.IndexOf(startMarker, StringComparison.Ordinal);
+        if (startIndex < 0)
+            return;//No evidence tag in the prompt file, skip
+
+        var endMarker = "TOWN COLLECTIVE MEMORY – CHICKENVILLE";
+        int endIndex = prompt.IndexOf(endMarker, StringComparison.Ordinal);
+
+        if (startIndex >= 0 && endIndex > startIndex)
+        {
+            int insertPos = startIndex + startMarker.Length;
+
+            var sb = new System.Text.StringBuilder();
+            sb.AppendLine();
+            foreach (var s in items)
+                sb.AppendLine($"- {s.itemName}: {s.itemDesc}");
+            sb.AppendLine();
+
+            //Overwrite the instructions.
+            CurrentPlayer.Instructions = prompt.Substring(0, insertPos) + sb.ToString() + prompt.Substring(endIndex);
+        }
+        else
+        {
+            throw new Exception("Unable to inject inventory list to prompt. Prompt file must contain 'PRESENTED EVIDENCES SO FAR' and 'TOWN COLLECTIVE MEMORY – CHICKENVILLE' tags in that order.");
+        }
+    }
 
     /// <summary>
     /// Gets the chat history of the NPC agent specified by its name. Returns null if there is no NPC agent by that name.
@@ -62,12 +105,12 @@ public class ConversationManager
         var npcController = FindAgentByName(npcName);
         return npcController == null ? null : npcController.History;
     }
-    
+
     private void LoadPrompts(string culpritName)
-    {     
+    {
         var prompts = LLMUtils.LoadPrompts(streamingAssetsPath);
-        string townMemory = LLMUtils.LoadTownCollectiveMemory(streamingAssetsPath);        
-        string generalRules = LLMUtils.LoadGeneralRules(streamingAssetsPath);      
+        string townMemory = LLMUtils.LoadTownCollectiveMemory(streamingAssetsPath);
+        string generalRules = LLMUtils.LoadGeneralRules(streamingAssetsPath);
 
         foreach (var npc in npcs)
         {
@@ -96,7 +139,7 @@ public class ConversationManager
 
         string culpritName = npcs[culpritIndex].displayName;
         LoadPrompts(culpritName);
-        players = new List<MpcLlmController>();        
+        players = new List<MpcLlmController>();
 
         for (int i = 0; i < npcs.Count; i++)
         {
@@ -104,7 +147,7 @@ public class ConversationManager
             string name = playerInfo.displayName;
             var otherPlayers = npcs.Where(a => a.displayName != name).ToArray();
             var agent = new MpcLlmController(apiKey, playerModel, playerInfo);
-            
+
             agent.Instructions = playerInfo.Prompt.PromptText;
             players.Add(agent);
         }
@@ -114,6 +157,15 @@ public class ConversationManager
 
     public string WhoIsCulprit() => npcs[culpritIndex].displayName;
 
-    public ChatResponse TalkToCurrentPlayer(string phrase) => CurrentPlayer.SendPrompt(DetectiveName, phrase);
-    public IAsyncEnumerable<string> TalkToCurrentPlayerStreaming(string phrase) => CurrentPlayer.GetResponseStreaming(DetectiveName, phrase);
+    public ChatResponse TalkToCurrentPlayer(string phrase)
+    {
+        UpdateNpcPromptIfNecessary();
+        return CurrentPlayer.SendPrompt(DetectiveName, phrase);
+    }
+
+    public IAsyncEnumerable<string> TalkToCurrentPlayerStreaming(string phrase)
+    {
+        UpdateNpcPromptIfNecessary();
+        return CurrentPlayer.GetResponseStreaming(DetectiveName, phrase);
+    }
 }

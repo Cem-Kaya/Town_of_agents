@@ -11,6 +11,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     // ITEM DATA
     public string itemName;
     public string itemDesc;
+    public bool isEvidence;
     public Sprite itemSprite;
     public bool isFull;
     //public Sprite emptySprite;
@@ -39,10 +40,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     }
 
 
-    public void AddItem(string itemName, string itemDesc, Sprite itemSprite)
+    public void AddItem(Item item, Sprite itemSprite)
     {
-        this.itemName = itemName;
-        this.itemDesc = itemDesc;
+        isEvidence = item.isEvidence;
+        itemName = item.itemName;
+        itemDesc = item.itemDesc;
         this.itemSprite = itemSprite;
         isFull = true;
 

@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Dead_chiken
-  itemDesc: 'This is a very heavy dead chiken. Might be sold to KFC ! '
+  isEvidence: 1
+  itemDesc: This is the dead body of the missing chicken. It is found in a shallow
+    grave in the backyard of innkeeper.
   sprite: {fileID: -4793682949941109161, guid: edf2174613b8aea45a2f70e5f73685c0, type: 3}
   pickupDelay: 3

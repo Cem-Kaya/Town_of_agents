@@ -92,7 +92,6 @@ public class ChatUIController : MonoBehaviour
         currentNPC = npc;
         player = p;
         IsOpen = true;
-
         
         SetHeader(ExtractPortrait(npc), npc ? npc.displayName : "Unknown");
 
@@ -137,8 +136,7 @@ public class ChatUIController : MonoBehaviour
     {
         SetPortrait(portrait);
         if (npcName) npcName.text = displayName;
-    }
-
+    }    
 
     // ===== Add bubbles =====
     public MessageBubble AddNPCMessageBubble(string text) => AddBubble(text, fromPlayer: false);

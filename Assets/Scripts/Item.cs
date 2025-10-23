@@ -5,8 +5,9 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [Header("Item Data")]
-    [SerializeField] private string itemName;
-    [TextArea][SerializeField] private string itemDesc;
+    [SerializeField] public string itemName;
+    [SerializeField] public bool isEvidence;
+    [TextArea][SerializeField] public string itemDesc;
     [SerializeField] private Sprite sprite;
 
     [Header("Pickup Settings")]
@@ -54,7 +55,7 @@ public class Item : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player")) return;
 
         if (inventoryManager)
-            inventoryManager.AddItem(itemName, itemDesc, sprite);
+            inventoryManager.AddItem(this, sprite);
 
         Destroy(gameObject);
     }
