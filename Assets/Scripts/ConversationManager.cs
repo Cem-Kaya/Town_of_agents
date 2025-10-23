@@ -56,22 +56,20 @@ public class ConversationManager
 
     private void UpdateNpcPromptIfNecessary()
     {
-        var im = InventoryManager.Instance;
-        var items = im?.itemSlot?.Where(i => i.isFull && i.isEvidence).ToList();
-
-        if (items == null || items.Count == 0)
-        {
-            items = new List<ItemSlot>
-            {
-                new ItemSlot { itemName = "No evidence is presented yet." }
-            }; 
-        }
-
         string prompt = CurrentPlayer.Instructions;
         var startMarker = "PRESENTED EVIDENCES SO FAR";
         int startIndex = prompt.IndexOf(startMarker, StringComparison.Ordinal);
         if (startIndex < 0)
             return;//No evidence tag in the prompt file, skip
+
+        var im = InventoryManager.Instance;
+        var items = im?.itemSlot?.Where(i => i.isFull && i.isEvidence).ToList();
+        List<Tuple<string, string>> evidenceList = new List<Tuple<string, string>>();
+
+        if (items == null || items.Count == 0)
+            evidenceList.Add(new Tuple<string, string>("No evidence is presented yet.", ""));
+        else
+            evidenceList = items.Select(g => new Tuple<string, string>(g.itemName, g.itemDesc)).ToList();
 
         var endMarker = "TOWN COLLECTIVE MEMORY – CHICKENVILLE";
         int endIndex = prompt.IndexOf(endMarker, StringComparison.Ordinal);
@@ -82,8 +80,8 @@ public class ConversationManager
 
             var sb = new System.Text.StringBuilder();
             sb.AppendLine();
-            foreach (var s in items)
-                sb.AppendLine($"- {s.itemName}: {s.itemDesc}");
+            foreach (var s in evidenceList)
+                sb.AppendLine($"- {s.Item1}: {s.Item2}");
             sb.AppendLine();
 
             //Overwrite the instructions.
