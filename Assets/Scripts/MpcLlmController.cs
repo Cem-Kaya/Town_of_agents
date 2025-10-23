@@ -50,9 +50,9 @@ public class MpcLlmController
 
         ResponseContentPart[] contentParts = { ResponseContentPart.CreateInputTextPart(input) };
         internalHistory.Add(ResponseItem.CreateUserMessageItem(contentParts));
-//{OpenAI.Responses.FunctionCallResponseItem}
+        //{OpenAI.Responses.FunctionCallResponseItem}
         var responses = client.CreateResponseStreamingAsync(internalHistory, options);
-
+        
         FunctionCallResponseItem fCall = null;//reasoningresponseitem
         int delay = 20;
 
