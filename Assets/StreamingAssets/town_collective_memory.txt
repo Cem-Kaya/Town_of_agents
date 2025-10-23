@@ -17,12 +17,10 @@ INCIDENT DETAILS
 --------------------------------------------------
 KNOWN FACTS
 --------------------------------------------------
-- The farmer is in debt to the bank and several villagers.
 - Tensions exist among villagers over money, jealousy, and local pride.
 - Each inhabitant has relationships with others (rivalries, alliances, and gossip).
-- Any inhabitant, including the farmer himself, could be the culprit in a given game.
-- There was no sound, clangs from blacksmith's forge that night. Town was all quiet.
 - It is known that the farmer mocks the small chickens of the innkeeper in front of others.
+- There was a recent argument between the farmer and the innkeeper about money owed.
 --------------------------------------------------
 VILLAGE STRUCTURE
 --------------------------------------------------
@@ -89,18 +87,18 @@ RELATIONSHIP MATRIX SUMMARY
 | Character | Ally/Friend | Rival/Conflict | Suspicious Toward |
 |------------|--------------|----------------|-------------------|
 | Farmer | Baker | Mayor, Blacksmith | Innkeeper |
-| Mayor | Teacher, Baker | Farmer | Blacksmith |
+| Mayor | Teacher, Baker | Farmer | Innkeeper |
 | Blacksmith | Mayor | Farmer | Baker |
-| Baker | Teacher | Innkeeper | Mayor |
+| Baker | Teacher | Innkeeper | Innkeeper |
 | Teacher | Baker | Farmer | Blacksmith |
-| Innkeeper | Mayor | Farmer | Teacher |
+| Innkeeper | Mayor | Farmer | Farmer |
 
 --------------------------------------------------
 MOTIVATION POOL
 --------------------------------------------------
 | Type | Description | Applicable Characters |
 |------|--------------|------------------------|
-| Greed | Seeking insurance money or owed debts | Farmer, Innkeeper, Blacksmith |
+| Greed | Seeking insurance money or owed debts | Farmer, Innkeeper |
 | Jealousy | Resentment over success. Innkeeper has own chickens but envies Farmer's giant chicken, and farmer owes him a lot of money | Innkeeper |
 | Social Justice | Retaliation for insult or loss | Teacher |
 
