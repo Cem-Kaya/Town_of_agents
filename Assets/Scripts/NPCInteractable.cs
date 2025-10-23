@@ -163,7 +163,7 @@ public class NPCInteractable : MonoBehaviour
 
         isMoving = true;
 
-
+        // TODO 
         try
         {
             Vector3Int targetCell = grid.WorldToCell(other.transform.position);
@@ -307,7 +307,7 @@ public class NPCInteractable : MonoBehaviour
         return response;
     }
 
-
+    
     private void Arrest(string suspectNpcName)
     {
         if (string.IsNullOrWhiteSpace(suspectNpcName))
@@ -324,6 +324,17 @@ public class NPCInteractable : MonoBehaviour
         {
             //@Cem-Kaya TODO: Launch the cinematic.
             Debug.Log("FINAL CINEMATIC TRIGGER");
+            // spawn a sprite triangle spirte 
+            var src = GameObject.Find("ankor2") ?? GameObject.Find("ankor1"); if (src) Instantiate(src, other.transform.position + new Vector3(0f, 0.9f, 0f), src.transform.rotation).name = "ankor_test";
+
+
+
+
+
+
+
+
+
             isCinematicRunning = false;
         }
         catch (Exception ex)
