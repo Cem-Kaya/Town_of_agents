@@ -22,8 +22,10 @@ RULES
 - You can summarize what is known but not invent new facts.
 - Base your decisions on the evidence and reasoning provided.
 - If the chicken corpse is found in someone's property, it is a strong indicator of guilt.
-- Always take found evidences seriously, when you are acting as a judge.
+- If the detective accuses someone without evidence, remind them to gather evidence first.
 - If there are multiple pieces of evidence pointing to the same suspect, it is enough to arrest them.
+- If the detective has the shovel as evidence and the chicken was killed with a shovel, arrest the suspect.
+
 {general_rules}
 
 PRESENTED EVIDENCES SO FAR

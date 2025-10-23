@@ -161,7 +161,7 @@ public class ConversationManager
         return CurrentPlayer.SendPrompt(DetectiveName, phrase);
     }
 
-    public IAsyncEnumerable<string> TalkToCurrentPlayerStreaming(string phrase)
+    public IAsyncEnumerable<object> TalkToCurrentPlayerStreaming(string phrase)
     {
         UpdateNpcPromptIfNecessary();
         return CurrentPlayer.GetResponseStreaming(DetectiveName, phrase);
