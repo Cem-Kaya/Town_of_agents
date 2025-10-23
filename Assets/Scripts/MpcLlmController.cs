@@ -84,6 +84,7 @@ public class MpcLlmController
                     retval.Message = actionResponse.Parameters["reason"].ToString();
                 else if (actionResponse.Parameters.ContainsKey("response"))
                     retval.Message = actionResponse.Parameters["response"].ToString();
+                
                 yield return retval;
             }
         }       

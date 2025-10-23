@@ -162,7 +162,7 @@ public class NPCInteractable : MonoBehaviour
             throw new InvalidOperationException("Grid or NPCWalkerGrid is not assigned.");
 
         isMoving = true;
-        
+
 
         try
         {
@@ -293,7 +293,7 @@ public class NPCInteractable : MonoBehaviour
             StartCoroutine(MoveTo(otherNpcName));
             while (isMoving)
                 Thread.Sleep(1);
-                
+
             response.IsSuccessful = true;
             response.Output = $"You are now standing next to {otherNpcName}. Don't talk to him yet.";
         }
@@ -307,6 +307,7 @@ public class NPCInteractable : MonoBehaviour
         return response;
     }
 
+
     private void Arrest(string suspectNpcName)
     {
         if (string.IsNullOrWhiteSpace(suspectNpcName))
@@ -319,20 +320,17 @@ public class NPCInteractable : MonoBehaviour
         bool isCinematicRunning = true;
         Exception err = null;
 
-        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+        try
         {
-            try
-            {
-                //@Cem-Kaya TODO: Launch the cinematic.
-                Debug.Log("FINAL CINEMATIC TRIGGER");
-                isCinematicRunning = false;
-            }
-            catch (Exception ex)
-            {
-                err = ex;
-                isCinematicRunning = false;
-            }
-        });
+            //@Cem-Kaya TODO: Launch the cinematic.
+            Debug.Log("FINAL CINEMATIC TRIGGER");
+            isCinematicRunning = false;
+        }
+        catch (Exception ex)
+        {
+            err = ex;
+            isCinematicRunning = false;
+        }
 
         while (isCinematicRunning) Thread.Sleep(1);
 
@@ -385,7 +383,8 @@ public class NPCInteractable : MonoBehaviour
         bool supported =
             actionName == goToFuncName ||
             actionName == handoverFunctionName ||
-            actionName == refuseHandoverFunctionName;
+            actionName == refuseHandoverFunctionName ||
+            actionName == arrestFunctionName;
 
         if (!supported)
         {
