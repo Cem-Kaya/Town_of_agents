@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting.FullSerializer.Internal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -235,7 +236,13 @@ public class ChatUIController : MonoBehaviour
         {
             conversationManager.SwitchPlayerTo(currentNPC.displayName);
             var stream = conversationManager.TalkToCurrentPlayerStreaming(playerSaid);
-            await foreach (var chunk in stream) streamingText += chunk;
+            await foreach (var chunk in stream)
+            {
+                if (chunk is string)
+                    streamingText += (string)chunk;
+                else if (chunk is ChatResponse cr)
+                    streamingText = cr.Message;
+            }
         }
         catch (System.Exception ex)
         {
@@ -298,6 +305,9 @@ public class ChatUIController : MonoBehaviour
     private ConversationManager GetConversationManager()
     {
         var allNPCs = FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None);
+        int model = 1;
+        //Streaming chat is available only for nano.
+        EnableStreamingChat = EnableStreamingChat && model == 1;
 
         try
         {
@@ -306,7 +316,7 @@ public class ChatUIController : MonoBehaviour
             foreach (var npc in allNPCs)
                 Debug.Log($"NPC: {npc.GetOccupation()}, {npc.displayName}");
 
-            var cm = new ConversationManager(allNPCs, Application.streamingAssetsPath, suspectIntelligenceLevel: 1);
+            var cm = new ConversationManager(allNPCs, Application.streamingAssetsPath, suspectIntelligenceLevel: model);
             cm.Start();
             return cm;
         }

@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using PimDeWitte.UnityMainThreadDispatcher;
+using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -187,6 +190,43 @@ public class NPCInteractable : MonoBehaviour
     }
 
     // ===== LLM action wrappers =====
+    private static bool ContainsEither(string a, string b) =>
+        !string.IsNullOrEmpty(a) && !string.IsNullOrEmpty(b) &&
+        (a.Contains(b, StringComparison.OrdinalIgnoreCase) ||
+        b.Contains(a, StringComparison.OrdinalIgnoreCase));
+
+    private void UpdateInventoryAfterHandover(string itemName)
+    {
+        bool working = true;
+        Exception err = null;
+
+        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+        {
+            try
+            {
+                //Check if there is such an object in the game.        
+                Item[] currentItems = FindObjectsByType<Item>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+                //If there is such an object, add it to the inventory of the player, if not already there.
+                var item = currentItems.FirstOrDefault(i => ContainsEither(itemName, i.itemName));
+                bool isAbsent = !InventoryManager.Instance.itemSlot.Any(i => i.itemName == item.itemName && i.isFull);
+                if (isAbsent)
+                {
+                    InventoryManager.Instance.AddItem(item, item.sprite);
+                    Debug.Log($"YOU ACQUIRED: {item.itemName}");
+                }
+
+                working = false;
+            }
+            catch (Exception ex)
+            {
+                err = ex;
+                working = false;
+            }
+        });
+
+        while (working) Thread.Sleep(1);
+        if (err != null) throw err;
+    }
 
     private ActionResponse HandoverSafe(string callName, Dictionary<string, object> parameters)
     {
@@ -198,6 +238,16 @@ public class NPCInteractable : MonoBehaviour
             response.IsSuccessful = false;
             response.Output = "The string valued parameter 'item_name' is required.";
             return response;
+        }
+
+        try
+        {
+            UpdateInventoryAfterHandover(itemName);
+            Debug.Log($"YOU ACQUITRED {itemName}.");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Unable to add given item to inventory: {ex.Message}");
         }
 
         response.IsSuccessful = true;
@@ -257,6 +307,68 @@ public class NPCInteractable : MonoBehaviour
         return response;
     }
 
+    private void Arrest(string suspectNpcName)
+    {
+        if (string.IsNullOrWhiteSpace(suspectNpcName))
+            throw new ArgumentException("The parameter 'suspectNpcName' is required.", nameof(suspectNpcName));
+
+        var other = FindOtherNpc(suspectNpcName);
+        if (other == null)
+            throw new ArgumentException($"There is no player by that name: {suspectNpcName}", nameof(suspectNpcName));
+
+        bool isCinematicRunning = true;
+        Exception err = null;
+
+        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+        {
+            try
+            {
+                //@Cem-Kaya TODO: Launch the cinematic.
+                Debug.Log("FINAL CINEMATIC TRIGGER");
+                isCinematicRunning = false;
+            }
+            catch (Exception ex)
+            {
+                err = ex;
+                isCinematicRunning = false;
+            }
+        });
+
+        while (isCinematicRunning) Thread.Sleep(1);
+
+        if (err != null) throw err;
+    }
+
+    private ActionResponse ArrestSafe(string callName, Dictionary<string, object> parameters)
+    {
+        var response = new ActionResponse(callName) { Parameters = parameters };
+
+        string otherNpcName = LLMTools.TryGetValueAsString(parameters, "suspect_npc_name");
+        if (string.IsNullOrWhiteSpace(otherNpcName))
+        {
+            response.IsSuccessful = false;
+            response.Output = "The string valued parameter 'suspect_npc_name' is required.";
+            return response;
+        }
+
+        try
+        {
+            //Go to NPC, if you do not want to navigate, just comment out the line below.
+            MoveTo(otherNpcName);
+            Arrest(otherNpcName);
+            response.IsSuccessful = true;
+            response.Output = $"You are now standing next to {otherNpcName} to arrest him. Don't talk to him yet.";
+        }
+        catch (Exception ex)
+        {
+            response.IsSuccessful = false;
+            response.Error = ex;
+            response.Output = $"You cannot arrest '{otherNpcName}' right now.";
+        }
+
+        return response;
+    }
+
     public ActionResponse PerformAction(string actionName, Dictionary<string, object> parameters)
     {
         if (string.IsNullOrEmpty(actionName))
@@ -265,6 +377,7 @@ public class NPCInteractable : MonoBehaviour
         string goToFuncName = "go_to_npc";
         string handoverFunctionName = "handover_item_to_detective";
         string refuseHandoverFunctionName = "refuse_handover_item_to_detective";
+        string arrestFunctionName = "arrest_suspect";
 
         actionName = actionName.ToLowerInvariant();
 
@@ -288,6 +401,8 @@ public class NPCInteractable : MonoBehaviour
             response = HandoverSafe(handoverFunctionName, parameters);
         else if (actionName == refuseHandoverFunctionName)
             response = RejectHandoverSafe(refuseHandoverFunctionName, parameters);
+        else if (actionName == arrestFunctionName)
+            response = ArrestSafe(arrestFunctionName, parameters);
 
         LogActionResponse(response);
         return response;

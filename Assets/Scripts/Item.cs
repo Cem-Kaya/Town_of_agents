@@ -8,7 +8,7 @@ public class Item : MonoBehaviour
     [SerializeField] public string itemName;
     [SerializeField] public bool isEvidence;
     [TextArea][SerializeField] public string itemDesc;
-    [SerializeField] private Sprite sprite;
+    [SerializeField] public Sprite sprite;
 
     [Header("Pickup Settings")]
     [Tooltip("Seconds before the item can be picked up.")]

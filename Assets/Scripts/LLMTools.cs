@@ -94,6 +94,33 @@ public class LLMTools
             );
 
         _tools.Add(refuse_handover_item_to_detective);
+
+        var arrest_suspect = ResponseTool.CreateFunctionTool(
+        functionName: "arrest_suspect",
+        functionDescription: "Arrest the suspected NPC. Only mayor is allowed to call this function.",
+        functionParameters: BinaryData.FromObjectAsJson(new
+        {
+            type = "object",
+            properties = new
+            {
+                suspect_npc_name = new
+                {
+                    type = "string",
+                    description = "Name of the suspected NPC to arrest. Only the names from the instructions are valid"
+                },
+                response = new
+                {
+                    type = "string",
+                    description = "A short excited text about the action, similar to 'let's go get him!'."
+                }
+            },
+            required = new[] { "suspect_npc_name", "response" },
+            additionalProperties = false
+        }),
+            strictModeEnabled: true
+            );
+
+        _tools.Add(arrest_suspect);
     }
 
     public static ReadOnlyCollection<FunctionTool> GetAvailableTools() => _tools.AsReadOnly();
