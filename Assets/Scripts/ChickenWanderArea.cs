@@ -10,12 +10,23 @@ public class ChickenWanderArea : MonoBehaviour
     [Header("Scale Variance")]
     [Tooltip("Randomly scales each chicken between 1.0 and this multiplier.")]
     [Min(1f)] public float maxScaleMultiplier = 1.5f;
+
     [Header("Rendering")]
     [Tooltip("Sorting order for chicken sprites (higher = drawn on top).")]
     public int sortingOrder = 5;
 
     [Header("Area")]
     [Min(0.1f)] public float radius = 6f;
+
+    [Header("Leash / Return-to-center")]
+    [Tooltip("If a chicken starts a move beyond radius * leashFactor, it will return inward on the next move.")]
+    [Range(0.5f, 1.0f)] public float leashFactor = 0.92f;
+
+    [Tooltip("Extra inward bias while walking when within this edge thickness (world units).")]
+    [Min(0f)] public float edgeBiasThickness = 0.4f;
+
+    [Tooltip("Strength of inward bias when near the edge (0..1). Higher = stronger pull toward center.")]
+    [Range(0f, 1f)] public float edgeBiasStrength = 0.7f;
 
     [Header("Chickens")]
     [Tooltip("How many chickens to spawn.")]
@@ -86,12 +97,13 @@ public class ChickenWanderArea : MonoBehaviour
 
             var col = go.GetComponent<CircleCollider2D>();
             col.isTrigger = false;          // set true if you want no collisions
-            col.radius = 0.2f;              // this will now be accurate for your chosen scale
+            col.radius = 0.2f;              // adjust as needed for your art scale
 
             var agent = go.GetComponent<ChickenAgent2D>();
             agent.Init(this);
         }
     }
+
     public Vector2 RandomPointInArea()
     {
         return (Vector2)transform.position + Random.insideUnitCircle * radius;
@@ -107,11 +119,24 @@ public class ChickenWanderArea : MonoBehaviour
     public float PickMicroPause() => Random.Range(microPauseRange.x, microPauseRange.y);
     public float PickStepDistance() => minStepDistance + Random.value * extraStepDistance;
 
+    // Leash helpers
+    public bool NeedsReturn(Vector2 pos)
+    {
+        float d = Vector2.Distance(pos, transform.position);
+        return d > radius * leashFactor;
+    }
+
+    public Vector2 Center => transform.position;
+
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radius);
+
+        // visualize leash threshold
+        Gizmos.color = new Color(1f, 0.5f, 0f, 0.4f);
+        Gizmos.DrawWireSphere(transform.position, radius * leashFactor);
     }
 #endif
 }

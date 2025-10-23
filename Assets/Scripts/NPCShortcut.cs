@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
+
 public class NPCShortcut : MonoBehaviour
 {
     [System.Serializable]
     public class Row
     {
-        public string name = "Farmer Hans";
+        public string name = "mayor";
         public string key = "F1";
         public Sprite avatar;
     }

@@ -1,28 +1,10 @@
 fileFormatVersion: 2
-guid: 65d0a31467a62e644960b79e3878b0e6
+guid: 6000d3b52bedc774d831e76df8410df7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6711136712718305306
-    second: chicken_bones_transparent_0
-  - first:
-      213: 5735952131682631542
-    second: chicken_bones_transparent_1
-  - first:
-      213: 1465661217483340831
-    second: chicken_bones_transparent_2
-  - first:
-      213: 2721337989328932376
-    second: chicken_bones_transparent_3
-  - first:
-      213: 1118115449149415250
-    second: chicken_bones_transparent_4
-  - first:
-      213: -7681900711332451870
-    second: chicken_bones_transparent_5
-  - first:
-      213: 6837374348487723626
-    second: chicken_bones_transparent_6
+      213: -6485512425359076960
+    second: fence_no_bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -118,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chicken_bones_transparent_0
+      name: fence_no_bg_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 512
-        width: 512
-        height: 512
+        x: 145
+        y: 86
+        width: 771
+        height: 710
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e7b75787b04dd2a0800000000000000
-      internalID: -6711136712718305306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken_bones_transparent_1
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 512
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 67f7699c2123a9f40800000000000000
-      internalID: 5735952131682631542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken_bones_transparent_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f1c3925ac13175410800000000000000
-      internalID: 1465661217483340831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken_bones_transparent_3
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 81e0ab7ab7224c520800000000000000
-      internalID: 2721337989328932376
+      spriteID: 0a117149fc4def5a0800000000000000
+      internalID: -6485512425359076960
       vertices: []
       indices: 
       edges: []
@@ -209,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dffded4af2bb565419d87d0641c2dfda
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -219,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chicken_bones_transparent_0: -6711136712718305306
-      chicken_bones_transparent_1: 5735952131682631542
-      chicken_bones_transparent_2: 1465661217483340831
-      chicken_bones_transparent_3: 2721337989328932376
+      fence_no_bg_0: -6485512425359076960
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

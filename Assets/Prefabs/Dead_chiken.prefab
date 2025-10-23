@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -4793682949941109161, guid: edf2174613b8aea45a2f70e5f73685c0, type: 3}
+  m_Sprite: {fileID: -6711136712718305306, guid: 65d0a31467a62e644960b79e3878b0e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -183,5 +183,5 @@ MonoBehaviour:
   isEvidence: 1
   itemDesc: This is the dead body of the missing chicken. It is found in a shallow
     grave in the backyard of innkeeper.
-  sprite: {fileID: -4793682949941109161, guid: edf2174613b8aea45a2f70e5f73685c0, type: 3}
+  sprite: {fileID: 5735952131682631542, guid: 65d0a31467a62e644960b79e3878b0e6, type: 3}
   pickupDelay: 3

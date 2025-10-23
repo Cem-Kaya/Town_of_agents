@@ -22,6 +22,9 @@ public class ChickenAgent2D : MonoBehaviour
     // tweak: how close is "reached target"
     private const float arriveEps = 0.06f;
 
+    // internal flag: force next move to return inward
+    private bool forceReturnNext = false;
+
     public void Init(ChickenWanderArea a)
     {
         area = a;
@@ -43,15 +46,19 @@ public class ChickenAgent2D : MonoBehaviour
             switch (state)
             {
                 case State.Idle:
-                    // wait then start a new walk burst
+                    // set/refresh leash decision while idle
+                    forceReturnNext = area.NeedsReturn(transform.position);
+
                     if (Time.time >= nextStateTime)
                     {
-                        BeginWalkBurst();
+                        if (forceReturnNext)
+                            BeginReturnBurst();
+                        else
+                            BeginWalkBurst();
                     }
                     break;
 
                 case State.Walking:
-                    // walk toward target; occasionally micro-pause/change direction a little
                     TickWalk();
 
                     bool reached = Vector2.Distance(transform.position, target) <= arriveEps;
@@ -59,17 +66,39 @@ public class ChickenAgent2D : MonoBehaviour
 
                     if (reached || timeUp)
                     {
-                        // stop, idle for a bit
                         state = State.Idle;
                         nextStateTime = Time.time + area.PickIdleTime();
                         rb.linearVelocity = Vector2.zero;
-                        // tiny peck chance: quick micro-pause animation hook here if you add Animator
+                        // after a return, allow normal wandering again
+                        forceReturnNext = false;
                     }
                     break;
             }
 
             yield return null;
         }
+    }
+
+    void BeginReturnBurst()
+    {
+        // aim toward center with a normal step distance
+        float step = area.PickStepDistance();
+        Vector2 pos = transform.position;
+        Vector2 toCenter = ((Vector2)area.Center - pos);
+        Vector2 dir = toCenter.sqrMagnitude > 1e-6f ? toCenter.normalized : Random.insideUnitCircle.normalized;
+
+        // pick a target a "step" toward center, but don't overshoot past center
+        float distToCenter = toCenter.magnitude;
+        float travel = Mathf.Min(step, distToCenter * 0.9f);
+        target = pos + dir * travel;
+
+        state = State.Walking;
+        nextStateTime = Time.time + area.PickWalkTime();
+
+        SetVelocityTowards(target);
+
+        StopCoroutineSafely(nameof(MicroPauseRoutine));
+        StartCoroutine(MicroPauseRoutine());
     }
 
     void BeginWalkBurst()
@@ -82,7 +111,7 @@ public class ChickenAgent2D : MonoBehaviour
         // if candidate outside, aim toward center a bit
         if (!area.IsInside(candidate))
         {
-            dir = (((Vector2)area.transform.position) - (Vector2)transform.position).normalized;
+            dir = ((Vector2)area.Center - (Vector2)transform.position).normalized;
             candidate = (Vector2)transform.position + dir * step * 0.9f;
         }
 
@@ -143,24 +172,38 @@ public class ChickenAgent2D : MonoBehaviour
             return;
         }
         dir /= Mathf.Max(dist, 0.0001f);
-        rb.linearVelocity = dir * speed;
+        Vector2 vel = dir * speed;
 
-        // keep inside circle: if we�re heading out, bias velocity toward center
-        Vector2 center = area.transform.position;
-        float dToEdge = area.radius - Vector2.Distance(pos, center);
-        if (dToEdge < 0.2f)
+        // Edge bias: if near the boundary, blend in a push toward center
+        float dToCenter = Vector2.Distance(pos, area.Center);
+        float dToEdge = area.radius - dToCenter; // negative if outside
+        if (dToEdge <= area.edgeBiasThickness)
         {
-            Vector2 bias = (center - pos).normalized * 0.6f;
-            rb.linearVelocity = (rb.linearVelocity.normalized * 0.7f + bias).normalized * speed;
+            float t = Mathf.InverseLerp(area.edgeBiasThickness, 0f, Mathf.Clamp(dToEdge, 0f, area.edgeBiasThickness));
+            float k = area.edgeBiasStrength * Mathf.Clamp01(t);
+            if (k > 0f)
+            {
+                Vector2 bias = (area.Center - pos).normalized;
+                vel = Vector2.Lerp(vel, bias * speed, k);
+            }
         }
+
+        // If outside (can happen from collisions), strongly bias inward
+        if (!area.IsInside(pos))
+        {
+            Vector2 strongBias = (area.Center - pos).normalized * speed;
+            vel = Vector2.Lerp(vel, strongBias, 0.85f);
+        }
+
+        rb.linearVelocity = vel;
     }
 
     void StopCoroutineSafely(string routineName)
     {
-        var c = GetComponent<MonoBehaviour>();
-        // (We�re the MonoBehaviour � just shorthand.)
+        // Stop by name if running; harmless if it isn't
         StopCoroutine(routineName);
     }
+
 
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
