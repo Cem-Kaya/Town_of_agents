@@ -325,7 +325,9 @@ public class NPCInteractable : MonoBehaviour
             //@Cem-Kaya TODO: Launch the cinematic.
             Debug.Log("FINAL CINEMATIC TRIGGER");
             // spawn a sprite triangle spirte 
-            var src = GameObject.Find("ankor2") ?? GameObject.Find("ankor1"); if (src) Instantiate(src, other.transform.position + new Vector3(0f, 0.9f, 0f), src.transform.rotation).name = "ankor_test";
+
+            var ctrl = UnityEngine.Object.FindFirstObjectByType<SceneVideoController>();
+            if (ctrl != null) ctrl.PlayOutro(); else UnityEngine.Debug.LogError("SceneVideoController not found");
 
 
 
@@ -343,7 +345,7 @@ public class NPCInteractable : MonoBehaviour
             isCinematicRunning = false;
         }
 
-        while (isCinematicRunning) Thread.Sleep(1);
+        // while (isCinematicRunning) Thread.Sleep(1);
 
         if (err != null) throw err;
     }
