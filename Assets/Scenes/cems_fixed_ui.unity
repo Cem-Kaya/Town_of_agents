@@ -506,7 +506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.1585693, y: 24.197}
+  m_AnchoredPosition: {x: 6.1585693, y: 24.197021}
   m_SizeDelta: {x: -287.683, y: -108.4369}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &291606560
@@ -28781,6 +28781,10 @@ PrefabInstance:
     - target: {fileID: 4613884166465506176, guid: 2262f3d36231dee4b843c2e299d97a8a, type: 3}
       propertyPath: itemName
       value: Bread_knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613884166465506176, guid: 2262f3d36231dee4b843c2e299d97a8a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6307997322227549546, guid: 2262f3d36231dee4b843c2e299d97a8a, type: 3}
       propertyPath: m_Name
