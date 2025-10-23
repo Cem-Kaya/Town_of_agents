@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using NUnit.Framework;
 using PimDeWitte.UnityMainThreadDispatcher;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager;
@@ -145,7 +147,9 @@ public class NPCInteractable : MonoBehaviour
         return null;
     }
 
-    private void MoveTo(string otherNpcName)
+    bool isMoving;
+    Exception moveError;
+    private IEnumerator MoveTo(string otherNpcName)
     {
         if (string.IsNullOrWhiteSpace(otherNpcName))
             throw new ArgumentException("The parameter 'npc_name' is required.", nameof(otherNpcName));
@@ -157,36 +161,29 @@ public class NPCInteractable : MonoBehaviour
         if (grid == null || npc == null)
             throw new InvalidOperationException("Grid or NPCWalkerGrid is not assigned.");
 
-        bool moving = true;
-        Exception err = null;
+        isMoving = true;
+        
 
-        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+        try
         {
-            try
+            Vector3Int targetCell = grid.WorldToCell(other.transform.position);
+            Vector3Int adjacentCell = new Vector3Int(targetCell.x - 1, targetCell.y, targetCell.z);
+            npc.GoToCell(adjacentCell);
+
+            var ui = ChatUIController.Instance;
+            if (ui != null)
             {
-                Vector3Int targetCell = grid.WorldToCell(other.transform.position);
-                Vector3Int adjacentCell = new Vector3Int(targetCell.x - 1, targetCell.y, targetCell.z);
-                npc.GoToCell(adjacentCell);
-
-                var ui = ChatUIController.Instance;
-                if (ui != null)
-                {
-                    if (openedChatThisSession && ui.IsOpen)
-                        ui.Close();
-                }
-
-                moving = false;
+                if (openedChatThisSession && ui.IsOpen)
+                    ui.Close();
             }
-            catch (Exception ex)
-            {
-                err = ex;
-                moving = false;
-            }
-        });
+        }
+        catch (Exception ex)
+        {
+            moveError = ex;
+        }
 
-        while (moving) Thread.Sleep(1);
-
-        if (err != null) throw err;
+        isMoving = false;
+        yield return 1;
     }
 
     // ===== LLM action wrappers =====
@@ -195,37 +192,33 @@ public class NPCInteractable : MonoBehaviour
         (a.Contains(b, StringComparison.OrdinalIgnoreCase) ||
         b.Contains(a, StringComparison.OrdinalIgnoreCase));
 
-    private void UpdateInventoryAfterHandover(string itemName)
+    bool updatingInventory;
+    private IEnumerator UpdateInventoryAfterHandover(string itemName)
     {
-        bool working = true;
-        Exception err = null;
+        updatingInventory = true;
 
-        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+        try
         {
-            try
+            //Check if there is such an object in the game.        
+            Item[] currentItems = FindObjectsByType<Item>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            //If there is such an object, add it to the inventory of the player, if not already there.
+            var item = currentItems.FirstOrDefault(i => ContainsEither(itemName, i.itemName));
+            bool isAbsent = !InventoryManager.Instance.itemSlot.Any(i => i.itemName == item.itemName && i.isFull);
+            if (isAbsent)
             {
-                //Check if there is such an object in the game.        
-                Item[] currentItems = FindObjectsByType<Item>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-                //If there is such an object, add it to the inventory of the player, if not already there.
-                var item = currentItems.FirstOrDefault(i => ContainsEither(itemName, i.itemName));
-                bool isAbsent = !InventoryManager.Instance.itemSlot.Any(i => i.itemName == item.itemName && i.isFull);
-                if (isAbsent)
-                {
-                    InventoryManager.Instance.AddItem(item, item.sprite);
-                    Debug.Log($"YOU ACQUIRED: {item.itemName}");
-                }
-
-                working = false;
+                InventoryManager.Instance.AddItem(item, item.sprite);
+                Debug.Log($"YOU ACQUIRED: {item.itemName}");
             }
-            catch (Exception ex)
-            {
-                err = ex;
-                working = false;
-            }
-        });
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Cannot add item to inventory after handover: {ex.Message}");
+        }
 
-        while (working) Thread.Sleep(1);
-        if (err != null) throw err;
+        updatingInventory = false;
+        yield return new WaitForSeconds(0.25f);
+        // while (working) Thread.Sleep(1);
+        //if (err != null) throw err;
     }
 
     private ActionResponse HandoverSafe(string callName, Dictionary<string, object> parameters)
@@ -242,7 +235,10 @@ public class NPCInteractable : MonoBehaviour
 
         try
         {
-            UpdateInventoryAfterHandover(itemName);
+            updatingInventory = true;
+            StartCoroutine(UpdateInventoryAfterHandover(itemName));
+            while (updatingInventory)
+                Thread.Sleep(10);
             Debug.Log($"YOU ACQUITRED {itemName}.");
         }
         catch (Exception ex)
@@ -293,7 +289,11 @@ public class NPCInteractable : MonoBehaviour
 
         try
         {
-            MoveTo(otherNpcName);
+            isMoving = true;
+            StartCoroutine(MoveTo(otherNpcName));
+            while (isMoving)
+                Thread.Sleep(1);
+                
             response.IsSuccessful = true;
             response.Output = $"You are now standing next to {otherNpcName}. Don't talk to him yet.";
         }
