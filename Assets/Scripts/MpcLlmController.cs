@@ -3,6 +3,7 @@
 using OpenAI.Responses;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
 public class MpcLlmController
@@ -55,52 +56,44 @@ public class MpcLlmController
         
         FunctionCallResponseItem fCall = null;//reasoningresponseitem
         int delay = 20;
+        List<string> addedIds = new List<string>();
 
         await foreach (var response in responses)
         {
+            var propInfo = response.GetType().GetProperties().FirstOrDefault(pi => pi.Name == "Item");
+            if (propInfo != null)
+            {
+                object val = propInfo.GetValue(response);
+                //Console.WriteLine($"Prop found: {response.GetType()}, {propInfo.Name}: {val.GetType()}");
+                if (val is ResponseItem ri && !addedIds.Contains(ri.Id))
+                {
+                    internalHistory.Add(ri);
+                    addedIds.Add(ri.Id);
+                }
+            }
+            
             if (response is StreamingResponseOutputTextDeltaUpdate delta)
             {
                 Thread.Sleep(delay);
                 yield return delta.Delta;
             }
 
-            if (response is StreamingResponseOutputItemAddedUpdate addedUpdate &&
-                addedUpdate.Item is FunctionCallResponseItem)
+            if (response is StreamingResponseOutputItemDoneUpdate callFinished && 
+                callFinished.Item is FunctionCallResponseItem fcall)
             {
-                fCall = (FunctionCallResponseItem)addedUpdate.Item;
-                Thread.Sleep(delay);
-                yield return ".";
-            }           
+                var actionResponse = PerformActionSafe(fcall);
+                var callRes = ResponseItem.CreateFunctionCallOutputItem(fcall.CallId, actionResponse.Output);                
+                internalHistory.Add(callRes);
 
-            if (response is StreamingResponseFunctionCallArgumentsDoneUpdate callDone && 
-               fCall != null)
-            {
-                var actionResponse = PerformActionSafe(fCall.FunctionName, callDone.FunctionArguments);
-                var callRes = ResponseItem.CreateFunctionCallOutputItem(fCall.CallId, actionResponse.Output);
-                //internalHistory.Add(callRes);
                 var retval = new ChatResponse(from, Name);
-                retval.Message = "---";
+                retval.Message = $"---";
                 if (actionResponse.Parameters.ContainsKey("reason"))
                     retval.Message = actionResponse.Parameters["reason"].ToString();
                 else if (actionResponse.Parameters.ContainsKey("response"))
                     retval.Message = actionResponse.Parameters["response"].ToString();
-                
                 yield return retval;
             }
-        }       
-
-        // var actionResponse = PerformActionSafe(functionCall.);
-        // var callRes = ResponseItem.CreateFunctionCallOutputItem(functionCall.ItemId, actionResponse.Output);
-        // internalHistory.Add(callRes);
-        // //inputItems.Add(new FunctionCallOutputResponseItem(functionCall.CallId, actionResponse.Output));
-        // retval.Message = $"The player performed the activity: '{functionCall.name}'.";
-        // if (actionResponse.Parameters.ContainsKey("reason"))
-        //     outputTextOverride = actionResponse.Parameters["reason"].ToString();
-        // else if (actionResponse.Parameters.ContainsKey("response"))
-        //     outputTextOverride = actionResponse.Parameters["response"].ToString();
-        // //We do not support the automated interaction yet!!!.
-        // actionRequired = false;
-
+        }  
     }
 
     public ChatResponse SendPrompt(string from, string input)
