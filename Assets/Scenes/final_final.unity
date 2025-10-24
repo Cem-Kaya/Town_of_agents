@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &52885042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introClip: {fileID: 32900000, guid: 27bf7ff95ad3a8e49864cdd12bfb5bbe, type: 3}
-  outroClip: {fileID: 32900000, guid: 240c0d4037a1631499c0f19601178bfd, type: 3}
+  outroClip: {fileID: 32900000, guid: f8d3fc8da962444d7811558808bbdafd, type: 3}
   playIntroOnStart: 1
   introStartDelay: 0.5
   allowAnyInputToSkip: 0
@@ -891,6 +891,10 @@ PrefabInstance:
     - target: {fileID: 6307997322227549546, guid: 2262f3d36231dee4b843c2e299d97a8a, type: 3}
       propertyPath: m_Name
       value: Item (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307997322227549546, guid: 2262f3d36231dee4b843c2e299d97a8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8448357025278977816, guid: 2262f3d36231dee4b843c2e299d97a8a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1682,7 +1686,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -32033,6 +32037,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 881879775}
     - target: {fileID: 4099433378364219621, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
+      propertyPath: moveTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4099433378364219621, guid: cef7d911193634ca5a54a9bfcae43931, type: 3}
       propertyPath: wallsTilemapOptional
       value: 
       objectReference: {fileID: 1714927974}
@@ -32211,7 +32219,7 @@ MonoBehaviour:
   navArea:
     m_Position: {x: -50, y: -50, z: 0}
     m_Size: {x: 100, y: 100, z: 1}
-  moveTimePerStep: 0.12
+  moveTimePerStep: 0.16
   skin: 0.04
 --- !u!1001 &1444524300
 PrefabInstance:
@@ -32757,7 +32765,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661627449}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3d53318476775746869a2d2edd7c2ba, type: 3}
   m_Name: 
@@ -54606,11 +54614,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 913934450588609198, guid: 2262f3d36231dee4b843c2e299d97a8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.75
+      value: 20.4
       objectReference: {fileID: 0}
     - target: {fileID: 913934450588609198, guid: 2262f3d36231dee4b843c2e299d97a8a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.77
+      value: 25.19
       objectReference: {fileID: 0}
     - target: {fileID: 913934450588609198, guid: 2262f3d36231dee4b843c2e299d97a8a, type: 3}
       propertyPath: m_LocalPosition.z

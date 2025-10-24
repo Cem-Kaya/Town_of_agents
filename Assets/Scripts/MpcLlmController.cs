@@ -54,7 +54,7 @@ public class MpcLlmController
         //{OpenAI.Responses.FunctionCallResponseItem}
         var responses = client.CreateResponseStreamingAsync(internalHistory, options);
         
-        FunctionCallResponseItem fCall = null;//reasoningresponseitem
+        //FunctionCallResponseItem fCall = null;//reasoningresponseitem
         int delay = 20;
         List<string> addedIds = new List<string>();
 

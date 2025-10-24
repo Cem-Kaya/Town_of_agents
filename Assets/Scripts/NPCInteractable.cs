@@ -39,6 +39,7 @@ public class NPCInteractable : MonoBehaviour
     private bool openedChatThisSession;
 
     public string GetOccupation() => Occupation.Trim().ToLower();
+    private PlayerAutoNavigator playerAutoNavigator;
 
     void Awake()
     {
@@ -51,6 +52,8 @@ public class NPCInteractable : MonoBehaviour
         // If it's a BoxCollider2D and tiny, expand to ~3x3 cells
         if (trig is BoxCollider2D box && box.size.sqrMagnitude < 0.01f && grid)
             box.size = new Vector2(grid.cellSize.x * 3f, grid.cellSize.y * 3f);
+
+        playerAutoNavigator = FindObjectsByType<PlayerAutoNavigator>(FindObjectsSortMode.None).FirstOrDefault();
     }
 
     void OnDisable()
@@ -169,6 +172,8 @@ public class NPCInteractable : MonoBehaviour
             Vector3Int targetCell = grid.WorldToCell(other.transform.position);
             Vector3Int adjacentCell = new Vector3Int(targetCell.x - 1, targetCell.y, targetCell.z);
             npc.GoToCell(adjacentCell);
+            Vector3Int adjacentCell2 = new Vector3Int(adjacentCell.x - 1, targetCell.y, targetCell.z);
+            playerAutoNavigator.GoToCell(adjacentCell2);
 
             var ui = ChatUIController.Instance;
             if (ui != null)
@@ -183,6 +188,7 @@ public class NPCInteractable : MonoBehaviour
         }
 
         isMoving = false;
+        Arrest(otherNpcName);
         yield return 1;
     }
 
@@ -281,6 +287,9 @@ public class NPCInteractable : MonoBehaviour
 
         string otherNpcName = LLMTools.TryGetValueAsString(parameters, "npc_name");
         if (string.IsNullOrWhiteSpace(otherNpcName))
+            otherNpcName = LLMTools.TryGetValueAsString(parameters, "suspect_npc_name");
+            
+        if (string.IsNullOrWhiteSpace(otherNpcName))
         {
             response.IsSuccessful = false;
             response.Output = "The string valued parameter 'npc_name' is required.";
@@ -307,9 +316,10 @@ public class NPCInteractable : MonoBehaviour
         return response;
     }
 
-    
+
     private void Arrest(string suspectNpcName)
     {
+        isArresting = false;
         if (string.IsNullOrWhiteSpace(suspectNpcName))
             throw new ArgumentException("The parameter 'suspectNpcName' is required.", nameof(suspectNpcName));
 
@@ -350,6 +360,7 @@ public class NPCInteractable : MonoBehaviour
         if (err != null) throw err;
     }
 
+    bool isArresting;
     private ActionResponse ArrestSafe(string callName, Dictionary<string, object> parameters)
     {
         var response = new ActionResponse(callName) { Parameters = parameters };
@@ -364,9 +375,10 @@ public class NPCInteractable : MonoBehaviour
 
         try
         {
+            isArresting = true;
             //Go to NPC, if you do not want to navigate, just comment out the line below.
-            MoveTo(otherNpcName);
-            Arrest(otherNpcName);
+            MoveToSafe(callName, parameters);
+            //Arrest(otherNpcName);
             response.IsSuccessful = true;
             response.Output = $"You are now standing next to {otherNpcName} to arrest him. Don't talk to him yet.";
         }

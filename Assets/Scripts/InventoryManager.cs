@@ -17,6 +17,9 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
+        if (ChatUIController.Instance.IsOpen)
+            return;
+            
         if (Input.GetButtonDown("Inventory") && menuActivated)
         {
             InventoryMenu.SetActive(false);
