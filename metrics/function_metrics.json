@@ -1,0 +1,3604 @@
+{
+  "summary": {
+    "function_count": 397,
+    "average_loc": 14.486146095717885,
+    "median_loc": 8,
+    "average_ccn": 3.6750629722921913,
+    "median_ccn": 2,
+    "max_loc": 116,
+    "max_ccn": 33,
+    "max_loc_function": {
+      "name": "TMPro.Examples::TMP_TextSelector_B::LateUpdate()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 81,
+      "end_line": 290,
+      "nloc": 116,
+      "cyclomatic_complexity": 26,
+      "parameters": 0
+    },
+    "max_ccn_function": {
+      "name": "TMPro.Examples::CameraController::GetPlayerInput()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs",
+      "start_line": 126,
+      "end_line": 290,
+      "nloc": 113,
+      "cyclomatic_complexity": 33,
+      "parameters": 0
+    }
+  },
+  "functions": [
+    {
+      "name": "ActionResponse::ActionResponse( string name)",
+      "file": "Assets/Scripts/ActionResponse.cs",
+      "start_line": 7,
+      "end_line": 11,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ActionResponse::ToLogString( bool includeTimestamp)",
+      "file": "Assets/Scripts/ActionResponse.cs",
+      "start_line": 39,
+      "end_line": 53,
+      "nloc": 12,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "BGMPlayer::Awake()",
+      "file": "Assets/Scripts/BGMPlayer.cs",
+      "start_line": 9,
+      "end_line": 18,
+      "nloc": 10,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ChatDemo::Start()",
+      "file": "Assets/Scripts/ChatDemo.cs",
+      "start_line": 10,
+      "end_line": 19,
+      "nloc": 10,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "ChatDemo::SeedDemo()",
+      "file": "Assets/Scripts/ChatDemo.cs",
+      "start_line": 21,
+      "end_line": 36,
+      "nloc": 11,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChatHistoryItem::ChatHistoryItem()",
+      "file": "Assets/Scripts/ChatHistoryItem.cs",
+      "start_line": 5,
+      "end_line": 8,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ChatHistoryItem::ChatHistoryItem( string from , string to , string message)",
+      "file": "Assets/Scripts/ChatHistoryItem.cs",
+      "start_line": 10,
+      "end_line": 15,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 3
+    },
+    {
+      "name": "ChatHistoryItem::ChatHistoryItem( ChatResponse response)",
+      "file": "Assets/Scripts/ChatHistoryItem.cs",
+      "start_line": 17,
+      "end_line": 23,
+      "nloc": 7,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ChatMessageItem::Set( string message)",
+      "file": "Assets/Scripts/ChatMessageItem.cs",
+      "start_line": 12,
+      "end_line": 20,
+      "nloc": 8,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "ChatResponse::ChatResponse( string from , string to)",
+      "file": "Assets/Scripts/ChatResponse.cs",
+      "start_line": 3,
+      "end_line": 7,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 2
+    },
+    {
+      "name": "ChatResponse::ToString()",
+      "file": "Assets/Scripts/ChatResponse.cs",
+      "start_line": 16,
+      "end_line": 25,
+      "nloc": 8,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::GetConversationManager()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 42,
+      "end_line": 69,
+      "nloc": 20,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::Awake()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 71,
+      "end_line": 84,
+      "nloc": 11,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::Update()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 86,
+      "end_line": 95,
+      "nloc": 8,
+      "cyclomatic_complexity": 7,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::ShowPrompt()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 98,
+      "end_line": 98,
+      "nloc": 1,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::HidePrompt()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 99,
+      "end_line": 99,
+      "nloc": 1,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::Open( NPCInteractable npc , Player p)",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 102,
+      "end_line": 120,
+      "nloc": 13,
+      "cyclomatic_complexity": 7,
+      "parameters": 2
+    },
+    {
+      "name": "ChatUI::Close()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 122,
+      "end_line": 133,
+      "nloc": 9,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::GetHistoryByNpcName( string npcName)",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 140,
+      "end_line": 143,
+      "nloc": 4,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "ChatUI::SendFromInput()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 146,
+      "end_line": 167,
+      "nloc": 17,
+      "cyclomatic_complexity": 7,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::GetNPCReplyAsync( string playerSaid)",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 171,
+      "end_line": 195,
+      "nloc": 21,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "ChatUI::UpdateStreamingText()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 198,
+      "end_line": 221,
+      "nloc": 21,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::FakeNPCReply( string playerSaid)",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 223,
+      "end_line": 227,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ChatUI::GetNPCReply( string playerSaid)",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 229,
+      "end_line": 263,
+      "nloc": 28,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "ChatUI::AddMessage( ChatMessageItem prefab , string text , bool isNPC)",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 269,
+      "end_line": 291,
+      "nloc": 18,
+      "cyclomatic_complexity": 8,
+      "parameters": 3
+    },
+    {
+      "name": "ChatUI::SnapToBottom()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 295,
+      "end_line": 298,
+      "nloc": 4,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::SnapToBottomNextFrame()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 299,
+      "end_line": 299,
+      "nloc": 1,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUI::CoBottom()",
+      "file": "Assets/Scripts/ChatUI.cs",
+      "start_line": 300,
+      "end_line": 300,
+      "nloc": 1,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::Awake()",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 47,
+      "end_line": 67,
+      "nloc": 16,
+      "cyclomatic_complexity": 8,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::OnEnable()",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 69,
+      "end_line": 74,
+      "nloc": 6,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::Update()",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 76,
+      "end_line": 82,
+      "nloc": 6,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::ShowPrompt()",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 85,
+      "end_line": 85,
+      "nloc": 1,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::HidePrompt()",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 86,
+      "end_line": 86,
+      "nloc": 1,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::Open( NPCInteractable npc , Player p)",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 89,
+      "end_line": 119,
+      "nloc": 22,
+      "cyclomatic_complexity": 10,
+      "parameters": 2
+    },
+    {
+      "name": "ChatUIController::Close()",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 121,
+      "end_line": 133,
+      "nloc": 10,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::SetHeader( Sprite portrait , string displayName)",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 136,
+      "end_line": 140,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 2
+    },
+    {
+      "name": "ChatUIController::AddBubble( string text , bool fromPlayer)",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 146,
+      "end_line": 164,
+      "nloc": 15,
+      "cyclomatic_complexity": 7,
+      "parameters": 2
+    },
+    {
+      "name": "ChatUIController::SnapToBottom()",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 166,
+      "end_line": 169,
+      "nloc": 4,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::OnSendClicked()",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 172,
+      "end_line": 194,
+      "nloc": 19,
+      "cyclomatic_complexity": 8,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::ChatSafe( string playerSays)",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 197,
+      "end_line": 202,
+      "nloc": 6,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "ChatUIController::ChatStreamSafe( string playerSays)",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 204,
+      "end_line": 209,
+      "nloc": 6,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "ChatUIController::GuardConversation( string fromWhere)",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 211,
+      "end_line": 226,
+      "nloc": 16,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "ChatUIController::ChatAsync( string playerSaid)",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 229,
+      "end_line": 254,
+      "nloc": 24,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "ChatUIController::UpdateStreamingText()",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 256,
+      "end_line": 273,
+      "nloc": 16,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::Chat( string playerSaid)",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 276,
+      "end_line": 302,
+      "nloc": 24,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "ChatUIController::GetConversationManager()",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 305,
+      "end_line": 330,
+      "nloc": 22,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "ChatUIController::ExtractPortrait( NPCInteractable npc)",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 333,
+      "end_line": 343,
+      "nloc": 7,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "ChatUIController::SetPortrait( Sprite s)",
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "start_line": 346,
+      "end_line": 353,
+      "nloc": 7,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "ChickenAgent2D::Init( ChickenWanderArea a)",
+      "file": "Assets/Scripts/ChickenAgent2D.cs",
+      "start_line": 28,
+      "end_line": 36,
+      "nloc": 9,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ChickenAgent2D::Brain()",
+      "file": "Assets/Scripts/ChickenAgent2D.cs",
+      "start_line": 38,
+      "end_line": 80,
+      "nloc": 34,
+      "cyclomatic_complexity": 8,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenAgent2D::BeginReturnBurst()",
+      "file": "Assets/Scripts/ChickenAgent2D.cs",
+      "start_line": 82,
+      "end_line": 102,
+      "nloc": 15,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenAgent2D::BeginWalkBurst()",
+      "file": "Assets/Scripts/ChickenAgent2D.cs",
+      "start_line": 104,
+      "end_line": 131,
+      "nloc": 18,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenAgent2D::TickWalk()",
+      "file": "Assets/Scripts/ChickenAgent2D.cs",
+      "start_line": 133,
+      "end_line": 141,
+      "nloc": 7,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenAgent2D::MicroPauseRoutine()",
+      "file": "Assets/Scripts/ChickenAgent2D.cs",
+      "start_line": 143,
+      "end_line": 162,
+      "nloc": 15,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenAgent2D::SetVelocityTowards( Vector2 tgt)",
+      "file": "Assets/Scripts/ChickenAgent2D.cs",
+      "start_line": 164,
+      "end_line": 199,
+      "nloc": 31,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "ChickenAgent2D::StopCoroutineSafely( string routineName)",
+      "file": "Assets/Scripts/ChickenAgent2D.cs",
+      "start_line": 201,
+      "end_line": 205,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ChickenAgent2D::OnDrawGizmosSelected()",
+      "file": "Assets/Scripts/ChickenAgent2D.cs",
+      "start_line": 209,
+      "end_line": 214,
+      "nloc": 6,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenSoccerManager2D::Awake()",
+      "file": "Assets/Scripts/ChickenSoccerManager2D.cs",
+      "start_line": 65,
+      "end_line": 68,
+      "nloc": 4,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenSoccerManager2D::Start()",
+      "file": "Assets/Scripts/ChickenSoccerManager2D.cs",
+      "start_line": 70,
+      "end_line": 74,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenSoccerManager2D::BuildRuntimeMaterial()",
+      "file": "Assets/Scripts/ChickenSoccerManager2D.cs",
+      "start_line": 76,
+      "end_line": 85,
+      "nloc": 10,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenSoccerManager2D::OnValidate()",
+      "file": "Assets/Scripts/ChickenSoccerManager2D.cs",
+      "start_line": 87,
+      "end_line": 96,
+      "nloc": 10,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenSoccerManager2D::SpawnAll()",
+      "file": "Assets/Scripts/ChickenSoccerManager2D.cs",
+      "start_line": 98,
+      "end_line": 105,
+      "nloc": 8,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenSoccerManager2D::SpawnSingle( int index)",
+      "file": "Assets/Scripts/ChickenSoccerManager2D.cs",
+      "start_line": 107,
+      "end_line": 159,
+      "nloc": 41,
+      "cyclomatic_complexity": 6,
+      "parameters": 1
+    },
+    {
+      "name": "ChickenSoccerManager2D::RespawnChicken( KickableChicken2D chicken , Vector2 fxPosition , bool scoredLeftGoal)",
+      "file": "Assets/Scripts/ChickenSoccerManager2D.cs",
+      "start_line": 161,
+      "end_line": 175,
+      "nloc": 13,
+      "cyclomatic_complexity": 4,
+      "parameters": 3
+    },
+    {
+      "name": "ChickenSoccerManager2D::RespawnRoutine( KickableChicken2D chicken)",
+      "file": "Assets/Scripts/ChickenSoccerManager2D.cs",
+      "start_line": 177,
+      "end_line": 190,
+      "nloc": 11,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ChickenSoccerManager2D::OnChickenBounced( KickableChicken2D chicken)",
+      "file": "Assets/Scripts/ChickenSoccerManager2D.cs",
+      "start_line": 192,
+      "end_line": 192,
+      "nloc": 1,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ChickenWanderArea::Start()",
+      "file": "Assets/Scripts/ChickenWanderArea.cs",
+      "start_line": 64,
+      "end_line": 105,
+      "nloc": 31,
+      "cyclomatic_complexity": 7,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenWanderArea::RandomPointInArea()",
+      "file": "Assets/Scripts/ChickenWanderArea.cs",
+      "start_line": 107,
+      "end_line": 110,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ChickenWanderArea::IsInside( Vector2 worldPos)",
+      "file": "Assets/Scripts/ChickenWanderArea.cs",
+      "start_line": 112,
+      "end_line": 115,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ChickenWanderArea::NeedsReturn( Vector2 pos)",
+      "file": "Assets/Scripts/ChickenWanderArea.cs",
+      "start_line": 123,
+      "end_line": 127,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ChickenWanderArea::OnDrawGizmosSelected()",
+      "file": "Assets/Scripts/ChickenWanderArea.cs",
+      "start_line": 132,
+      "end_line": 140,
+      "nloc": 7,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ConversationManager::ConversationManager( ICollection<NPCInteractable> npcs , string streamingAssetsPath , int suspectIntelligenceLevel = 1)",
+      "file": "Assets/Scripts/ConversationManager.cs",
+      "start_line": 22,
+      "end_line": 37,
+      "nloc": 14,
+      "cyclomatic_complexity": 4,
+      "parameters": 3
+    },
+    {
+      "name": "ConversationManager::SwitchPlayerTo( string name)",
+      "file": "Assets/Scripts/ConversationManager.cs",
+      "start_line": 44,
+      "end_line": 50,
+      "nloc": 7,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "ConversationManager::SwitchPlayerTo( int playerIndex)",
+      "file": "Assets/Scripts/ConversationManager.cs",
+      "start_line": 52,
+      "end_line": 55,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ConversationManager::UpdateNpcPromptIfNecessary()",
+      "file": "Assets/Scripts/ConversationManager.cs",
+      "start_line": 57,
+      "end_line": 94,
+      "nloc": 31,
+      "cyclomatic_complexity": 9,
+      "parameters": 0
+    },
+    {
+      "name": "ConversationManager::GetHistoryByNpcName( string npcName)",
+      "file": "Assets/Scripts/ConversationManager.cs",
+      "start_line": 101,
+      "end_line": 105,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "ConversationManager::LoadPrompts( string culpritName)",
+      "file": "Assets/Scripts/ConversationManager.cs",
+      "start_line": 107,
+      "end_line": 127,
+      "nloc": 18,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "ConversationManager::Start()",
+      "file": "Assets/Scripts/ConversationManager.cs",
+      "start_line": 129,
+      "end_line": 154,
+      "nloc": 18,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ConversationManager::TalkToCurrentPlayer( string phrase)",
+      "file": "Assets/Scripts/ConversationManager.cs",
+      "start_line": 158,
+      "end_line": 162,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "ConversationManager::TalkToCurrentPlayerStreaming( string phrase)",
+      "file": "Assets/Scripts/ConversationManager.cs",
+      "start_line": 164,
+      "end_line": 168,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "Door2D::Awake()",
+      "file": "Assets/Scripts/Door2D.cs",
+      "start_line": 32,
+      "end_line": 50,
+      "nloc": 15,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "Door2D::OnTriggerEnter2D( Collider2D other)",
+      "file": "Assets/Scripts/Door2D.cs",
+      "start_line": 52,
+      "end_line": 61,
+      "nloc": 8,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "Door2D::OnTriggerExit2D( Collider2D other)",
+      "file": "Assets/Scripts/Door2D.cs",
+      "start_line": 63,
+      "end_line": 70,
+      "nloc": 7,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "Door2D::Update()",
+      "file": "Assets/Scripts/Door2D.cs",
+      "start_line": 72,
+      "end_line": 76,
+      "nloc": 5,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "Door2D::UpdatePrompt( bool show)",
+      "file": "Assets/Scripts/Door2D.cs",
+      "start_line": 78,
+      "end_line": 83,
+      "nloc": 6,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "Door2D::TryOpen()",
+      "file": "Assets/Scripts/Door2D.cs",
+      "start_line": 85,
+      "end_line": 115,
+      "nloc": 23,
+      "cyclomatic_complexity": 9,
+      "parameters": 0
+    },
+    {
+      "name": "Door2D::OnCollisionEnter2D( Collision2D collision)",
+      "file": "Assets/Scripts/Door2D.cs",
+      "start_line": 117,
+      "end_line": 124,
+      "nloc": 7,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "FootstepOnCellChange::Awake()",
+      "file": "Assets/Scripts/FootstepOnCellChange.cs",
+      "start_line": 27,
+      "end_line": 39,
+      "nloc": 12,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "FootstepOnCellChange::LateUpdate()",
+      "file": "Assets/Scripts/FootstepOnCellChange.cs",
+      "start_line": 41,
+      "end_line": 59,
+      "nloc": 16,
+      "cyclomatic_complexity": 6,
+      "parameters": 0
+    },
+    {
+      "name": "FootstepOnCellChange::PlayStep()",
+      "file": "Assets/Scripts/FootstepOnCellChange.cs",
+      "start_line": 61,
+      "end_line": 67,
+      "nloc": 7,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "GoalTrigger2D::Awake()",
+      "file": "Assets/Scripts/GoalTrigger2D.cs",
+      "start_line": 13,
+      "end_line": 17,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "GoalTrigger2D::OnTriggerEnter2D( Collider2D other)",
+      "file": "Assets/Scripts/GoalTrigger2D.cs",
+      "start_line": 19,
+      "end_line": 28,
+      "nloc": 8,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "InteractableItem::Reset()",
+      "file": "Assets/Scripts/InteractableItem.cs",
+      "start_line": 34,
+      "end_line": 38,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "InteractableItem::OnTriggerEnter2D( Collider2D other)",
+      "file": "Assets/Scripts/InteractableItem.cs",
+      "start_line": 43,
+      "end_line": 48,
+      "nloc": 6,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "InteractableItem::OnTriggerExit2D( Collider2D other)",
+      "file": "Assets/Scripts/InteractableItem.cs",
+      "start_line": 50,
+      "end_line": 55,
+      "nloc": 6,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "InteractableItem::Update()",
+      "file": "Assets/Scripts/InteractableItem.cs",
+      "start_line": 57,
+      "end_line": 75,
+      "nloc": 16,
+      "cyclomatic_complexity": 6,
+      "parameters": 0
+    },
+    {
+      "name": "InteractableItem::RequirementsMet()",
+      "file": "Assets/Scripts/InteractableItem.cs",
+      "start_line": 77,
+      "end_line": 81,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "InteractableItem::UpdatePrompt()",
+      "file": "Assets/Scripts/InteractableItem.cs",
+      "start_line": 83,
+      "end_line": 111,
+      "nloc": 26,
+      "cyclomatic_complexity": 8,
+      "parameters": 0
+    },
+    {
+      "name": "InteractableItem::HidePrompt()",
+      "file": "Assets/Scripts/InteractableItem.cs",
+      "start_line": 113,
+      "end_line": 116,
+      "nloc": 4,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "Inventory::Awake()",
+      "file": "Assets/Scripts/Inventory.cs",
+      "start_line": 21,
+      "end_line": 25,
+      "nloc": 5,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "Inventory::TryAddKey( string keyId)",
+      "file": "Assets/Scripts/Inventory.cs",
+      "start_line": 29,
+      "end_line": 36,
+      "nloc": 8,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "Inventory::TryUseKey( string keyId)",
+      "file": "Assets/Scripts/Inventory.cs",
+      "start_line": 38,
+      "end_line": 46,
+      "nloc": 8,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "Inventory::TryAddNote( string title , string body)",
+      "file": "Assets/Scripts/Inventory.cs",
+      "start_line": 48,
+      "end_line": 54,
+      "nloc": 7,
+      "cyclomatic_complexity": 3,
+      "parameters": 2
+    },
+    {
+      "name": "InventoryManager::Awake()",
+      "file": "Assets/Scripts/InventoryManager.cs",
+      "start_line": 12,
+      "end_line": 16,
+      "nloc": 5,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryManager::Update()",
+      "file": "Assets/Scripts/InventoryManager.cs",
+      "start_line": 18,
+      "end_line": 33,
+      "nloc": 15,
+      "cyclomatic_complexity": 6,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryManager::AddItem( Item item , Sprite itemSprite)",
+      "file": "Assets/Scripts/InventoryManager.cs",
+      "start_line": 35,
+      "end_line": 45,
+      "nloc": 11,
+      "cyclomatic_complexity": 3,
+      "parameters": 2
+    },
+    {
+      "name": "InventoryManager::DeselectAllSlots()",
+      "file": "Assets/Scripts/InventoryManager.cs",
+      "start_line": 47,
+      "end_line": 54,
+      "nloc": 8,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryManager::HasItem( string name)",
+      "file": "Assets/Scripts/InventoryManager.cs",
+      "start_line": 57,
+      "end_line": 66,
+      "nloc": 10,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "InventoryManager::HasAllItems( IList<string> names)",
+      "file": "Assets/Scripts/InventoryManager.cs",
+      "start_line": 68,
+      "end_line": 74,
+      "nloc": 7,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "InventoryUI::Awake()",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 34,
+      "end_line": 46,
+      "nloc": 9,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryUI::Update()",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 48,
+      "end_line": 52,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryUI::BindWhenReady()",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 54,
+      "end_line": 66,
+      "nloc": 10,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryUI::OnEnable()",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 68,
+      "end_line": 76,
+      "nloc": 8,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryUI::OnDisable()",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 78,
+      "end_line": 85,
+      "nloc": 8,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryUI::OnDestroy()",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 87,
+      "end_line": 94,
+      "nloc": 8,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryUI::OnInventoryChanged()",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 96,
+      "end_line": 101,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryUI::Rebuild()",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 104,
+      "end_line": 145,
+      "nloc": 35,
+      "cyclomatic_complexity": 15,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryUI::BuildMap()",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 147,
+      "end_line": 155,
+      "nloc": 9,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryUI::ApplyVisibility( bool show)",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 157,
+      "end_line": 163,
+      "nloc": 6,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "InventoryUI::SetVisible( bool show)",
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "start_line": 165,
+      "end_line": 172,
+      "nloc": 6,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "Item::Start()",
+      "file": "Assets/Scripts/Item.cs",
+      "start_line": 20,
+      "end_line": 24,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "Item::EnablePickupAfterDelay()",
+      "file": "Assets/Scripts/Item.cs",
+      "start_line": 26,
+      "end_line": 50,
+      "nloc": 19,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "Item::OnCollisionEnter2D( Collision2D collision)",
+      "file": "Assets/Scripts/Item.cs",
+      "start_line": 52,
+      "end_line": 61,
+      "nloc": 8,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "ItemBreak::Awake()",
+      "file": "Assets/Scripts/ItemBreak.cs",
+      "start_line": 22,
+      "end_line": 31,
+      "nloc": 9,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "ItemBreak::BreakItem()",
+      "file": "Assets/Scripts/ItemBreak.cs",
+      "start_line": 36,
+      "end_line": 39,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ItemBreak::DoBreak()",
+      "file": "Assets/Scripts/ItemBreak.cs",
+      "start_line": 41,
+      "end_line": 70,
+      "nloc": 21,
+      "cyclomatic_complexity": 6,
+      "parameters": 0
+    },
+    {
+      "name": "ItemSlot::Start()",
+      "file": "Assets/Scripts/ItemSlot.cs",
+      "start_line": 36,
+      "end_line": 40,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ItemSlot::AddItem( Item item , Sprite itemSprite)",
+      "file": "Assets/Scripts/ItemSlot.cs",
+      "start_line": 43,
+      "end_line": 56,
+      "nloc": 13,
+      "cyclomatic_complexity": 2,
+      "parameters": 2
+    },
+    {
+      "name": "ItemSlot::OnPointerClick( PointerEventData eventData)",
+      "file": "Assets/Scripts/ItemSlot.cs",
+      "start_line": 58,
+      "end_line": 68,
+      "nloc": 11,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "ItemSlot::OnLeftClick()",
+      "file": "Assets/Scripts/ItemSlot.cs",
+      "start_line": 69,
+      "end_line": 85,
+      "nloc": 17,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "ItemSlot::OnRightlick()",
+      "file": "Assets/Scripts/ItemSlot.cs",
+      "start_line": 86,
+      "end_line": 89,
+      "nloc": 3,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ItemSlot::Clear()",
+      "file": "Assets/Scripts/ItemSlot.cs",
+      "start_line": 90,
+      "end_line": 110,
+      "nloc": 17,
+      "cyclomatic_complexity": 9,
+      "parameters": 0
+    },
+    {
+      "name": "ItemSlot::SetDescriptionUI()",
+      "file": "Assets/Scripts/ItemSlot.cs",
+      "start_line": 112,
+      "end_line": 122,
+      "nloc": 10,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "KeyPickup::Reset()",
+      "file": "Assets/Scripts/KeyPickup.cs",
+      "start_line": 11,
+      "end_line": 11,
+      "nloc": 1,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "KeyPickup::OnTriggerEnter2D( Collider2D other)",
+      "file": "Assets/Scripts/KeyPickup.cs",
+      "start_line": 13,
+      "end_line": 31,
+      "nloc": 17,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "KickableChicken2D::Awake()",
+      "file": "Assets/Scripts/KickableChicken2D.cs",
+      "start_line": 34,
+      "end_line": 37,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "KickableChicken2D::FixedUpdate()",
+      "file": "Assets/Scripts/KickableChicken2D.cs",
+      "start_line": 39,
+      "end_line": 60,
+      "nloc": 16,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "KickableChicken2D::OnCollisionEnter2D( Collision2D col)",
+      "file": "Assets/Scripts/KickableChicken2D.cs",
+      "start_line": 62,
+      "end_line": 98,
+      "nloc": 28,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "KickableChicken2D::AverageNormal( Collision2D col)",
+      "file": "Assets/Scripts/KickableChicken2D.cs",
+      "start_line": 100,
+      "end_line": 111,
+      "nloc": 10,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "LLMTools::LLMTools()",
+      "file": "Assets/Scripts/LLMTools.cs",
+      "start_line": 15,
+      "end_line": 18,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "LLMTools::InitializeTools()",
+      "file": "Assets/Scripts/LLMTools.cs",
+      "start_line": 20,
+      "end_line": 124,
+      "nloc": 98,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "LLMTools::TryGetValueAsString( Dictionary<string,object> parameters , string paramName)",
+      "file": "Assets/Scripts/LLMTools.cs",
+      "start_line": 129,
+      "end_line": 137,
+      "nloc": 8,
+      "cyclomatic_complexity": 4,
+      "parameters": 2
+    },
+    {
+      "name": "LLMTools::ParseParameters( ReadOnlyMemory<byte> functionCallArguments)",
+      "file": "Assets/Scripts/LLMTools.cs",
+      "start_line": 139,
+      "end_line": 176,
+      "nloc": 33,
+      "cyclomatic_complexity": 7,
+      "parameters": 1
+    },
+    {
+      "name": "LLMTools::LoadPrompts( string promptsFolder = \"/StreamingAssets\")",
+      "file": "Assets/Scripts/LLMTools.cs",
+      "start_line": 178,
+      "end_line": 184,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "LLMUtils::LLMUtils()",
+      "file": "Assets/Scripts/LLMUtils.cs",
+      "start_line": 11,
+      "end_line": 26,
+      "nloc": 16,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "LLMUtils::GetOpenAIApiKey( string variableName = \"OPENAI_API_KEY\" , bool raiseError = true)",
+      "file": "Assets/Scripts/LLMUtils.cs",
+      "start_line": 28,
+      "end_line": 39,
+      "nloc": 9,
+      "cyclomatic_complexity": 6,
+      "parameters": 2
+    },
+    {
+      "name": "LLMUtils::LoadPrompts( string promptsFolder = \"./StreamingAssets\")",
+      "file": "Assets/Scripts/LLMUtils.cs",
+      "start_line": 41,
+      "end_line": 64,
+      "nloc": 20,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "LLMUtils::LoadTownCollectiveMemory( string promptsFolder = \"./StreamingAssets\" , string fileName = \"town_collective_memory.txt\")",
+      "file": "Assets/Scripts/LLMUtils.cs",
+      "start_line": 66,
+      "end_line": 71,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 2
+    },
+    {
+      "name": "LLMUtils::LoadGeneralRules( string promptsFolder = \"./StreamingAssets\" , string fileName = \"npc_default_rules.txt\")",
+      "file": "Assets/Scripts/LLMUtils.cs",
+      "start_line": 73,
+      "end_line": 78,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 2
+    },
+    {
+      "name": "MessageBubble::Awake()",
+      "file": "Assets/Scripts/MessageBubble.cs",
+      "start_line": 20,
+      "end_line": 44,
+      "nloc": 17,
+      "cyclomatic_complexity": 7,
+      "parameters": 0
+    },
+    {
+      "name": "MessageBubble::SetText( string value)",
+      "file": "Assets/Scripts/MessageBubble.cs",
+      "start_line": 46,
+      "end_line": 52,
+      "nloc": 7,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "MessageBubble::ClampWidth( float viewportMaxWidth)",
+      "file": "Assets/Scripts/MessageBubble.cs",
+      "start_line": 58,
+      "end_line": 84,
+      "nloc": 20,
+      "cyclomatic_complexity": 6,
+      "parameters": 1
+    },
+    {
+      "name": "MpcLlmController::MpcLlmController( string apiKey , string model , NPCInteractable subject)",
+      "file": "Assets/Scripts/MpcLlmController.cs",
+      "start_line": 13,
+      "end_line": 28,
+      "nloc": 12,
+      "cyclomatic_complexity": 4,
+      "parameters": 3
+    },
+    {
+      "name": "MpcLlmController::GetResponseStreaming( string from , string input)",
+      "file": "Assets/Scripts/MpcLlmController.cs",
+      "start_line": 38,
+      "end_line": 97,
+      "nloc": 48,
+      "cyclomatic_complexity": 9,
+      "parameters": 2
+    },
+    {
+      "name": "MpcLlmController::SendPrompt( string from , string input)",
+      "file": "Assets/Scripts/MpcLlmController.cs",
+      "start_line": 99,
+      "end_line": 161,
+      "nloc": 48,
+      "cyclomatic_complexity": 7,
+      "parameters": 2
+    },
+    {
+      "name": "MpcLlmController::PerformActionSafe( FunctionCallResponseItem functionCall)",
+      "file": "Assets/Scripts/MpcLlmController.cs",
+      "start_line": 163,
+      "end_line": 166,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "MpcLlmController::PerformActionSafe( string functionName , BinaryData functionArguments)",
+      "file": "Assets/Scripts/MpcLlmController.cs",
+      "start_line": 168,
+      "end_line": 183,
+      "nloc": 16,
+      "cyclomatic_complexity": 2,
+      "parameters": 2
+    },
+    {
+      "name": "MpcLlmController::LogToHistory( string from , string to , string message)",
+      "file": "Assets/Scripts/MpcLlmController.cs",
+      "start_line": 185,
+      "end_line": 189,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 3
+    },
+    {
+      "name": "MpcLlmController::LogToHistory( ChatResponse response)",
+      "file": "Assets/Scripts/MpcLlmController.cs",
+      "start_line": 191,
+      "end_line": 197,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "MpcLlmController::PrintHistory()",
+      "file": "Assets/Scripts/MpcLlmController.cs",
+      "start_line": 199,
+      "end_line": 202,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "NavGrid::NavGrid( Grid grid , BoundsInt area , Collider2D agentCollider , LayerMask obstacleMask , float skin = 0.04 f , int extraErosion = 0)",
+      "file": "Assets/Scripts/Navgrid.cs",
+      "start_line": 18,
+      "end_line": 78,
+      "nloc": 52,
+      "cyclomatic_complexity": 11,
+      "parameters": 6
+    },
+    {
+      "name": "NavGrid::ComputeErosionCells( Grid grid , Collider2D agent)",
+      "file": "Assets/Scripts/Navgrid.cs",
+      "start_line": 81,
+      "end_line": 87,
+      "nloc": 7,
+      "cyclomatic_complexity": 1,
+      "parameters": 2
+    },
+    {
+      "name": "NavGrid::Erode( int cells)",
+      "file": "Assets/Scripts/Navgrid.cs",
+      "start_line": 90,
+      "end_line": 122,
+      "nloc": 28,
+      "cyclomatic_complexity": 18,
+      "parameters": 1
+    },
+    {
+      "name": "NotePickup::Reset()",
+      "file": "Assets/Scripts/NotePickup.cs",
+      "start_line": 11,
+      "end_line": 11,
+      "nloc": 1,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "NotePickup::OnTriggerEnter2D( Collider2D other)",
+      "file": "Assets/Scripts/NotePickup.cs",
+      "start_line": 13,
+      "end_line": 30,
+      "nloc": 16,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "NPCInteractable::Awake()",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 44,
+      "end_line": 57,
+      "nloc": 10,
+      "cyclomatic_complexity": 6,
+      "parameters": 0
+    },
+    {
+      "name": "NPCInteractable::OnDisable()",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 59,
+      "end_line": 67,
+      "nloc": 8,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "NPCInteractable::Update()",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 69,
+      "end_line": 84,
+      "nloc": 13,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "NPCInteractable::OnTriggerEnter2D( Collider2D other)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 86,
+      "end_line": 95,
+      "nloc": 9,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "NPCInteractable::OnTriggerExit2D( Collider2D other)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 97,
+      "end_line": 115,
+      "nloc": 14,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "NPCInteractable::StartChat( ChatUIController ui)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 117,
+      "end_line": 128,
+      "nloc": 9,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "NPCInteractable::FindOtherNpc( string nameOrOccupation)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 134,
+      "end_line": 151,
+      "nloc": 16,
+      "cyclomatic_complexity": 7,
+      "parameters": 1
+    },
+    {
+      "name": "NPCInteractable::MoveTo( string otherNpcName)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 155,
+      "end_line": 193,
+      "nloc": 32,
+      "cyclomatic_complexity": 9,
+      "parameters": 1
+    },
+    {
+      "name": "NPCInteractable::UpdateInventoryAfterHandover( string itemName)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 202,
+      "end_line": 228,
+      "nloc": 21,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "NPCInteractable::HandoverSafe( string callName , Dictionary<string,object> parameters)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 230,
+      "end_line": 258,
+      "nloc": 26,
+      "cyclomatic_complexity": 4,
+      "parameters": 2
+    },
+    {
+      "name": "NPCInteractable::RejectHandoverSafe( string callName , Dictionary<string,object> parameters)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 260,
+      "end_line": 282,
+      "nloc": 21,
+      "cyclomatic_complexity": 3,
+      "parameters": 2
+    },
+    {
+      "name": "NPCInteractable::MoveToSafe( string callName , Dictionary<string,object> parameters)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 284,
+      "end_line": 317,
+      "nloc": 29,
+      "cyclomatic_complexity": 5,
+      "parameters": 2
+    },
+    {
+      "name": "NPCInteractable::Arrest( string suspectNpcName)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 320,
+      "end_line": 361,
+      "nloc": 24,
+      "cyclomatic_complexity": 6,
+      "parameters": 1
+    },
+    {
+      "name": "NPCInteractable::ArrestSafe( string callName , Dictionary<string,object> parameters)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 364,
+      "end_line": 393,
+      "nloc": 25,
+      "cyclomatic_complexity": 3,
+      "parameters": 2
+    },
+    {
+      "name": "NPCInteractable::PerformAction( string actionName , Dictionary<string,object> parameters)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 395,
+      "end_line": 433,
+      "nloc": 33,
+      "cyclomatic_complexity": 10,
+      "parameters": 2
+    },
+    {
+      "name": "NPCInteractable::LogActionResponse( ActionResponse response , bool errorOnly = false)",
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "start_line": 435,
+      "end_line": 439,
+      "nloc": 5,
+      "cyclomatic_complexity": 3,
+      "parameters": 2
+    },
+    {
+      "name": "NPCShortcut::Start()",
+      "file": "Assets/Scripts/NPCShortcut.cs",
+      "start_line": 24,
+      "end_line": 57,
+      "nloc": 24,
+      "cyclomatic_complexity": 11,
+      "parameters": 0
+    },
+    {
+      "name": "NPCTalkAudio::Awake()",
+      "file": "Assets/Scripts/NPCTalkAudio.cs",
+      "start_line": 18,
+      "end_line": 24,
+      "nloc": 7,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "NPCTalkAudio::OnValidate()",
+      "file": "Assets/Scripts/NPCTalkAudio.cs",
+      "start_line": 26,
+      "end_line": 30,
+      "nloc": 5,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "NPCTalkAudio::Apply3DSettings()",
+      "file": "Assets/Scripts/NPCTalkAudio.cs",
+      "start_line": 32,
+      "end_line": 52,
+      "nloc": 16,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "NPCTalkAudio::PlayTalk()",
+      "file": "Assets/Scripts/NPCTalkAudio.cs",
+      "start_line": 54,
+      "end_line": 67,
+      "nloc": 10,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "NPCWalkerGrid::SetAIEnabled( bool on)",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 44,
+      "end_line": 61,
+      "nloc": 16,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "NPCWalkerGrid::Awake()",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 72,
+      "end_line": 81,
+      "nloc": 8,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "NPCWalkerGrid::Start()",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 83,
+      "end_line": 94,
+      "nloc": 10,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "NPCWalkerGrid::BakeNav()",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 96,
+      "end_line": 99,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "NPCWalkerGrid::Update()",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 101,
+      "end_line": 136,
+      "nloc": 28,
+      "cyclomatic_complexity": 11,
+      "parameters": 0
+    },
+    {
+      "name": "NPCWalkerGrid::MoveTo( Vector3 target)",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 138,
+      "end_line": 151,
+      "nloc": 14,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "NPCWalkerGrid::WanderLoop()",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 153,
+      "end_line": 187,
+      "nloc": 28,
+      "cyclomatic_complexity": 10,
+      "parameters": 0
+    },
+    {
+      "name": "NPCWalkerGrid::GoToCell( Vector3Int targetCell)",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 190,
+      "end_line": 207,
+      "nloc": 16,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "NPCWalkerGrid::WarpToCell( Vector3Int cell)",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 209,
+      "end_line": 216,
+      "nloc": 8,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "NPCWalkerGrid::FindPath( Vector3Int start , Vector3Int goal , NavGrid navGrid)",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 219,
+      "end_line": 268,
+      "nloc": 43,
+      "cyclomatic_complexity": 9,
+      "parameters": 3
+    },
+    {
+      "name": "NPCWalkerGrid::PriorityQueue::Ensure( T item , int pri)",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 278,
+      "end_line": 289,
+      "nloc": 12,
+      "cyclomatic_complexity": 3,
+      "parameters": 2
+    },
+    {
+      "name": "NPCWalkerGrid::PriorityQueue::Dequeue()",
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "start_line": 291,
+      "end_line": 311,
+      "nloc": 20,
+      "cyclomatic_complexity": 6,
+      "parameters": 0
+    },
+    {
+      "name": "Player::Awake()",
+      "file": "Assets/Scripts/Player.cs",
+      "start_line": 36,
+      "end_line": 51,
+      "nloc": 13,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "Player::SetInputEnabled( bool on)",
+      "file": "Assets/Scripts/Player.cs",
+      "start_line": 53,
+      "end_line": 57,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "Player::Update()",
+      "file": "Assets/Scripts/Player.cs",
+      "start_line": 59,
+      "end_line": 73,
+      "nloc": 11,
+      "cyclomatic_complexity": 7,
+      "parameters": 0
+    },
+    {
+      "name": "Player::TryMove( Vector3Int deltaCell)",
+      "file": "Assets/Scripts/Player.cs",
+      "start_line": 75,
+      "end_line": 88,
+      "nloc": 12,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "Player::MoveTo( Vector3 targetPos)",
+      "file": "Assets/Scripts/Player.cs",
+      "start_line": 90,
+      "end_line": 106,
+      "nloc": 15,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "Player::SnapToGridCenter()",
+      "file": "Assets/Scripts/Player.cs",
+      "start_line": 108,
+      "end_line": 114,
+      "nloc": 7,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "Player::IsBlockedAt( Vector3 worldCenter)",
+      "file": "Assets/Scripts/Player.cs",
+      "start_line": 117,
+      "end_line": 162,
+      "nloc": 40,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "Player::FixedUpdate()",
+      "file": "Assets/Scripts/Player.cs",
+      "start_line": 164,
+      "end_line": 171,
+      "nloc": 8,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "Player::OnDrawGizmosSelected()",
+      "file": "Assets/Scripts/Player.cs",
+      "start_line": 173,
+      "end_line": 182,
+      "nloc": 10,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "PlayerAutoNavigator::Awake()",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 30,
+      "end_line": 40,
+      "nloc": 11,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "PlayerAutoNavigator::Start()",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 42,
+      "end_line": 50,
+      "nloc": 8,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "PlayerAutoNavigator::CancelNavigation()",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 52,
+      "end_line": 58,
+      "nloc": 7,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "PlayerAutoNavigator::GoToWorldPosition( Vector3 worldPos)",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 60,
+      "end_line": 64,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "PlayerAutoNavigator::GoToTransform( Transform target)",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 66,
+      "end_line": 70,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "PlayerAutoNavigator::GoToCell( Vector3Int goal)",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 72,
+      "end_line": 87,
+      "nloc": 12,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "PlayerAutoNavigator::FollowPath( Queue<Vector3Int> path)",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 89,
+      "end_line": 112,
+      "nloc": 18,
+      "cyclomatic_complexity": 6,
+      "parameters": 1
+    },
+    {
+      "name": "PlayerAutoNavigator::MoveStep( Vector3 target , float stepTime)",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 114,
+      "end_line": 126,
+      "nloc": 13,
+      "cyclomatic_complexity": 2,
+      "parameters": 2
+    },
+    {
+      "name": "PlayerAutoNavigator::InBounds( Vector3Int c)",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 130,
+      "end_line": 134,
+      "nloc": 5,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "PlayerAutoNavigator::IsWalkableCell( Vector3Int c)",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 136,
+      "end_line": 168,
+      "nloc": 30,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "PlayerAutoNavigator::FindPath( Vector3Int start , Vector3Int goal)",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 170,
+      "end_line": 220,
+      "nloc": 44,
+      "cyclomatic_complexity": 10,
+      "parameters": 2
+    },
+    {
+      "name": "PlayerAutoNavigator::PriorityQueue::Ensure( T item , int pri)",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 228,
+      "end_line": 239,
+      "nloc": 12,
+      "cyclomatic_complexity": 3,
+      "parameters": 2
+    },
+    {
+      "name": "PlayerAutoNavigator::PriorityQueue::Dequeue()",
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "start_line": 240,
+      "end_line": 260,
+      "nloc": 20,
+      "cyclomatic_complexity": 6,
+      "parameters": 0
+    },
+    {
+      "name": "PlayerFacing2D::Awake()",
+      "file": "Assets/Scripts/PlayerFacing2D.cs",
+      "start_line": 23,
+      "end_line": 28,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "PlayerFacing2D::Update()",
+      "file": "Assets/Scripts/PlayerFacing2D.cs",
+      "start_line": 30,
+      "end_line": 35,
+      "nloc": 5,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "PlayerFacing2D::NotifyMoveDelta( Vector3Int deltaCell)",
+      "file": "Assets/Scripts/PlayerFacing2D.cs",
+      "start_line": 38,
+      "end_line": 50,
+      "nloc": 11,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "PlayerFacing2D::ApplyFacing( Facing f , bool force = false)",
+      "file": "Assets/Scripts/PlayerFacing2D.cs",
+      "start_line": 52,
+      "end_line": 67,
+      "nloc": 15,
+      "cyclomatic_complexity": 8,
+      "parameters": 2
+    },
+    {
+      "name": "PlayerFacing2D::SetSprite( Sprite s , bool flipX)",
+      "file": "Assets/Scripts/PlayerFacing2D.cs",
+      "start_line": 69,
+      "end_line": 73,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 2
+    },
+    {
+      "name": "PromptInfo::PromptInfo( string promptText , string role , bool isCulprit)",
+      "file": "Assets/Scripts/PromptInfo.cs",
+      "start_line": 3,
+      "end_line": 18,
+      "nloc": 14,
+      "cyclomatic_complexity": 3,
+      "parameters": 3
+    },
+    {
+      "name": "PromptInfo::SetVariable( string variableName , string value)",
+      "file": "Assets/Scripts/PromptInfo.cs",
+      "start_line": 26,
+      "end_line": 29,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 2
+    },
+    {
+      "name": "QuickAccess::Start()",
+      "file": "Assets/Scripts/QuickAccess.cs",
+      "start_line": 23,
+      "end_line": 60,
+      "nloc": 26,
+      "cyclomatic_complexity": 13,
+      "parameters": 0
+    },
+    {
+      "name": "ShortcutToggleUI::Start()",
+      "file": "Assets/Scripts/ShortcutToggleUI.cs",
+      "start_line": 20,
+      "end_line": 31,
+      "nloc": 11,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "ShortcutToggleUI::Update()",
+      "file": "Assets/Scripts/ShortcutToggleUI.cs",
+      "start_line": 33,
+      "end_line": 43,
+      "nloc": 9,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "ShortcutToNPC::Update()",
+      "file": "Assets/Scripts/ShortcutToNPC.cs",
+      "start_line": 18,
+      "end_line": 32,
+      "nloc": 13,
+      "cyclomatic_complexity": 6,
+      "parameters": 0
+    },
+    {
+      "name": "SmartCamera2D::Awake()",
+      "file": "Assets/Scripts/SmartCamera2D.cs",
+      "start_line": 35,
+      "end_line": 43,
+      "nloc": 9,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "SmartCamera2D::LateUpdate()",
+      "file": "Assets/Scripts/SmartCamera2D.cs",
+      "start_line": 45,
+      "end_line": 96,
+      "nloc": 29,
+      "cyclomatic_complexity": 8,
+      "parameters": 0
+    },
+    {
+      "name": "SmartCamera2D::Shrink( Rect r , float dx , float dy)",
+      "file": "Assets/Scripts/SmartCamera2D.cs",
+      "start_line": 98,
+      "end_line": 101,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 3
+    },
+    {
+      "name": "SmartCamera2D::OnDrawGizmosSelected()",
+      "file": "Assets/Scripts/SmartCamera2D.cs",
+      "start_line": 104,
+      "end_line": 124,
+      "nloc": 16,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "SmartCamera2D::DrawRectGizmo( Rect r , Color col)",
+      "file": "Assets/Scripts/SmartCamera2D.cs",
+      "start_line": 126,
+      "end_line": 137,
+      "nloc": 12,
+      "cyclomatic_complexity": 1,
+      "parameters": 2
+    },
+    {
+      "name": "PimDeWitte.UnityMainThreadDispatcher::UnityMainThreadDispatcher::Update()",
+      "file": "Assets/Scripts/UnityMainThreadDispatcher.cs",
+      "start_line": 33,
+      "end_line": 39,
+      "nloc": 7,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "PimDeWitte.UnityMainThreadDispatcher::UnityMainThreadDispatcher::Enqueue( IEnumerator action)",
+      "file": "Assets/Scripts/UnityMainThreadDispatcher.cs",
+      "start_line": 45,
+      "end_line": 51,
+      "nloc": 7,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "PimDeWitte.UnityMainThreadDispatcher::UnityMainThreadDispatcher::Enqueue( Action action)",
+      "file": "Assets/Scripts/UnityMainThreadDispatcher.cs",
+      "start_line": 57,
+      "end_line": 60,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "PimDeWitte.UnityMainThreadDispatcher::UnityMainThreadDispatcher::EnqueueAsync( Action action)",
+      "file": "Assets/Scripts/UnityMainThreadDispatcher.cs",
+      "start_line": 67,
+      "end_line": 84,
+      "nloc": 16,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "PimDeWitte.UnityMainThreadDispatcher::UnityMainThreadDispatcher::ActionWrapper( Action a)",
+      "file": "Assets/Scripts/UnityMainThreadDispatcher.cs",
+      "start_line": 87,
+      "end_line": 91,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "PimDeWitte.UnityMainThreadDispatcher::UnityMainThreadDispatcher::Exists()",
+      "file": "Assets/Scripts/UnityMainThreadDispatcher.cs",
+      "start_line": 96,
+      "end_line": 98,
+      "nloc": 3,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "PimDeWitte.UnityMainThreadDispatcher::UnityMainThreadDispatcher::Instance()",
+      "file": "Assets/Scripts/UnityMainThreadDispatcher.cs",
+      "start_line": 100,
+      "end_line": 105,
+      "nloc": 6,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "PimDeWitte.UnityMainThreadDispatcher::UnityMainThreadDispatcher::Awake()",
+      "file": "Assets/Scripts/UnityMainThreadDispatcher.cs",
+      "start_line": 108,
+      "end_line": 113,
+      "nloc": 6,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "PimDeWitte.UnityMainThreadDispatcher::UnityMainThreadDispatcher::OnDestroy()",
+      "file": "Assets/Scripts/UnityMainThreadDispatcher.cs",
+      "start_line": 115,
+      "end_line": 117,
+      "nloc": 3,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "SceneVideoController::Awake()",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 32,
+      "end_line": 74,
+      "nloc": 35,
+      "cyclomatic_complexity": 9,
+      "parameters": 0
+    },
+    {
+      "name": "SceneVideoController::Start()",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 76,
+      "end_line": 79,
+      "nloc": 4,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "SceneVideoController::AutoIntro()",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 81,
+      "end_line": 85,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "SceneVideoController::Update()",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 87,
+      "end_line": 103,
+      "nloc": 15,
+      "cyclomatic_complexity": 14,
+      "parameters": 0
+    },
+    {
+      "name": "SceneVideoController::OnDestroy()",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 105,
+      "end_line": 116,
+      "nloc": 11,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "SceneVideoController::PlayClip( VideoClip clip)",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 122,
+      "end_line": 127,
+      "nloc": 6,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "SceneVideoController::SkipOrStop()",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 129,
+      "end_line": 136,
+      "nloc": 8,
+      "cyclomatic_complexity": 6,
+      "parameters": 0
+    },
+    {
+      "name": "SceneVideoController::CoPlay( VideoClip clip)",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 139,
+      "end_line": 171,
+      "nloc": 28,
+      "cyclomatic_complexity": 8,
+      "parameters": 1
+    },
+    {
+      "name": "SceneVideoController::OnFinished( VideoPlayer vp)",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 175,
+      "end_line": 179,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "SceneVideoController::OnError( VideoPlayer vp , string msg)",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 181,
+      "end_line": 186,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 2
+    },
+    {
+      "name": "SceneVideoController::EnsureRenderTarget()",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 188,
+      "end_line": 203,
+      "nloc": 14,
+      "cyclomatic_complexity": 7,
+      "parameters": 0
+    },
+    {
+      "name": "SceneVideoController::SetLayerVisible( bool on)",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 205,
+      "end_line": 209,
+      "nloc": 5,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "SceneVideoController::BringLayerToFront()",
+      "file": "Assets/vids/SceneVideoController.cs",
+      "start_line": 211,
+      "end_line": 215,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::Benchmark01::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs",
+      "start_line": 31,
+      "end_line": 109,
+      "nloc": 45,
+      "cyclomatic_complexity": 10,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::Benchmark01_UGUI::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs",
+      "start_line": 36,
+      "end_line": 115,
+      "nloc": 40,
+      "cyclomatic_complexity": 10,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::Benchmark02::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs",
+      "start_line": 18,
+      "end_line": 95,
+      "nloc": 53,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::Benchmark03::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark03.cs",
+      "start_line": 19,
+      "end_line": 22,
+      "nloc": 3,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::Benchmark03::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark03.cs",
+      "start_line": 25,
+      "end_line": 89,
+      "nloc": 57,
+      "cyclomatic_complexity": 12,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::Benchmark04::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark04.cs",
+      "start_line": 22,
+      "end_line": 82,
+      "nloc": 28,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::CameraController::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs",
+      "start_line": 53,
+      "end_line": 65,
+      "nloc": 11,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::CameraController::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs",
+      "start_line": 69,
+      "end_line": 77,
+      "nloc": 8,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::CameraController::LateUpdate()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs",
+      "start_line": 80,
+      "end_line": 122,
+      "nloc": 32,
+      "cyclomatic_complexity": 6,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::CameraController::GetPlayerInput()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs",
+      "start_line": 126,
+      "end_line": 290,
+      "nloc": 113,
+      "cyclomatic_complexity": 33,
+      "parameters": 0
+    },
+    {
+      "name": "ChatController::OnEnable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ChatController.cs",
+      "start_line": 14,
+      "end_line": 17,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ChatController::OnDisable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ChatController.cs",
+      "start_line": 19,
+      "end_line": 22,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "ChatController::AddToChatOutput( string newText)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ChatController.cs",
+      "start_line": 25,
+      "end_line": 49,
+      "nloc": 15,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "DropdownSample::OnButtonClick()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/DropdownSample.cs",
+      "start_line": 15,
+      "end_line": 18,
+      "nloc": 4,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "EnvMapAnimator::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/EnvMapAnimator.cs",
+      "start_line": 13,
+      "end_line": 18,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "EnvMapAnimator::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/EnvMapAnimator.cs",
+      "start_line": 21,
+      "end_line": 34,
+      "nloc": 10,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::ObjectSpin::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ObjectSpin.cs",
+      "start_line": 26,
+      "end_line": 34,
+      "nloc": 8,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::ObjectSpin::Update()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ObjectSpin.cs",
+      "start_line": 38,
+      "end_line": 65,
+      "nloc": 21,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::ShaderPropAnimator::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ShaderPropAnimator.cs",
+      "start_line": 18,
+      "end_line": 25,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::ShaderPropAnimator::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ShaderPropAnimator.cs",
+      "start_line": 27,
+      "end_line": 30,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::ShaderPropAnimator::AnimateProperties()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ShaderPropAnimator.cs",
+      "start_line": 32,
+      "end_line": 49,
+      "nloc": 12,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::SimpleScript::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/SimpleScript.cs",
+      "start_line": 18,
+      "end_line": 48,
+      "nloc": 8,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::SimpleScript::Update()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/SimpleScript.cs",
+      "start_line": 51,
+      "end_line": 55,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::SkewTextExample::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/SkewTextExample.cs",
+      "start_line": 19,
+      "end_line": 22,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::SkewTextExample::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/SkewTextExample.cs",
+      "start_line": 25,
+      "end_line": 28,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::SkewTextExample::CopyAnimationCurve( AnimationCurve curve)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/SkewTextExample.cs",
+      "start_line": 31,
+      "end_line": 38,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::SkewTextExample::WarpText()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/SkewTextExample.cs",
+      "start_line": 46,
+      "end_line": 156,
+      "nloc": 69,
+      "cyclomatic_complexity": 10,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TeleType::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs",
+      "start_line": 22,
+      "end_line": 44,
+      "nloc": 7,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TeleType::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs",
+      "start_line": 47,
+      "end_line": 80,
+      "nloc": 22,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TextConsoleSimulator::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs",
+      "start_line": 12,
+      "end_line": 15,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TextConsoleSimulator::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs",
+      "start_line": 18,
+      "end_line": 22,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TextConsoleSimulator::OnEnable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs",
+      "start_line": 25,
+      "end_line": 29,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TextConsoleSimulator::OnDisable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs",
+      "start_line": 31,
+      "end_line": 34,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TextConsoleSimulator::ON_TEXT_CHANGED( Object obj)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs",
+      "start_line": 38,
+      "end_line": 41,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TextConsoleSimulator::RevealCharacters( TMP_Text textComponent)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs",
+      "start_line": 48,
+      "end_line": 77,
+      "nloc": 23,
+      "cyclomatic_complexity": 4,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TextConsoleSimulator::RevealWords( TMP_Text textComponent)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs",
+      "start_line": 84,
+      "end_line": 118,
+      "nloc": 26,
+      "cyclomatic_complexity": 6,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TextMeshProFloatingText::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs",
+      "start_line": 37,
+      "end_line": 47,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TextMeshProFloatingText::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs",
+      "start_line": 49,
+      "end_line": 95,
+      "nloc": 32,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TextMeshProFloatingText::DisplayTextMeshProFloatingText()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs",
+      "start_line": 113,
+      "end_line": 166,
+      "nloc": 35,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TextMeshProFloatingText::DisplayTextMeshFloatingText()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs",
+      "start_line": 169,
+      "end_line": 221,
+      "nloc": 35,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TextMeshSpawner::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs",
+      "start_line": 18,
+      "end_line": 21,
+      "nloc": 3,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TextMeshSpawner::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs",
+      "start_line": 23,
+      "end_line": 76,
+      "nloc": 31,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMPro_InstructionOverlay::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMPro_InstructionOverlay.cs",
+      "start_line": 24,
+      "end_line": 51,
+      "nloc": 18,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMPro_InstructionOverlay::Set_FrameCounter_Position( FpsCounterAnchorPositions anchor_position)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMPro_InstructionOverlay.cs",
+      "start_line": 56,
+      "end_line": 82,
+      "nloc": 22,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro::TMP_DigitValidator::Validate( ref string text , ref int pos , char ch)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_DigitValidator.cs",
+      "start_line": 15,
+      "end_line": 25,
+      "nloc": 10,
+      "cyclomatic_complexity": 3,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro.Examples::TMP_ExampleScript_01::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_ExampleScript_01.cs",
+      "start_line": 25,
+      "end_line": 51,
+      "nloc": 13,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_ExampleScript_01::Update()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_ExampleScript_01.cs",
+      "start_line": 54,
+      "end_line": 61,
+      "nloc": 8,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_FrameRateCounter::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs",
+      "start_line": 27,
+      "end_line": 62,
+      "nloc": 18,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_FrameRateCounter::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs",
+      "start_line": 64,
+      "end_line": 68,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_FrameRateCounter::Update()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs",
+      "start_line": 70,
+      "end_line": 101,
+      "nloc": 22,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_FrameRateCounter::Set_FrameCounter_Position( FpsCounterAnchorPositions anchor_position)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs",
+      "start_line": 104,
+      "end_line": 132,
+      "nloc": 27,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro::TMP_PhoneNumberValidator::Validate( ref string text , ref int pos , char ch)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_PhoneNumberValidator.cs",
+      "start_line": 15,
+      "end_line": 103,
+      "nloc": 83,
+      "cyclomatic_complexity": 32,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextEventCheck::OnEnable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs",
+      "start_line": 13,
+      "end_line": 26,
+      "nloc": 12,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextEventCheck::OnDisable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs",
+      "start_line": 29,
+      "end_line": 39,
+      "nloc": 11,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextEventCheck::OnCharacterSelection( char c , int index)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs",
+      "start_line": 42,
+      "end_line": 45,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 2
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextEventCheck::OnSpriteSelection( char c , int index)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs",
+      "start_line": 47,
+      "end_line": 50,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 2
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextEventCheck::OnWordSelection( string word , int firstCharacterIndex , int length)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs",
+      "start_line": 52,
+      "end_line": 55,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextEventCheck::OnLineSelection( string lineText , int firstCharacterIndex , int length)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs",
+      "start_line": 57,
+      "end_line": 60,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextEventCheck::OnLinkSelection( string linkID , string linkText , int linkIndex)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs",
+      "start_line": 62,
+      "end_line": 70,
+      "nloc": 8,
+      "cyclomatic_complexity": 2,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro::TMP_TextEventHandler::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+      "start_line": 99,
+      "end_line": 120,
+      "nloc": 19,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro::TMP_TextEventHandler::LateUpdate()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+      "start_line": 123,
+      "end_line": 217,
+      "nloc": 50,
+      "cyclomatic_complexity": 14,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro::TMP_TextEventHandler::OnPointerEnter( PointerEventData eventData)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+      "start_line": 220,
+      "end_line": 223,
+      "nloc": 3,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro::TMP_TextEventHandler::OnPointerExit( PointerEventData eventData)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+      "start_line": 226,
+      "end_line": 229,
+      "nloc": 3,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro::TMP_TextEventHandler::SendOnCharacterSelection( char character , int characterIndex)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+      "start_line": 232,
+      "end_line": 236,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 2
+    },
+    {
+      "name": "TMPro::TMP_TextEventHandler::SendOnSpriteSelection( char character , int characterIndex)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+      "start_line": 238,
+      "end_line": 242,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 2
+    },
+    {
+      "name": "TMPro::TMP_TextEventHandler::SendOnWordSelection( string word , int charIndex , int length)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+      "start_line": 244,
+      "end_line": 248,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro::TMP_TextEventHandler::SendOnLineSelection( string line , int charIndex , int length)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+      "start_line": 250,
+      "end_line": 254,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro::TMP_TextEventHandler::SendOnLinkSelection( string linkID , string linkText , int linkIndex)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+      "start_line": 256,
+      "end_line": 260,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::OnDrawGizmos()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 35,
+      "end_line": 93,
+      "nloc": 27,
+      "cyclomatic_complexity": 10,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawCharactersBounds()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 100,
+      "end_line": 257,
+      "nloc": 98,
+      "cyclomatic_complexity": 14,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawWordBounds()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 264,
+      "end_line": 361,
+      "nloc": 61,
+      "cyclomatic_complexity": 14,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawLinkBounds()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 368,
+      "end_line": 465,
+      "nloc": 62,
+      "cyclomatic_complexity": 14,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawLineBounds()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 472,
+      "end_line": 546,
+      "nloc": 50,
+      "cyclomatic_complexity": 12,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawBounds()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 552,
+      "end_line": 561,
+      "nloc": 7,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawTextBounds()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 564,
+      "end_line": 572,
+      "nloc": 7,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawRectangle( Vector3 BL , Vector3 TR , Color color)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 576,
+      "end_line": 584,
+      "nloc": 8,
+      "cyclomatic_complexity": 1,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawDottedRectangle( Vector3 bottomLeft , Vector3 topRight , Color color , float size = 5.0 f)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 586,
+      "end_line": 593,
+      "nloc": 8,
+      "cyclomatic_complexity": 1,
+      "parameters": 4
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawSolidRectangle( Vector3 bottomLeft , Vector3 topRight , Color color , float size = 5.0 f)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 595,
+      "end_line": 600,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 4
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawSquare( Vector3 position , float size , Color color)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 602,
+      "end_line": 614,
+      "nloc": 12,
+      "cyclomatic_complexity": 1,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawCrosshair( Vector3 position , float size , Color color)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 616,
+      "end_line": 622,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 3
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawRectangle( Vector3 bl , Vector3 tl , Vector3 tr , Vector3 br , Color color)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 626,
+      "end_line": 634,
+      "nloc": 8,
+      "cyclomatic_complexity": 1,
+      "parameters": 5
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextInfoDebugTool::DrawDottedRectangle( Vector3 bl , Vector3 tl , Vector3 tr , Vector3 br , Color color)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "start_line": 638,
+      "end_line": 648,
+      "nloc": 10,
+      "cyclomatic_complexity": 1,
+      "parameters": 5
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_A::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs",
+      "start_line": 20,
+      "end_line": 27,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_A::LateUpdate()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs",
+      "start_line": 30,
+      "end_line": 140,
+      "nloc": 63,
+      "cyclomatic_complexity": 17,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_A::OnPointerEnter( PointerEventData eventData)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs",
+      "start_line": 143,
+      "end_line": 147,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_A::OnPointerExit( PointerEventData eventData)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs",
+      "start_line": 150,
+      "end_line": 154,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_B::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 37,
+      "end_line": 55,
+      "nloc": 13,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_B::OnEnable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 58,
+      "end_line": 62,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_B::OnDisable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 64,
+      "end_line": 68,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_B::ON_TEXT_CHANGED( Object obj)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 71,
+      "end_line": 78,
+      "nloc": 7,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_B::LateUpdate()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 81,
+      "end_line": 290,
+      "nloc": 116,
+      "cyclomatic_complexity": 26,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_B::OnPointerEnter( PointerEventData eventData)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 293,
+      "end_line": 297,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_B::OnPointerExit( PointerEventData eventData)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 300,
+      "end_line": 304,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_B::OnPointerClick( PointerEventData eventData)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 307,
+      "end_line": 447,
+      "nloc": 3,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_B::OnPointerUp( PointerEventData eventData)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 450,
+      "end_line": 453,
+      "nloc": 3,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TMP_TextSelector_B::RestoreCachedVertexAttributes( int index)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "start_line": 456,
+      "end_line": 545,
+      "nloc": 54,
+      "cyclomatic_complexity": 3,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::TMP_UiFrameRateCounter::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_UiFrameRateCounter.cs",
+      "start_line": 26,
+      "end_line": 49,
+      "nloc": 17,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_UiFrameRateCounter::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_UiFrameRateCounter.cs",
+      "start_line": 52,
+      "end_line": 56,
+      "nloc": 5,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_UiFrameRateCounter::Update()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_UiFrameRateCounter.cs",
+      "start_line": 59,
+      "end_line": 87,
+      "nloc": 22,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::TMP_UiFrameRateCounter::Set_FrameCounter_Position( FpsCounterAnchorPositions anchor_position)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_UiFrameRateCounter.cs",
+      "start_line": 90,
+      "end_line": 123,
+      "nloc": 34,
+      "cyclomatic_complexity": 5,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::VertexColorCycler::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs",
+      "start_line": 13,
+      "end_line": 16,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexColorCycler::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs",
+      "start_line": 19,
+      "end_line": 22,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexColorCycler::AnimateVertexColors()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs",
+      "start_line": 29,
+      "end_line": 81,
+      "nloc": 31,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexJitter::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs",
+      "start_line": 28,
+      "end_line": 31,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexJitter::OnEnable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs",
+      "start_line": 33,
+      "end_line": 37,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexJitter::OnDisable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs",
+      "start_line": 39,
+      "end_line": 42,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexJitter::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs",
+      "start_line": 45,
+      "end_line": 48,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexJitter::ON_TEXT_CHANGED( Object obj)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs",
+      "start_line": 51,
+      "end_line": 55,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::VertexJitter::AnimateVertexColors()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs",
+      "start_line": 61,
+      "end_line": 172,
+      "nloc": 65,
+      "cyclomatic_complexity": 8,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeA::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs",
+      "start_line": 20,
+      "end_line": 23,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeA::OnEnable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs",
+      "start_line": 25,
+      "end_line": 29,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeA::OnDisable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs",
+      "start_line": 31,
+      "end_line": 34,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeA::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs",
+      "start_line": 37,
+      "end_line": 40,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeA::ON_TEXT_CHANGED( Object obj)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs",
+      "start_line": 43,
+      "end_line": 47,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeA::AnimateVertexColors()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs",
+      "start_line": 53,
+      "end_line": 158,
+      "nloc": 64,
+      "cyclomatic_complexity": 10,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeB::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs",
+      "start_line": 19,
+      "end_line": 22,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeB::OnEnable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs",
+      "start_line": 24,
+      "end_line": 28,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeB::OnDisable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs",
+      "start_line": 30,
+      "end_line": 33,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeB::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs",
+      "start_line": 36,
+      "end_line": 39,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeB::ON_TEXT_CHANGED( Object obj)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs",
+      "start_line": 42,
+      "end_line": 46,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::VertexShakeB::AnimateVertexColors()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs",
+      "start_line": 52,
+      "end_line": 182,
+      "nloc": 78,
+      "cyclomatic_complexity": 10,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexZoom::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs",
+      "start_line": 20,
+      "end_line": 23,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexZoom::OnEnable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs",
+      "start_line": 25,
+      "end_line": 29,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexZoom::OnDisable()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs",
+      "start_line": 31,
+      "end_line": 35,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexZoom::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs",
+      "start_line": 38,
+      "end_line": 41,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::VertexZoom::ON_TEXT_CHANGED( Object obj)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs",
+      "start_line": 44,
+      "end_line": 48,
+      "nloc": 5,
+      "cyclomatic_complexity": 2,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::VertexZoom::AnimateVertexColors()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs",
+      "start_line": 54,
+      "end_line": 189,
+      "nloc": 76,
+      "cyclomatic_complexity": 7,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::WarpTextExample::Awake()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs",
+      "start_line": 18,
+      "end_line": 21,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::WarpTextExample::Start()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs",
+      "start_line": 24,
+      "end_line": 27,
+      "nloc": 4,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "TMPro.Examples::WarpTextExample::CopyAnimationCurve( AnimationCurve curve)",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs",
+      "start_line": 30,
+      "end_line": 37,
+      "nloc": 6,
+      "cyclomatic_complexity": 1,
+      "parameters": 1
+    },
+    {
+      "name": "TMPro.Examples::WarpTextExample::WarpText()",
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs",
+      "start_line": 45,
+      "end_line": 142,
+      "nloc": 60,
+      "cyclomatic_complexity": 9,
+      "parameters": 0
+    },
+    {
+      "name": "InventoryDebugger::Update()",
+      "file": "Assets/Scripts/Debug/InventoryDebugger.cs",
+      "start_line": 5,
+      "end_line": 12,
+      "nloc": 8,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "NavGridViewer::OnValidate()",
+      "file": "Assets/Scripts/Debug/NavGridViewer.cs",
+      "start_line": 31,
+      "end_line": 31,
+      "nloc": 1,
+      "cyclomatic_complexity": 2,
+      "parameters": 0
+    },
+    {
+      "name": "NavGridViewer::OnEnable()",
+      "file": "Assets/Scripts/Debug/NavGridViewer.cs",
+      "start_line": 32,
+      "end_line": 32,
+      "nloc": 1,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "NavGridViewer::OnDisable()",
+      "file": "Assets/Scripts/Debug/NavGridViewer.cs",
+      "start_line": 33,
+      "end_line": 33,
+      "nloc": 1,
+      "cyclomatic_complexity": 1,
+      "parameters": 0
+    },
+    {
+      "name": "NavGridViewer::Rebuild()",
+      "file": "Assets/Scripts/Debug/NavGridViewer.cs",
+      "start_line": 35,
+      "end_line": 39,
+      "nloc": 5,
+      "cyclomatic_complexity": 3,
+      "parameters": 0
+    },
+    {
+      "name": "NavGridViewer::OnDrawGizmos()",
+      "file": "Assets/Scripts/Debug/NavGridViewer.cs",
+      "start_line": 41,
+      "end_line": 87,
+      "nloc": 37,
+      "cyclomatic_complexity": 13,
+      "parameters": 0
+    },
+    {
+      "name": "NPCPathGizmo::OnValidate()",
+      "file": "Assets/Scripts/Debug/NPCPathGizmo.cs",
+      "start_line": 11,
+      "end_line": 15,
+      "nloc": 5,
+      "cyclomatic_complexity": 4,
+      "parameters": 0
+    },
+    {
+      "name": "NPCPathGizmo::OnDrawGizmos()",
+      "file": "Assets/Scripts/Debug/NPCPathGizmo.cs",
+      "start_line": 17,
+      "end_line": 38,
+      "nloc": 19,
+      "cyclomatic_complexity": 5,
+      "parameters": 0
+    }
+  ]
+}
