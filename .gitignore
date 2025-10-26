@@ -102,3 +102,4 @@ InitTestScene*.unity*
 Assets/StreamingAssets/llm_config.properties
 Assets/StreamingAssets/llm_settings.json
 Assets/StreamingAssets/llm_settings.json.meta
+/.VSCodeCounter
