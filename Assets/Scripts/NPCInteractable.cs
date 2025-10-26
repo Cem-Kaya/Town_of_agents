@@ -188,7 +188,8 @@ public class NPCInteractable : MonoBehaviour
         }
 
         isMoving = false;
-        Arrest(otherNpcName);
+        if (isArresting)
+            Arrest(otherNpcName);
         yield return 1;
     }
 
@@ -336,16 +337,11 @@ public class NPCInteractable : MonoBehaviour
             Debug.Log("FINAL CINEMATIC TRIGGER");
             // spawn a sprite triangle spirte 
 
-            var ctrl = UnityEngine.Object.FindFirstObjectByType<SceneVideoController>();
-            if (ctrl != null) ctrl.PlayOutro(); else UnityEngine.Debug.LogError("SceneVideoController not found");
-
-
-
-
-
-
-
-
+            var ctrl = FindFirstObjectByType<SceneVideoController>();
+            if (ctrl != null) 
+                ctrl.PlayOutro();
+            else
+                Debug.LogError("SceneVideoController not found");
 
             isCinematicRunning = false;
         }
