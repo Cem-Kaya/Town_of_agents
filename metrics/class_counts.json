@@ -1,0 +1,267 @@
+{
+  "totals": {
+    "class": 93,
+    "struct": 1,
+    "interface": 0,
+    "record": 0,
+    "types_total": 94
+  },
+  "files": {
+    "Assets/Scripts/ActionResponse.cs": [
+      "ActionResponse"
+    ],
+    "Assets/Scripts/BGMPlayer.cs": [
+      "BGMPlayer"
+    ],
+    "Assets/Scripts/ChatDemo.cs": [
+      "ChatDemo"
+    ],
+    "Assets/Scripts/ChatHistoryItem.cs": [
+      "ChatHistoryItem"
+    ],
+    "Assets/Scripts/ChatMessageItem.cs": [
+      "ChatMessageItem"
+    ],
+    "Assets/Scripts/ChatResponse.cs": [
+      "ChatResponse"
+    ],
+    "Assets/Scripts/ChatUI.cs": [
+      "ChatUI"
+    ],
+    "Assets/Scripts/ChatUIController.cs": [
+      "ChatUIController"
+    ],
+    "Assets/Scripts/ChickenAgent2D.cs": [
+      "ChickenAgent2D"
+    ],
+    "Assets/Scripts/ChickenSoccerManager2D.cs": [
+      "ChickenSoccerManager2D"
+    ],
+    "Assets/Scripts/ChickenWanderArea.cs": [
+      "ChickenWanderArea"
+    ],
+    "Assets/Scripts/ConversationManager.cs": [
+      "ConversationManager"
+    ],
+    "Assets/Scripts/Door2D.cs": [
+      "Door2D"
+    ],
+    "Assets/Scripts/FootstepOnCellChange.cs": [
+      "FootstepOnCellChange"
+    ],
+    "Assets/Scripts/GoalTrigger2D.cs": [
+      "GoalTrigger2D"
+    ],
+    "Assets/Scripts/InteractableItem.cs": [
+      "InteractableItem"
+    ],
+    "Assets/Scripts/Inventory.cs": [
+      "Inventory",
+      "NoteData"
+    ],
+    "Assets/Scripts/InventoryManager.cs": [
+      "InventoryManager"
+    ],
+    "Assets/Scripts/InventoryUI.cs": [
+      "InventoryUI",
+      "KeyVisual"
+    ],
+    "Assets/Scripts/Item.cs": [
+      "Item"
+    ],
+    "Assets/Scripts/ItemBreak.cs": [
+      "ItemBreak"
+    ],
+    "Assets/Scripts/ItemSlot.cs": [
+      "ItemSlot"
+    ],
+    "Assets/Scripts/KeyPickup.cs": [
+      "KeyPickup"
+    ],
+    "Assets/Scripts/KickableChicken2D.cs": [
+      "KickableChicken2D"
+    ],
+    "Assets/Scripts/LLMTools.cs": [
+      "LLMTools"
+    ],
+    "Assets/Scripts/LLMUtils.cs": [
+      "LLMUtils"
+    ],
+    "Assets/Scripts/MessageBubble.cs": [
+      "MessageBubble"
+    ],
+    "Assets/Scripts/MpcLlmController.cs": [
+      "MpcLlmController"
+    ],
+    "Assets/Scripts/Navgrid.cs": [
+      "NavGrid"
+    ],
+    "Assets/Scripts/NotePickup.cs": [
+      "NotePickup"
+    ],
+    "Assets/Scripts/NPCInteractable.cs": [
+      "NPCInteractable"
+    ],
+    "Assets/Scripts/NPCShortcut.cs": [
+      "NPCShortcut",
+      "Row"
+    ],
+    "Assets/Scripts/NPCTalkAudio.cs": [
+      "NPCTalkAudio"
+    ],
+    "Assets/Scripts/NPCWalker.cs": [
+      "NPCWalkerGrid",
+      "PriorityQueue<T>"
+    ],
+    "Assets/Scripts/Player.cs": [
+      "Player"
+    ],
+    "Assets/Scripts/PlayerAutoNavigator.cs": [
+      "PlayerAutoNavigator",
+      "PriorityQueue<T>"
+    ],
+    "Assets/Scripts/PlayerFacing2D.cs": [
+      "PlayerFacing2D"
+    ],
+    "Assets/Scripts/PromptInfo.cs": [
+      "PromptInfo"
+    ],
+    "Assets/Scripts/QuickAccess.cs": [
+      "QuickAccess",
+      "ActionDef"
+    ],
+    "Assets/Scripts/ShortcutToggleUI.cs": [
+      "ShortcutToggleUI"
+    ],
+    "Assets/Scripts/ShortcutToNPC.cs": [
+      "ShortcutToNPC",
+      "Binding"
+    ],
+    "Assets/Scripts/SmartCamera2D.cs": [
+      "SmartCamera2D"
+    ],
+    "Assets/Scripts/UnityMainThreadDispatcher.cs": [
+      "UnityMainThreadDispatcher"
+    ],
+    "Assets/vids/SceneVideoController.cs": [
+      "SceneVideoController"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs": [
+      "Benchmark01"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs": [
+      "Benchmark01_UGUI"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs": [
+      "Benchmark02"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark03.cs": [
+      "Benchmark03"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark04.cs": [
+      "Benchmark04"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs": [
+      "CameraController"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/ChatController.cs": [
+      "ChatController"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/DropdownSample.cs": [
+      "DropdownSample"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/EnvMapAnimator.cs": [
+      "EnvMapAnimator"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/ObjectSpin.cs": [
+      "ObjectSpin"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/ShaderPropAnimator.cs": [
+      "ShaderPropAnimator"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/SimpleScript.cs": [
+      "SimpleScript"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/SkewTextExample.cs": [
+      "SkewTextExample"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs": [
+      "TeleType"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs": [
+      "TextConsoleSimulator"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs": [
+      "TextMeshProFloatingText"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs": [
+      "TextMeshSpawner"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMPro_InstructionOverlay.cs": [
+      "TMPro_InstructionOverlay"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_DigitValidator.cs": [
+      "TMP_DigitValidator"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_ExampleScript_01.cs": [
+      "TMP_ExampleScript_01"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs": [
+      "TMP_FrameRateCounter"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_PhoneNumberValidator.cs": [
+      "TMP_PhoneNumberValidator"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs": [
+      "TMP_TextEventCheck"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs": [
+      "TMP_TextEventHandler",
+      "CharacterSelectionEvent",
+      "SpriteSelectionEvent",
+      "WordSelectionEvent",
+      "LineSelectionEvent",
+      "LinkSelectionEvent"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs": [
+      "TMP_TextInfoDebugTool"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs": [
+      "TMP_TextSelector_A"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs": [
+      "TMP_TextSelector_B"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_UiFrameRateCounter.cs": [
+      "TMP_UiFrameRateCounter"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs": [
+      "VertexColorCycler"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs": [
+      "VertexJitter",
+      "VertexAnim"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs": [
+      "VertexShakeA"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs": [
+      "VertexShakeB"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs": [
+      "VertexZoom"
+    ],
+    "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs": [
+      "WarpTextExample"
+    ],
+    "Assets/Scripts/Debug/InventoryDebugger.cs": [
+      "InventoryDebugger"
+    ],
+    "Assets/Scripts/Debug/NavGridViewer.cs": [
+      "NavGridViewer"
+    ],
+    "Assets/Scripts/Debug/NPCPathGizmo.cs": [
+      "NPCPathGizmo"
+    ]
+  }
+}

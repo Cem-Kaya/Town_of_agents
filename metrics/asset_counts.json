@@ -1,0 +1,15 @@
+{
+  "scripts": 81,
+  "prefabs": 84,
+  "scenes": 45,
+  "materials": 27,
+  "shaders": 14,
+  "animations": 0,
+  "controllers": 0,
+  "models": 0,
+  "audio": 11,
+  "textures": 116,
+  "scriptable_objects": 2842,
+  "sprites": 116,
+  "asmdef": 0
+}

@@ -1,0 +1,577 @@
+{
+  "totals": {
+    "total_lines": 10518,
+    "non_blank_lines": 8366,
+    "comment_lines": 1132,
+    "code_lines": 7234
+  },
+  "files": [
+    {
+      "file": "Assets/Scripts/ActionResponse.cs",
+      "total_lines": 54,
+      "non_blank_lines": 44,
+      "comment_lines": 15,
+      "code_lines": 29
+    },
+    {
+      "file": "Assets/Scripts/BGMPlayer.cs",
+      "total_lines": 19,
+      "non_blank_lines": 17,
+      "comment_lines": 0,
+      "code_lines": 17
+    },
+    {
+      "file": "Assets/Scripts/ChatDemo.cs",
+      "total_lines": 37,
+      "non_blank_lines": 32,
+      "comment_lines": 3,
+      "code_lines": 29
+    },
+    {
+      "file": "Assets/Scripts/ChatHistoryItem.cs",
+      "total_lines": 63,
+      "non_blank_lines": 52,
+      "comment_lines": 15,
+      "code_lines": 37
+    },
+    {
+      "file": "Assets/Scripts/ChatMessageItem.cs",
+      "total_lines": 21,
+      "non_blank_lines": 19,
+      "comment_lines": 1,
+      "code_lines": 18
+    },
+    {
+      "file": "Assets/Scripts/ChatResponse.cs",
+      "total_lines": 26,
+      "non_blank_lines": 21,
+      "comment_lines": 0,
+      "code_lines": 21
+    },
+    {
+      "file": "Assets/Scripts/ChatUI.cs",
+      "total_lines": 301,
+      "non_blank_lines": 248,
+      "comment_lines": 28,
+      "code_lines": 220
+    },
+    {
+      "file": "Assets/Scripts/ChatUIController.cs",
+      "total_lines": 356,
+      "non_blank_lines": 292,
+      "comment_lines": 21,
+      "code_lines": 271
+    },
+    {
+      "file": "Assets/Scripts/ChickenAgent2D.cs",
+      "total_lines": 216,
+      "non_blank_lines": 179,
+      "comment_lines": 24,
+      "code_lines": 155
+    },
+    {
+      "file": "Assets/Scripts/ChickenSoccerManager2D.cs",
+      "total_lines": 193,
+      "non_blank_lines": 154,
+      "comment_lines": 6,
+      "code_lines": 148
+    },
+    {
+      "file": "Assets/Scripts/ChickenWanderArea.cs",
+      "total_lines": 142,
+      "non_blank_lines": 110,
+      "comment_lines": 11,
+      "code_lines": 99
+    },
+    {
+      "file": "Assets/Scripts/ConversationManager.cs",
+      "total_lines": 169,
+      "non_blank_lines": 142,
+      "comment_lines": 18,
+      "code_lines": 124
+    },
+    {
+      "file": "Assets/Scripts/Debug/InventoryDebugger.cs",
+      "total_lines": 13,
+      "non_blank_lines": 12,
+      "comment_lines": 0,
+      "code_lines": 12
+    },
+    {
+      "file": "Assets/Scripts/Debug/NPCPathGizmo.cs",
+      "total_lines": 39,
+      "non_blank_lines": 33,
+      "comment_lines": 0,
+      "code_lines": 33
+    },
+    {
+      "file": "Assets/Scripts/Debug/NavGridViewer.cs",
+      "total_lines": 88,
+      "non_blank_lines": 73,
+      "comment_lines": 7,
+      "code_lines": 66
+    },
+    {
+      "file": "Assets/Scripts/Door2D.cs",
+      "total_lines": 125,
+      "non_blank_lines": 98,
+      "comment_lines": 4,
+      "code_lines": 94
+    },
+    {
+      "file": "Assets/Scripts/FootstepOnCellChange.cs",
+      "total_lines": 68,
+      "non_blank_lines": 57,
+      "comment_lines": 0,
+      "code_lines": 57
+    },
+    {
+      "file": "Assets/Scripts/GoalTrigger2D.cs",
+      "total_lines": 29,
+      "non_blank_lines": 23,
+      "comment_lines": 2,
+      "code_lines": 21
+    },
+    {
+      "file": "Assets/Scripts/InteractableItem.cs",
+      "total_lines": 117,
+      "non_blank_lines": 100,
+      "comment_lines": 3,
+      "code_lines": 97
+    },
+    {
+      "file": "Assets/Scripts/Inventory.cs",
+      "total_lines": 63,
+      "non_blank_lines": 53,
+      "comment_lines": 4,
+      "code_lines": 49
+    },
+    {
+      "file": "Assets/Scripts/InventoryManager.cs",
+      "total_lines": 75,
+      "non_blank_lines": 66,
+      "comment_lines": 1,
+      "code_lines": 65
+    },
+    {
+      "file": "Assets/Scripts/InventoryUI.cs",
+      "total_lines": 186,
+      "non_blank_lines": 159,
+      "comment_lines": 12,
+      "code_lines": 147
+    },
+    {
+      "file": "Assets/Scripts/Item.cs",
+      "total_lines": 63,
+      "non_blank_lines": 50,
+      "comment_lines": 2,
+      "code_lines": 48
+    },
+    {
+      "file": "Assets/Scripts/ItemBreak.cs",
+      "total_lines": 71,
+      "non_blank_lines": 59,
+      "comment_lines": 9,
+      "code_lines": 50
+    },
+    {
+      "file": "Assets/Scripts/ItemSlot.cs",
+      "total_lines": 123,
+      "non_blank_lines": 104,
+      "comment_lines": 5,
+      "code_lines": 99
+    },
+    {
+      "file": "Assets/Scripts/KeyPickup.cs",
+      "total_lines": 32,
+      "non_blank_lines": 27,
+      "comment_lines": 1,
+      "code_lines": 26
+    },
+    {
+      "file": "Assets/Scripts/KickableChicken2D.cs",
+      "total_lines": 112,
+      "non_blank_lines": 88,
+      "comment_lines": 7,
+      "code_lines": 81
+    },
+    {
+      "file": "Assets/Scripts/LLMTools.cs",
+      "total_lines": 188,
+      "non_blank_lines": 169,
+      "comment_lines": 6,
+      "code_lines": 163
+    },
+    {
+      "file": "Assets/Scripts/LLMUtils.cs",
+      "total_lines": 79,
+      "non_blank_lines": 67,
+      "comment_lines": 1,
+      "code_lines": 66
+    },
+    {
+      "file": "Assets/Scripts/MessageBubble.cs",
+      "total_lines": 85,
+      "non_blank_lines": 70,
+      "comment_lines": 11,
+      "code_lines": 59
+    },
+    {
+      "file": "Assets/Scripts/MpcLlmController.cs",
+      "total_lines": 207,
+      "non_blank_lines": 172,
+      "comment_lines": 14,
+      "code_lines": 158
+    },
+    {
+      "file": "Assets/Scripts/NPCInteractable.cs",
+      "total_lines": 440,
+      "non_blank_lines": 356,
+      "comment_lines": 19,
+      "code_lines": 337
+    },
+    {
+      "file": "Assets/Scripts/NPCShortcut.cs",
+      "total_lines": 58,
+      "non_blank_lines": 47,
+      "comment_lines": 5,
+      "code_lines": 42
+    },
+    {
+      "file": "Assets/Scripts/NPCTalkAudio.cs",
+      "total_lines": 68,
+      "non_blank_lines": 54,
+      "comment_lines": 2,
+      "code_lines": 52
+    },
+    {
+      "file": "Assets/Scripts/NPCWalker.cs",
+      "total_lines": 313,
+      "non_blank_lines": 262,
+      "comment_lines": 11,
+      "code_lines": 251
+    },
+    {
+      "file": "Assets/Scripts/Navgrid.cs",
+      "total_lines": 134,
+      "non_blank_lines": 115,
+      "comment_lines": 8,
+      "code_lines": 107
+    },
+    {
+      "file": "Assets/Scripts/NotePickup.cs",
+      "total_lines": 31,
+      "non_blank_lines": 26,
+      "comment_lines": 1,
+      "code_lines": 25
+    },
+    {
+      "file": "Assets/Scripts/Player.cs",
+      "total_lines": 183,
+      "non_blank_lines": 151,
+      "comment_lines": 6,
+      "code_lines": 145
+    },
+    {
+      "file": "Assets/Scripts/PlayerAutoNavigator.cs",
+      "total_lines": 262,
+      "non_blank_lines": 229,
+      "comment_lines": 10,
+      "code_lines": 219
+    },
+    {
+      "file": "Assets/Scripts/PlayerFacing2D.cs",
+      "total_lines": 74,
+      "non_blank_lines": 62,
+      "comment_lines": 2,
+      "code_lines": 60
+    },
+    {
+      "file": "Assets/Scripts/PromptInfo.cs",
+      "total_lines": 35,
+      "non_blank_lines": 30,
+      "comment_lines": 0,
+      "code_lines": 30
+    },
+    {
+      "file": "Assets/Scripts/QuickAccess.cs",
+      "total_lines": 61,
+      "non_blank_lines": 51,
+      "comment_lines": 6,
+      "code_lines": 45
+    },
+    {
+      "file": "Assets/Scripts/ShortcutToNPC.cs",
+      "total_lines": 33,
+      "non_blank_lines": 27,
+      "comment_lines": 0,
+      "code_lines": 27
+    },
+    {
+      "file": "Assets/Scripts/ShortcutToggleUI.cs",
+      "total_lines": 44,
+      "non_blank_lines": 35,
+      "comment_lines": 2,
+      "code_lines": 33
+    },
+    {
+      "file": "Assets/Scripts/SmartCamera2D.cs",
+      "total_lines": 139,
+      "non_blank_lines": 113,
+      "comment_lines": 21,
+      "code_lines": 92
+    },
+    {
+      "file": "Assets/Scripts/UnityMainThreadDispatcher.cs",
+      "total_lines": 121,
+      "non_blank_lines": 98,
+      "comment_lines": 30,
+      "code_lines": 68
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs",
+      "total_lines": 128,
+      "non_blank_lines": 91,
+      "comment_lines": 28,
+      "code_lines": 63
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs",
+      "total_lines": 135,
+      "non_blank_lines": 95,
+      "comment_lines": 36,
+      "code_lines": 59
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs",
+      "total_lines": 97,
+      "non_blank_lines": 71,
+      "comment_lines": 6,
+      "code_lines": 65
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark03.cs",
+      "total_lines": 92,
+      "non_blank_lines": 74,
+      "comment_lines": 1,
+      "code_lines": 73
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark04.cs",
+      "total_lines": 85,
+      "non_blank_lines": 62,
+      "comment_lines": 21,
+      "code_lines": 41
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs",
+      "total_lines": 292,
+      "non_blank_lines": 223,
+      "comment_lines": 25,
+      "code_lines": 198
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ChatController.cs",
+      "total_lines": 51,
+      "non_blank_lines": 36,
+      "comment_lines": 5,
+      "code_lines": 31
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/DropdownSample.cs",
+      "total_lines": 19,
+      "non_blank_lines": 15,
+      "comment_lines": 0,
+      "code_lines": 15
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/EnvMapAnimator.cs",
+      "total_lines": 35,
+      "non_blank_lines": 27,
+      "comment_lines": 4,
+      "code_lines": 23
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ObjectSpin.cs",
+      "total_lines": 67,
+      "non_blank_lines": 54,
+      "comment_lines": 5,
+      "code_lines": 49
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/ShaderPropAnimator.cs",
+      "total_lines": 51,
+      "non_blank_lines": 38,
+      "comment_lines": 5,
+      "code_lines": 33
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/SimpleScript.cs",
+      "total_lines": 58,
+      "non_blank_lines": 39,
+      "comment_lines": 15,
+      "code_lines": 24
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/SkewTextExample.cs",
+      "total_lines": 158,
+      "non_blank_lines": 113,
+      "comment_lines": 18,
+      "code_lines": 95
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_DigitValidator.cs",
+      "total_lines": 27,
+      "non_blank_lines": 24,
+      "comment_lines": 5,
+      "code_lines": 19
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_ExampleScript_01.cs",
+      "total_lines": 64,
+      "non_blank_lines": 46,
+      "comment_lines": 9,
+      "code_lines": 37
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs",
+      "total_lines": 134,
+      "non_blank_lines": 102,
+      "comment_lines": 11,
+      "code_lines": 91
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_PhoneNumberValidator.cs",
+      "total_lines": 105,
+      "non_blank_lines": 100,
+      "comment_lines": 7,
+      "code_lines": 93
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs",
+      "total_lines": 73,
+      "non_blank_lines": 57,
+      "comment_lines": 1,
+      "code_lines": 56
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+      "total_lines": 263,
+      "non_blank_lines": 208,
+      "comment_lines": 46,
+      "code_lines": 162
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+      "total_lines": 652,
+      "non_blank_lines": 506,
+      "comment_lines": 111,
+      "code_lines": 395
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs",
+      "total_lines": 157,
+      "non_blank_lines": 117,
+      "comment_lines": 23,
+      "code_lines": 94
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+      "total_lines": 547,
+      "non_blank_lines": 413,
+      "comment_lines": 176,
+      "code_lines": 237
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_UiFrameRateCounter.cs",
+      "total_lines": 125,
+      "non_blank_lines": 97,
+      "comment_lines": 1,
+      "code_lines": 96
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMPro_InstructionOverlay.cs",
+      "total_lines": 84,
+      "non_blank_lines": 61,
+      "comment_lines": 6,
+      "code_lines": 55
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs",
+      "total_lines": 83,
+      "non_blank_lines": 55,
+      "comment_lines": 15,
+      "code_lines": 40
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs",
+      "total_lines": 121,
+      "non_blank_lines": 92,
+      "comment_lines": 13,
+      "code_lines": 79
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs",
+      "total_lines": 223,
+      "non_blank_lines": 167,
+      "comment_lines": 32,
+      "code_lines": 135
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs",
+      "total_lines": 79,
+      "non_blank_lines": 59,
+      "comment_lines": 13,
+      "code_lines": 46
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs",
+      "total_lines": 84,
+      "non_blank_lines": 61,
+      "comment_lines": 13,
+      "code_lines": 48
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs",
+      "total_lines": 175,
+      "non_blank_lines": 131,
+      "comment_lines": 26,
+      "code_lines": 105
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs",
+      "total_lines": 161,
+      "non_blank_lines": 122,
+      "comment_lines": 23,
+      "code_lines": 99
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs",
+      "total_lines": 185,
+      "non_blank_lines": 141,
+      "comment_lines": 29,
+      "code_lines": 112
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs",
+      "total_lines": 192,
+      "non_blank_lines": 144,
+      "comment_lines": 32,
+      "code_lines": 112
+    },
+    {
+      "file": "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs",
+      "total_lines": 144,
+      "non_blank_lines": 102,
+      "comment_lines": 15,
+      "code_lines": 87
+    },
+    {
+      "file": "Assets/vids/SceneVideoController.cs",
+      "total_lines": 216,
+      "non_blank_lines": 177,
+      "comment_lines": 2,
+      "code_lines": 175
+    }
+  ]
+}
